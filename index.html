@@ -1,0 +1,4517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>前端学习记录</title>
+  <!-- 我的笔记：我们把所有的样式规则都放到了 style.css 这个外部文件里，然后用下面的 <link> 标签把它“链接”到这个页面来。 -->
+  <!-- 这样做的好处是“关注点分离”，HTML只管结构，CSS只管样式，代码更清晰，而且这个样式文件还可以给其他页面用哦！ -->
+  <link rel="stylesheet" href="style.css">
+  <!-- highlight.js 的样式文件，我们选择一个好看的暗色主题 atom-one-dark -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+
+</head>
+
+<body>
+  <nav class="toc-nav">
+    <h3>导航</h3>
+    <ul>
+      <li><a href="#toc-chapter-1">第一章：HTML5语义标签</a>
+        <ul>
+          <li><a href="#toc-chapter-1-1">1.1 “!” 一键生成的神奇结构</a></li>
+          <li><a href="#toc-chapter-1-2">1.2 标签大揭秘！</a></li>
+          <li><a href="#toc-chapter-1-3">1.3 标题、段落与标签关系</a></li>
+          <li><a href="#toc-chapter-1-4">1.4 强调、重要性及其他标签</a></li>
+          <li><a href="#toc-chapter-1-5">1.5 块级元素 vs. 行内元素</a></li>
+          <li><a href="#toc-chapter-1-6">1.6 让页面有图有真相的 &lt;img&gt; 标签</a></li>
+          <li><a href="#toc-chapter-1-7">1.7 会唱歌会跳舞的 &lt;video&gt; 和 &lt;audio&gt;</a></li>
+          <li><a href="#toc-chapter-1-8">1.8 带我们穿越的 &lt;a&gt; 标签 (超链接)</a></li>
+          <li><a href="#toc-chapter-1-9">1.9 页面内的“电梯”——锚点链接</a></li>
+          <li><a href="#toc-chapter-1-10">1.10 搭建网页的“骨架”——语义化结构标签</a></li>
+          <li><a href="#toc-chapter-1-11">1.11 让内容井井有条的列表标签</a></li>
+          <li><a href="#toc-chapter-1-12">1.12 用于展示数据的表格标签</a></li>
+          <li><a href="#toc-chapter-1-13">1.13 表格的“魔法”——合并单元格</a></li>
+          <li><a href="#toc-chapter-1-14">1.14 与用户“对话”的桥梁——表单标签</a></li>
+          <li><a href="#toc-chapter-1-15">1.15 HTML里的“小彩蛋”——特殊字符</a></li>
+        </ul>
+      </li>
+      <li><a href="#toc-chapter-2">第二章：CSS3核心技术</a>
+        <ul>
+          <li><a href="#toc-chapter-2-1">2.1 CSS的三种“出场方式”——样式表</a></li>
+          <li><a href="#toc-chapter-2-2">2.2 CSS的“瞄准镜”——选择器（一）</a></li>
+          <li><a href="#toc-chapter-2-3">2.3 CSS的“狙击枪”——类选择器</a></li>
+          <li><a href="#toc-chapter-2-4">2.4 更多选择器：ID选择器与通配符选择器</a></li>
+          <li><a href="#toc-chapter-2-5">2.5 靠“关系”来选择：后代与子代选择器</a></li>
+          <li><a href="#toc-chapter-2-6">2.6 更多关系选择：兄弟选择器</a></li>
+          <li><a href="#toc-chapter-2-7">2.7 字体“美颜”术：font & text 属性</a></li>
+          <li><a href="#toc-chapter-2-8">2.8 文本“排兵布阵”术：文本布局属性</a></li>
+          <li><a href="#toc-chapter-2-9">2.9 font复合属性与继承性</a></li>
+          <li><a href="#toc-chapter-2-10">2.10 组合与状态：并集选择器与伪类</a></li>
+          <li><a href="#toc-chapter-2-11">2.11 交互的魔法：用户行为伪类</a></li>
+          <li><a href="#toc-chapter-2-12">2.12 精准定位：结构伪类选择器</a></li>
+          <li><a href="#toc-chapter-2-13">2.13 表格的精致妆容：合并边框</a></li>
+          <li><a href="#toc-chapter-2-14">2.14 特殊状态下的“变身”：表单伪类选择器</a></li>
+          <li><a href="#toc-chapter-2-15">2.15 创造“不存在”的元素：伪元素选择器</a></li>
+          <li><a href="#toc-chapter-2-16">2.16 用“属性”来瞄准：属性选择器</a></li>
+          <li><a href="#toc-chapter-2-17">2.17 CSS世界的“法则”：权重与优先级</a></li>
+          <li><a href="#toc-chapter-2-18">2.18 盒子的“轮廓”：边框 (border)</a></li>
+          <li><a href="#toc-chapter-2-19">2.19 让盒子“圆滑”起来：圆角边框 (border-radius)</a></li>
+          <li><a href="#toc-chapter-2-20">2.20 盒子内的“呼吸空间”：内边距 (padding)</a></li>
+          <li><a href="#toc-chapter-2-21">2.21 盒子之间的“安全距离”：外边距 (margin)</a></li>
+          <li><a href="#toc-chapter-2-22">2.22 布局的魔法：块级盒子的水平居中</a></li>
+          <li><a href="#toc-chapter-2-23">2.23 外边距的“奇特现象”：合并与塌陷</a></li>
+          <li><a href="#toc-chapter-2-24">2.24 盒子的“真实”尺寸：box-sizing</a></li>
+          <li><a href="#toc-chapter-2-25">2.25 给盒子画上“壁纸”：背景属性</a></li>
+          <li><a href="#toc-chapter-2-26">2.26 让背景“活”起来：背景渐变</a></li>
+          <li><a href="#toc-chapter-2-27">2.27 让盒子“浮”起来：盒子阴影 (box-shadow)</a></li>
+          <li><a href="#toc-chapter-2-28">2.28 赢在起跑线：CSS 初始化</a></li>
+          <li><a href="#toc-chapter-2-29">2.29 文本溢出的艺术：多行省略号</a></li>
+          <li><a href="#30">2.30 矢量级的清晰度：字体图标 (Icon Font)</a></li>
+          <li><a href="#toc-chapter-2-31">2.31 性能优化的“拼图”艺术：CSS精灵图</a></li>
+        </ul>
+      </li>
+      <li><a href="#toc-chapter-3">第三章：现代网页布局</a>
+        <ul>
+          <li><a href="#toc-chapter-3-1">3.1 元素的“变身”魔法：display 属性</a></li>
+          <li><a href="#toc-chapter-3-2">3.2 “漂浮”的盒子：浮动 (float)</a></li>
+          <li><a href="#toc-chapter-3-3">3.3 解决浮动“后遗症”：清除浮动</a></li>
+          <li><a href="#toc-chapter-3-4">3.4 现代布局的基石：弹性布局 (Flexbox)</a></li>
+          <li><a href="#toc-chapter-3-5">3.5 Flexbox的“队列”艺术：主轴对齐 (justify-content)</a></li>
+          <li><a href="#toc-chapter-3-6">3.6 Flexbox的“垂直”艺术：交叉轴对齐 (align-items)</a></li>
+          <li><a href="#toc-chapter-3-7">3.7 Flexbox的“乾坤大挪移”：修改主轴方向 (flex-direction)</a></li>
+          <li><a href="#toc-chapter-3-8">3.8 Flexbox的“智能换行”：flex-wrap</a></li>
+          <li><a href="#toc-chapter-3-9">3.9 Flexbox的“行间距”艺术：多行交叉轴对齐 (align-content)</a></li>
+          <li><a href="#toc-chapter-3-10">3.10 Flex项目的“弹性”：flex 属性</a></li>
+          <li><a href="#toc-chapter-3-11">3.11 Flex布局高级技巧：淘宝网格布局</a></li>
+          <li><a href="#toc-chapter-3-12">3.12 Flex布局高级技巧：京东网格布局</a></li>
+          <li><a href="#toc-chapter-3-13">3.13 新的布局方式：定位(Positioning)与相对定位</a></li>
+          <li><a href="#toc-chapter-3-14">3.14 定位布局的王牌：绝对定位与“子绝父相”</a></li>
+          <li><a href="#toc-chapter-3-15">3.15 钉在屏幕上的图钉：固定定位</a></li>
+          <li><a href="#toc-chapter-3-16">3.16 智能“胶水”：粘性定位</a></li>
+          <li><a href="#toc-chapter-3-17">3.17 控制元素的“楼层”：z-index 叠放次序</a></li>
+          <li><a href="#toc-chapter-3-18">3.18 初识 Grid：二维布局的开始</a></li>
+          <li><a href="#toc-chapter-3-19">3.19 Grid 布局的利器：fr 单位与 gap 间隙</a></li>
+          <li><a href="#toc-chapter-3-20">3.20 Grid 的响应式魔法：repeat, auto-fill, minmax</a></li>
+          <li><a href="#toc-chapter-3-21">3.21 用网格线“画”布局：grid-column / grid-row</a></li>
+          <li><a href="#toc-chapter-3-22">3.22 Grid 进阶：填充流与图片优雅缩放</a></li>
+          <li><a href="#toc-chapter-3-23">3.23 Grid 项目对齐：justify-items / align-items</a></li>
+          <li><a href="#toc-chapter-3-24">3.24 瀑布流布局的基石：多栏布局</a></li>
+          <li><a href="#toc-chapter-3-25">3.25 细节决定体验：鼠标样式 cursor</a></li>
+          <li><a href="#toc-chapter-3-26">3.26 代码的“仪容仪表”：CSS 属性书写顺序</a></li>
+        </ul>
+      </li>
+      <li><a href="#toc-chapter-4">第四章：交互动效设计</a>
+        <ul>
+          <li><a href="#toc-chapter-4-1">4.1 2D变化之位移：transform: translate</a></li>
+          <li><a href="#toc-chapter-4-2">4.2 2D变化之旋转：transform: rotate</a></li>
+          <li><a href="#toc-chapter-4-3">4.3 2D变化之缩放：transform: scale</a></li>
+          <li><a href="#toc-chapter-4-4">4.4 2D变化之斜切：transform: skew</a></li>
+          <li><a href="#toc-chapter-4-5">4.5 组合拳：多组 2D 变化的叠加</a></li>
+          <li><a href="#toc-chapter-4-6">4.6 进入3D世界：3D旋转</a></li>
+          <li><a href="#toc-chapter-4-7">4.7 开启3D之眼：透视(perspective)</a></li>
+          <li><a href="#toc-chapter-4-8">4.8 魔法卡片：两面翻转效果与 backface-visibility</a></li>
+          <li><a href="#toc-chapter-4-9">4.9 让元素“浮”起来：3D位移与 transform-style</a></li>
+          <li><a href="#toc-chapter-4-10">4.10 制作动画片：animation 与 @keyframes</a></li>
+          <li><a href="#toc-chapter-4-11">4.11 精雕细琢：animation 的完整属性</a></li>
+          <li><a href="#toc-chapter-4-12">4.12 综合案例：打造灵动的动画场景</a></li>
+          <li><a href="#toc-chapter-4-13">4.13 翻书动画：逐帧动画与 steps()</a></li>
+        </ul>
+      </li>
+      <li><a href="#toc-chapter-5">第五章：前沿技术拓展</a>
+        <ul>
+          <li><a href="#toc-chapter-5-1">5.1 初探SVG：矢量图形的魔法</a></li>
+          <li><a href="#toc-chapter-5-2">5.2 SVG 描边动画与 stroke 属性</a></li>
+          <li><a href="#toc-chapter-5-3">5.3 SVG 描边动画进阶：stroke-dashoffset</a></li>
+          <li><a href="#toc-chapter-5-4">5.4 SVG 进阶：拆分动画</a></li>
+          <li><a href="#toc-chapter-5-5">5.5 CSS 的魔法剪刀：clip-path</a></li>
+          <li><a href="#toc-chapter-5-6">5.6 CSS 的魔法调色盘：filter</a></li>
+          <li><a href="#toc-chapter-5-7">5.7 高级视觉魔法：backdrop-filter</a></li>
+          <li><a href="#toc-chapter-5-8">5.8 动画新纪元：滚动驱动动画 animation-timeline</a></li>
+          <li><a href="#toc-chapter-5-9">5.9 动画新纪元：视图驱动动画 view()</a></li>
+          <li><a href="#toc-chapter-5-10">5.10 CSS 的“管家”：自定义变量</a></li>
+          <li><a href="#toc-chapter-5-11">5.11 CSS 的“超级计算器”：calc()</a></li>
+          <li><a href="#toc-chapter-5-12">5.12 响应式新利器：视口单位 vw & vh</a></li>
+        </ul>
+      </li>
+      <li><a href="#toc-chapter-6">第六章：移动网页开发</a>
+        <ul>
+          <li><a href="#toc-chapter-6-1">6.1 移动端第一步：视口与像素</a></li>
+          <li><a href="#toc-chapter-6-2">6.2 移动端适配核心：vw 布局方案</a></li>
+          <li><a href="#toc-chapter-6-3">6.3 另一种适配思路：rem 布局</a></li>
+        </ul>
+      </li>
+      <li><a href="#toc-chapter-7">第七章：响应网页开发</a>
+        <ul>
+          <li><a href="#toc-chapter-7-1">7.1 响应式基石：媒体查询</a></li>
+          <li><a href="#toc-chapter-7-2">7.2 初识前端框架：Bootstrap</a></li>
+          <li><a href="#toc-chapter-7-3">7.3 Bootstrap 的灵魂：栅格系统</a></li>
+          <li><a href="#toc-chapter-7-4">7.4 Bootstrap 组件：字体图标与样式覆盖</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <h1 id="toc-chapter-1">第一章：HTML5语义标签</h1>
+
+  <h2 id="toc-chapter-1-1">1.1 “!” 一键生成的神奇结构</h2>
+
+  <p>今天，你学习了前端开发的第一步：创建了一个HTML文件！在VS Code编辑器中，只需要输入一个英文的 "!" 再按下 Tab 键，就能自动生成下面这个标准的HTML5文档结构，真的好神奇呀！</p>
+
+  <pre><code>
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang="en"&gt;
+    &lt;head&gt;
+      &lt;meta charset="UTF-8"&gt;
+      &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+      &lt;title&gt;Document&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+
+    &lt;/body&gt;
+    &lt;/html&gt;
+  </code></pre>
+
+  <h2 id="toc-chapter-1-2">1.2 标签大揭秘！</h2>
+  <p>这个自动生成的结构里的每一个标签，都有它自己的特殊使命哦。我来为你一一解释一下吧！</p>
+
+  <!-- 定义列表：
+       <dl> (Definition List) 用来创建一个定义列表。
+       <dt> (Definition Term) 用来放我们要解释的名词。
+       <dd> (Definition Description) 用来写名词的解释。
+       用这种列表来做解释说明，结构会非常清晰呢！
+  -->
+  <dl>
+    <dt>&lt;!DOCTYPE html&gt;</dt>
+    <dd>
+      这句宣言是整个HTML文件的第一行，它不是一个标签，而是告诉浏览器：“喂！接下来我给你的是一个HTML5规范的网页哦！” 这样浏览器就会用最新的标准来解析我们的页面啦。
+    </dd>
+
+    <dt>&lt;html lang="en"&gt;</dt>
+    <dd>
+      这是整个页面的“根”，所有的HTML代码都必须包裹在这个标签里面。它就像一棵大树的树根。里面的 `lang="en"` 是在说这个网页的主要语言是英语（English），如果我们的网页主要是中文的，可以把它改成
+      `lang="zh-CN"`，这样对搜索引擎和朗读软件更友好。
+    </dd>
+
+    <dt>&lt;head&gt;</dt>
+    <dd>
+      这里是页面的“大脑”，里面放的都是一些“元数据”，也就是描述这个网页自身信息的东西，它们不会直接显示在页面上给用户看。比如页面的标题、编码方式、适配手机屏幕的设置等等。
+    </dd>
+
+    <dt>&lt;meta charset="UTF-8"&gt;</dt>
+    <dd>
+      这行代码超级重要！它规定了浏览器要用 UTF-8 这种字符编码来打开我们的网页。UTF-8是“万国码”，几乎包含了世界上所有的文字。如果不写这句，页面里的中文就可能会变成看不懂的“乱码”哦！
+    </dd>
+
+    <dt>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</dt>
+    <dd>
+      这个是专门为移动设备（比如手机、平板）准备的。它告诉浏览器，页面的宽度应该和设备的屏幕宽度一样，并且初始缩放比例是1.0（也就是不缩放）。有了它，我们的网页在手机上才能正常显示，而不是缩成一小团。
+    </dd>
+
+    <dt>&lt;title&gt;Document&lt;/title&gt;</dt>
+    <dd>
+      这个标签里的文字，会显示在浏览器窗口的标签页上。它就像我们给这个页面起的名字。这个名字对于用户快速找到页面和搜索引擎优化（SEO）都很重要。
+    </dd>
+
+    <dt>&lt;body&gt;</dt>
+    <dd>
+      这里就是页面的“身体”啦！所有我们想让用户看到的内容，比如文字、图片、链接、视频等等，都要放在这个标签里面。我们现在看到的这些文字，就都住在`&lt;body&gt;`的家里哦！
+    </dd>
+  </dl>
+
+  <!-- 我的笔记：用一个 <hr> 水平线标签，把两次学习记录分开，页面更清晰哦！ -->
+  <hr>
+
+  <h2 id="toc-chapter-1-3">1.3 标题、段落与标签关系</h2>
+
+  <h3>“语义化”是什么意思呀？</h3>
+  <p>你今天学习了“语义化”，这可是个非常核心的概念哦！简单来说，就是 <strong>用最恰当的HTML标签，去包裹对应的内容，让标签本身就能说明这段内容的“含义”</strong>。</p>
+  <p>比如，看到 `
+  <h1>`，我们和浏览器、搜索引擎就知道“这是一个顶级标题”，而不是仅仅“一段加粗的大号文字”。这样做有好多好处呢！</p>
+    <ul>
+      <li><b>对机器友好：</b> 搜索引擎能更好地理解网页结构，提高排名；屏幕阅读器可以为视障用户准确地读出内容层次。</li>
+      <li><b>对人友好：</b> 代码结构清晰，方便你自己和其他开发者阅读和维护。</li>
+    </ul>
+
+    <h3>标题和段落的语义</h3>
+    <dl>
+      <dt>&lt;h1&gt; 到 &lt;h6&gt;：标题标签</dt>
+      <dd>
+        它们是专门用来定义标题的。`<h1>` 是最高级别的标题，一个页面上最好只用一次，用来放最重要的标题。`<h2>` 是二级标题，以此类推到 `<h6>
+              `。要记住哦，不能为了加粗或放大文字就随便用标题标签，而是要根据文章的结构层级来选择合适的标题级别。
+      </dd>
+      <dt>&lt;p&gt;：段落标签</dt>
+      <dd>
+        这个标签的语义就是“一个段落”。浏览器会自动在段落的上下留出一些空白。当你有一段文字时，就应该用 `<p>` 把它包起来。
+      </dd>
+    </dl>
+
+    <h3>标签之间的“悄悄话”：两种关系</h3>
+    <p>HTML标签们不是孤立的，它们之间有两种基本的关系，就像家人和邻居一样！</p>
+    <dl>
+      <dt>嵌套关系（父子关系）</dt>
+      <dd>
+        一个标签可以包含在另一个标签里面，它们就形成了父子关系。比如 `
+
+        <body>` 标签里面包含了 `<h1>` 和 `<p>`，那么 `
+
+              <body>` 就是 `<h1>` 和 `<p>` 的父标签。这就像一个大盒子套着一个小盒子。
+                  <pre><code>&lt;body&gt;
+  &lt;h1&gt;我是子标签&lt;/h1&gt;
+&lt;/body&gt;</code></pre>
+      </dd>
+      <dt>并列关系（兄弟关系）</dt>
+      <dd>
+        如果几个标签是同级别的，一个挨着一个，那它们就是兄弟关系。比如，一个 `<h1>` 标签后面跟着一个 `<p>` 标签，它俩就是并列的兄弟。
+          <pre><code>&lt;h1&gt;我是哥哥&lt;/h1&gt;
+&lt;p&gt;我是弟弟&lt;/p&gt;</code></pre>
+      </dd>
+    </dl>
+
+    <hr>
+
+    <h2 id="toc-chapter-1-4">1.4 强调、重要性及其他标签</h2>
+    <p>今天你又学了几个新的标签，它们虽然看起来平平无奇，但用对了地方，就能让我们的代码会说话哦！</p>
+
+    <h3>有“灵魂”的强调：&lt;em&gt; 和 &lt;strong&gt;</h3>
+    <p>这两个标签是语义化大家族的重要成员，它们不仅仅是改变样式，更是在赋予文字特殊的“意义”。</p>
+    <dl>
+      <dt>&lt;em&gt; (Emphasis - 强调)</dt>
+      <dd>
+        这个标签用来 <strong>改变一句话的重音</strong>，告诉浏览器或屏幕阅读器，这里的词语需要用强调的语气来读。它在视觉上通常表现为 <em>斜体</em>。
+        <br>例：我 <em>真的</em> 很开心！ (重音在“真的”上)
+      </dd>
+      <dt>&lt;strong&gt; (Strong Importance - 重要)</dt>
+      <dd>
+        这个标签用来表示内容本身具有很强的 <strong>重要性、严肃性或紧急性</strong>。它强调的是内容的重要性，而不是语气的改变。视觉上通常表现为 <strong>加粗</strong>。
+        <br>例：<strong>注意：</strong> 请在离开时关闭电源。
+      </dd>
+    </dl>
+
+    <h4">它们和 &lt;i&gt; &lt;b&gt; 有什么区别？</h4>
+      <p>这是一个非常棒的问题！<code>&lt;i&gt;</code> (italic) 和 <code>&lt;b&gt;</code> (bold)
+        是“表现型”标签，它们只告诉浏览器“把这段文字变成斜体”或“把这段文字加粗”，而没有任何语义上的含义。在以前，它们纯粹是为了样式而生。而 <code>&lt;em&gt;</code> 和
+        <code>&lt;strong&gt;</code> 是“语义型”标签，它们告诉浏览器这段内容是“需要强调的”或“重要的”。
+      </p>
+      <p><strong>我的小建议：</strong> 在现代Web开发中，我们应该优先使用 <code>&lt;em&gt;</code> 和
+        <code>&lt;strong&gt;</code>，因为语义化对可访问性（比如屏幕阅读器）和SEO都更有好处哦！只有当一段文本需要倾斜或加粗，但又没有任何强调或重要的语义时，才考虑使用
+        <code>&lt;i&gt;</code> 和 <code>&lt;b&gt;</code>。
+      </p>
+
+      <h3>其他文本标签</h3>
+      <dl>
+        <dt>&lt;ins&gt; (Insert) 和 &lt;del&gt; (Delete)</dt>
+        <dd>
+          <code>&lt;ins&gt;</code> 用来定义插入的文本，通常显示为 <ins>下划线</ins>。<code>&lt;del&gt;</code> 用来定义删除的文本，通常显示为
+          <del>删除线</del>。它们经常用在表示文档修改的地方。
+        </dd>
+        <dt>&lt;span&gt;</dt>
+        <dd>
+          这是一个“无语义”的行内容器。当你想把一小段文字组合起来，单独为它应用样式（比如改变颜色），但又找不到合适的语义化标签时，<code>&lt;span&gt;</code>
+          就是最好的选择。它本身没有任何样式，就像一个透明的小袋子，专门用来装东西。
+        </dd>
+      </dl>
+
+      <hr>
+
+      <h2 id="toc-chapter-1-5">1.5 块级元素 vs. 行内元素</h2>
+      <p>HTML世界里的标签们，按照它们的“脾气”和“体型”，可以分为两大类：块级元素和行内元素。理解它们的区别，对以后做页面布局至关重要哦！</p>
+
+      <h3>块级元素 (Block-level Elements)</h3>
+      <p>就像pink老师说的，可以把它们想象成“大块头的男生”，性格比较“霸道”，有这些特点：</p>
+      <ul>
+        <li><strong>独占一行：</strong> 无论内容多少，它自己就要占满一整行，不许别的元素跟它并排站。</li>
+        <li><strong>能屈能伸：</strong> 可以自由地设置宽度（width）和高度（height）。</li>
+        <li><strong>代表人物：</strong> <code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code>, <code>&lt;p&gt;</code>,
+          <code>&lt;div&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;li&gt;</code> 等。
+        </li>
+      </ul>
+
+      <h3>行内元素 (Inline-level Elements)</h3>
+      <p>这些就可以想象成“内敛的女生”，性格比较“随和”：</p>
+      <ul>
+        <li><strong>共享一行：</strong> 它们很乐意和其他行内元素手拉手，并排显示在一行里，直到一行装不下才换行。</li>
+        <li><strong>随遇而安：</strong> 它们的宽度和高度是由内容撑开的，直接给它们设置 width 和 height 是没有效果的哦。</li>
+        <li><strong>代表人物：</strong> <code>&lt;a&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>,
+          <code>&lt;span&gt;</code>, <code>&lt;img&gt;</code> 等。
+        </li>
+      </ul>
+
+      <h3>它们之间的“相处规则”</h3>
+      <p>就像人际交往有规则一样，这两类元素嵌套时也要遵守一些基本法哦：</p>
+      <dl>
+        <dt>✅ 正确的嵌套</dt>
+        <dd>
+          块级元素就像一个大容器，里面可以放行内元素，也可以放其他的块级元素。
+          <pre><code>&lt;p&gt;我是一个段落，里面可以有 &lt;strong&gt;加粗的文字&lt;/strong&gt;。&lt;/p&gt;</code></pre>
+        </dd>
+        <dt>❌ 错误的嵌套</dt>
+        <dd>
+          行内元素“肚子”比较小，一般不推荐在它里面放一个“大块头”的块级元素。
+          <pre><code>&lt;strong&gt;
+  &lt;p&gt;这样写是不规范的哦！&lt;/p&gt;
+&lt;/strong&gt;</code></pre>
+        </dd>
+        <dt>💥 特殊规则：P 标签</dt>
+        <dd>
+          <code>&lt;p&gt;</code> 标签是个特例，它虽然是块级元素，但它的内部不能再包含任何其他的块级元素了，包括它自己！
+          <pre><code>&lt;!-- 错误示范！浏览器可能会强制修正，导致结构混乱 --&gt;
+&lt;p&gt;
+  &lt;h1&gt;标题&lt;/h1&gt;
+&lt;/p&gt;</code></pre>
+        </dd>
+      </dl>
+
+      <hr>
+
+      <h2 id="toc-chapter-1-6">1.6 让页面有图有真相的 &lt;img&gt; 标签</h2>
+      <p>今天我们学习了如何在页面中放入图片，这需要用到 <code>&lt;img&gt;</code> 标签。它是一个单标签，也就是说它不需要像 <code>&lt;p&gt;...&lt;/p&gt;</code>
+        那样成对出现，因为它没有需要包裹的内容。</p>
+      <p><code>&lt;img&gt;</code> 标签也是一个行内元素哦，但它又有点特别，可以设置宽度和高度，所以也有人叫它“行内块元素”。</p>
+
+      <h3>&lt;img&gt; 的重要属性们</h3>
+      <p>要让 <code>&lt;img&gt;</code> 正常工作，我们需要告诉它一些重要的信息，这些信息就通过“属性”来设置。</p>
+      <dl>
+        <dt><code>src</code> (Source - 来源)</dt>
+        <dd>
+          这是 <strong>必须拥有</strong> 的属性！它的值是图片的路径（URL），告诉浏览器去哪里找到这张图片。路径可以是本地的相对路径（比如
+          <code>../images/pic.png</code>），也可以是网上的绝对路径（比如 <code>https://.../logo.jpg</code>）。
+        </dd>
+
+        <dt><code>alt</code> (Alternative - 替代文本)</dt>
+        <dd>
+          这个属性也
+          <strong>极其重要</strong>！它的值是一段描述图片内容的文字。当图片因为网络问题或者路径错误无法显示时，浏览器就会显示这段文字。更重要的是，屏幕阅读器会朗读这段文字，帮助视障用户理解图片内容。所以，一定要为每张图片都写上言之有物的
+          <code>alt</code> 文本哦！
+        </dd>
+
+        <dt><code>width</code> 和 <code>height</code> (宽度和高度)</dt>
+        <dd>
+          这两个属性用来控制图片在页面上显示的尺寸。<strong>我的小建议：</strong> 通常我们只需要设置其中一个值（比如
+          <code>width="300"</code>），浏览器就会自动等比例缩放另一个值，这样可以防止图片被压扁或拉伸，保持它原来的样子！如果两个值都设置，一定要确保比例是正确的。
+        </dd>
+
+        <dt><code>title</code> (标题)</dt>
+        <dd>
+          这个属性提供了一些额外信息。当鼠标悬停在图片上时，浏览器会把这个属性里的文字作为一个小提示框显示出来。它不是必须的，但在某些场景下可以提升用户体验。
+        </dd>
+      </dl>
+
+      <pre><code>&lt;!-- 一个完整的 img 标签示例 --&gt;
+&lt;img 
+  src="../代码/pig.png" 
+  alt="一张佩奇爸爸的卡通图片" 
+  width="300"
+  title="这是猪爸爸佩奇！"
+&gt;</code></pre>
+
+      <hr>
+
+      <h2 id="toc-chapter-1-7">1.7 会唱歌会跳舞的 &lt;video&gt; 和 &lt;audio&gt;</h2>
+      <p>今天，我们的页面学会了播放多媒体！这都归功于HTML5带来的两个强大的新标签：<code>&lt;video&gt;</code> 和 <code>&lt;audio&gt;</code>。</p>
+
+      <h3>&lt;video&gt; 标签：让页面动起来</h3>
+      <p>这个标签专门用来在网页中嵌入视频。它也是一个“行内块元素”，可以设置宽高。</p>
+      <dl>
+        <dt>常用属性</dt>
+        <dd>
+          <ul>
+            <li><code>src</code>: 和图片一样，是视频文件的路径。</li>
+            <li><code>controls</code>: 加上这个属性，浏览器就会显示一套默认的播放控件（播放/暂停按钮、音量、进度条等）。这是一个布尔属性，直接写上 <code>controls</code>
+              就可以了。
+            </li>
+            <li><code>autoplay</code>: 视频会自动播放。<strong>注意！</strong> 现在大部分浏览器为了防止打扰用户，规定必须同时加上 <code>muted</code>
+              属性（静音），视频才能自动播放。</li>
+            <li><code>muted</code>: 静音播放。</li>
+            <li><code>loop</code>: 视频会循环播放。</li>
+            <li><code>poster</code>: 设置一个“封面图片”。在视频加载完成或播放前，页面会显示这张图片。</li>
+          </ul>
+        </dd>
+      </dl>
+
+      <h3>&lt;audio&gt; 标签：为页面配上BGM</h3>
+      <p>用法和视频标签非常相似，但它是用来播放音频的。</p>
+      <dl>
+        <dt>常用属性</dt>
+        <dd>
+          它支持 <code>src</code>, <code>controls</code>, <code>autoplay</code>, <code>loop</code>
+          等大部分视频标签的属性。但要注意，目前几乎所有浏览器都禁止音频自动播放，所以即使加了 <code>autoplay</code> 也不会生效，这通常需要用户进行交互后，我们再用 JavaScript 来控制播放。
+        </dd>
+      </dl>
+
+      <h3>更专业的“兼容性写法”</h3>
+      <p>有时候，为了兼容不同的浏览器，我们可能需要提供多种格式的视频或音频文件（比如 .mp4 和 .webm）。这时，我们可以使用 <code>&lt;source&gt;</code> 标签：</p>
+      <pre><code>&lt;!-- 浏览器会从上到下检查，播放它支持的第一个格式 --&gt;
+&lt;video controls width="400"&gt;
+  &lt;source src="movie.mp4" type="video/mp4"&gt;
+  &lt;source src="movie.webm" type="video/webm"&gt;
+  &lt;!-- 如果浏览器连 video 标签都不支持，就会显示下面的文字 --&gt;
+  &lt;p&gt;抱歉，您的浏览器不支持播放此视频。&lt;/p&gt;
+&lt;/video&gt;</code></pre>
+      <p>这种写法不仅优雅，而且非常健壮，是专业前端开发者的首选哦！</p>
+
+      <hr>
+
+      <h2 id="toc-chapter-1-8">1.8 带我们穿越的 &lt;a&gt; 标签 (超链接)</h2>
+      <p>今天我们学习了网页的“灵魂”——超链接！它由 <code>&lt;a&gt;</code> 标签（Anchor - 锚）创建，可以让我们从一个页面跳转到另一个页面，或者页面内的某个位置。</p>
+
+      <h3>核心属性：<code>href</code> (Hypertext Reference)</h3>
+      <p>这是 <code>&lt;a&gt;</code> 标签最重要的属性，它告诉浏览器我们要“飞”到哪里去。<code>href</code> 的值有许多种可能性：</p>
+      <dl>
+        <dt>1. 内部链接</dt>
+        <dd>指向我们自己网站内部的其他页面。路径写法和图片很像，比如 <code>&lt;a href="./11-音视频标签.html"&gt;音视频&lt;/a&gt;</code>。</dd>
+
+        <dt>2. 外部链接</dt>
+        <dd>指向其他网站的页面。路径必须写完整，包含 <code>https://</code> 或 <code>http://</code>，比如
+          <code>&lt;a href="https://www.google.com"&gt;谷歌&lt;/a&gt;</code>。
+        </dd>
+
+        <dt>3. 空链接</dt>
+        <dd>当链接的目标暂时还没确定时，我们可以用 <code>#</code> 作为占位符，比如 <code>&lt;a href="#"&gt;产品介绍&lt;/a&gt;</code>。点击它页面不会跳转，但会回到顶部。
+        </dd>
+
+        <dt>4. 下载链接</dt>
+        <dd>如果 <code>href</code> 指向的是一个浏览器无法直接打开的文件（比如 <code>.zip</code> 或 <code>.rar</code> 压缩包），浏览器就会自动下载它。</dd>
+
+        <dt>5. 邮件链接</dt>
+        <dd>使用 <code>mailto:</code> 协议，可以唤起用户电脑上的默认邮件客户端，并自动填好收件人地址。比如
+          <code>&lt;a href="mailto:123@qq.com"&gt;联系我们&lt;/a&gt;</code>。
+        </dd>
+      </dl>
+
+      <h3>辅助属性：<code>target</code> 和 <code>title</code></h3>
+      <dl>
+        <dt><code>target="_blank"</code></dt>
+        <dd>这是一个非常常用的属性！给链接加上它，点击后就会在一个 <strong>新的标签页</strong> 中打开目标页面，而不是在当前页面跳转。对于外部链接，我们通常都会加上它，这样用户就不会离开我们的网站啦。</dd>
+        <dt><code>title</code></dt>
+        <dd>和图片标签的 <code>title</code> 一样，当鼠标悬停在链接上时，会显示一个小提示框，可以用来对链接内容做一些额外的说明。</dd>
+      </dl>
+
+      <hr>
+
+      <h2 id="toc-chapter-1-9">1.9 页面内的“电梯”——锚点链接</h2>
+      <p>除了在不同页面间跳转，超链接还可以在同一个页面的不同位置之间快速移动，就像坐电梯一样！这种特殊的链接，我们称之为“锚点链接”。</p>
+
+      <h3>如何设置锚点链接？</h3>
+      <p>只需要两步，我们就能轻松实现：</p>
+      <ol>
+        <li>
+          <strong>第一步：设置“锚点”（目的地）</strong>
+          <p>在我们想要跳转到的那个元素上，添加一个独一无二的 <code>id</code> 属性。这个 <code>id</code> 就像是给这个位置起了一个名字。</p>
+          <pre><code>&lt;!-- 比如，我们想跳转到这个二级标题 --&gt;
+&lt;h2 id="chapter2"&gt;第二章：进阶学习&lt;/h2&gt;</code></pre>
+        </li>
+        <li>
+          <strong>第二步：创建指向锚点的链接</strong>
+          <p>在作为“电梯按钮”的 <code>&lt;a&gt;</code> 标签里，把它的 <code>href</code> 属性设置为 <code>#</code> 加上我们刚才设置的 <code>id</code>
+            名。
+          </p>
+          <pre><code>&lt;!-- 点击这个链接，页面就会“飞”到 id 为 chapter2 的地方 --&gt;
+&lt;a href="#chapter2"&gt;跳转到第二章&lt;/a&gt;</code></pre>
+        </li>
+      </ol>
+
+      <h3>让“电梯”动得更优雅：<code>scroll-behavior</code></h3>
+      <p>默认情况下，点击锚点链接是“瞬移”，感觉有点生硬。但我们只需要一行CSS代码，就能让它拥有平滑的滚动动画！</p>
+      <p>在我们的CSS文件（或者 <code>&lt;style&gt;</code> 标签）里，加上这条规则：</p>
+      <pre><code>html {
+  scroll-behavior: smooth;
+}</code></pre>
+      <p>就这么简单！现在再点击锚点链接试试，是不是感觉舒服多啦？这个属性会让页面内所有的锚点跳转和滚动操作都变得平滑起来。</p>
+
+      <hr>
+
+      <h2 id="toc-chapter-1-10">1.10 搭建网页的“骨架”——语义化结构标签</h2>
+      <p>在HTML5中，新增了一系列非常有意义的“结构标签”。它们就像房子的“客厅”、“卧室”、“厨房”一样，能让浏览器和搜索引擎一眼就看懂我们网页的布局和结构。这比单纯使用无意义的
+        <code>&lt;div&gt;</code>
+        标签要好得多哦！
+      </p>
+
+      <dl>
+        <dt>&lt;header&gt;</dt>
+        <dd>定义网页的头部区域。通常用来放置网站的Logo、主标题、搜索框等。</dd>
+
+        <dt>&lt;nav&gt;</dt>
+        <dd>定义网页的导航链接区域。比如主菜单、面包屑导航等，都应该放在这里。</dd>
+
+        <dt>&lt;main&gt;</dt>
+        <dd>定义页面的主要内容区域。一个页面 <strong>应该只有一个</strong> <code>&lt;main&gt;</code> 标签，它里面放的是这个页面最核心、独一无二的内容。</dd>
+
+        <dt>&lt;article&gt;</dt>
+        <dd>定义一个独立的、完整的内容块。它就像一篇完整的文章、一篇博客、一个论坛帖子。理论上，把它单独拿出来发布到别处，它也应该是有完整意义的。</dd>
+
+        <dt>&lt;section&gt;</dt>
+        <dd>定义文档中的一个“章节”或“区块”。它通常会包含一个标题。比如，一个“关于我们”的页面，可以分为“公司历史”、“团队成员”、“联系方式”等几个 <code>&lt;section&gt;</code>。</dd>
+
+        <dt>&lt;aside&gt;</dt>
+        <dd>定义与主要内容相关性不大的侧边栏内容。比如广告、作者简介、相关链接等。</dd>
+
+        <dt>&lt;footer&gt;</dt>
+        <dd>定义网页的页脚区域。通常用来放置版权信息、备案号、友情链接等。</dd>
+      </dl>
+
+      <h3>万能的“积木”：&lt;div&gt; 和 &lt;span&gt;</h3>
+      <p>虽然我们有了很多语义化的结构标签，但有时候还是需要一些“无名”的容器来帮助我们布局或添加样式。这时候，<code>&lt;div&gt;</code> 和 <code>&lt;span&gt;</code> 就派上用场了。
+      </p>
+      <dl>
+        <dt>&lt;div&gt; (Division)</dt>
+        <dd>一个通用的 <strong>块级</strong> 容器。它是我们布局时最常用的“积木”，当你需要把一块内容包裹起来，但又找不到合适的语义化标签时，就用它！</dd>
+        <dt>&lt;span&gt;</dt>
+        <dd>一个通用的 <strong>行内</strong> 容器。当你只想给一小段文字单独加样式，但又找不到合适的语义标签时，它就是最好的选择。</dd>
+      </dl>
+
+      <hr>
+
+      <h2 id="toc-chapter-1-11">1.11 让内容井井有条的列表标签</h2>
+      <p>当我们需要展示一组相关联的项目时，比如一个购物清单、一个操作步骤，或者一个名词解释列表，就轮到列表标签大显身手啦！HTML提供了三种主要的列表类型。</p>
+
+      <h3>一、无序列表 &lt;ul&gt; (Unordered List)</h3>
+      <p>这是最常用的列表，用来表示一组没有先后顺序的项目。每个列表项都由一个 <code>&lt;li&gt;</code> (List Item) 标签包裹。浏览器默认会在每个列表项前面显示一个小圆点。</p>
+      <pre><code>&lt;ul&gt;
+  &lt;li&gt;佩奇&lt;/li&gt;
+  &lt;li&gt;猪爸爸&lt;/li&gt;
+  &lt;li&gt;猪妈妈&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+      <p><strong>注意：</strong> <code>&lt;ul&gt;</code> 标签里面只能直接包裹 <code>&lt;li&gt;</code> 标签哦，不能放其他的东西。但是
+        <code>&lt;li&gt;</code> 标签里面，就像一个小盒子，可以放任何内容，比如段落、图片，甚至是另一个列表！
+      </p>
+
+      <h3>二、有序列表 &lt;ol&gt; (Ordered List)</h3>
+      <p>当列表项之间有明确的先后顺序时，我们就应该使用有序列表。它的用法和无序列表很像，只是把 <code>&lt;ul&gt;</code> 换成了
+        <code>&lt;ol&gt;</code>。浏览器默认会在每个列表项前面显示数字（1, 2, 3...）。
+      </p>
+      <pre><code>&lt;ol&gt;
+  &lt;li&gt;看视频&lt;/li&gt;
+  &lt;li&gt;写代码&lt;/li&gt;
+  &lt;li&gt;做笔记&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+      <h3>三、描述列表 &lt;dl&gt; (Description List)</h3>
+      <p>这种列表非常适合用来做“名词解释”。它由三种标签共同组成，像一个小组：</p>
+      <ul>
+        <li><code>&lt;dl&gt;</code>: 定义整个描述列表的开始和结束。</li>
+        <li><code>&lt;dt&gt;</code> (Description Term): 定义要解释的“名词”或“术语”。</li>
+        <li><code>&lt;dd&gt;</code> (Description Description): 定义对上面名词的具体描述和解释。一个 <code>&lt;dt&gt;</code> 后面可以跟一个或多个
+          <code>&lt;dd&gt;</code>。
+        </li>
+      </ul>
+      <p>你发现的记忆法超棒：大佬(<code>dl</code>) > 大腿(<code>dt</code>) > 弟弟(<code>dd</code>)！</p>
+      <pre><code>&lt;dl&gt;
+  &lt;dt&gt;家电&lt;/dt&gt;
+  &lt;dd&gt;电视&lt;/dd&gt;
+  &lt;dd&gt;洗衣机&lt;/dd&gt;
+  &lt;dd&gt;冰箱&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+
+      <hr>
+
+      <h2 id="toc-chapter-1-12">1.12 用于展示数据的表格标签</h2>
+      <p>当我们需要展示行列规整的数据时，比如成绩单、商品规格等，表格标签就是最好的选择。它就像一个Excel表格，能把数据安排得明明白白。</p>
+
+      <h3>表格的基本骨架</h3>
+      <p>一个最基础的表格由三个核心标签组成：</p>
+      <ul>
+        <li><code>&lt;table&gt;</code>: 定义整个表格的开始和结束。</li>
+        <li><code>&lt;tr&gt;</code> (Table Row): 定义表格中的“一行”。</li>
+        <li><code>&lt;td&gt;</code> (Table Data): 定义表格中的一个“单元格”。</li>
+      </ul>
+      <pre><code>&lt;!-- 一个简单的3行3列表格 --&gt;
+&lt;table border="1"&gt;
+  &lt;tr&gt;
+    &lt;td&gt;姓名&lt;/td&gt;
+    &lt;td&gt;年龄&lt;/td&gt;
+    &lt;td&gt;成绩&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;张三&lt;/td&gt;
+    &lt;td&gt;18&lt;/td&gt;
+    &lt;td&gt;100&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+      <p><strong>注意：</strong> <code>border="1"</code> 这个属性可以给表格加上边框，但现在我们更推荐用CSS来美化表格哦！</p>
+
+      <h3>更专业的结构：语义化分区</h3>
+      <p>为了让表格的结构更清晰，HTML还提供了三个语义化标签来对表格进行分区：</p>
+      <ul>
+        <li><code>&lt;thead&gt;</code>: 定义表格的“头部”区域。通常用来放标题行。</li>
+        <li><code>&lt;tbody&gt;</code>: 定义表格的“主体”区域。用来放主要的数据行。</li>
+        <li><code>&lt;tfoot&gt;</code>: 定义表格的“脚部”区域。可以用来放总结或备注行。（这个我们还没学，但先认识一下！）</li>
+      </ul>
+      <p>这些标签不会改变表格的外观，但能让代码结构更清晰，对浏览器和搜索引擎更友好。</p>
+
+      <h3>表头的专属标签：&lt;th&gt;</h3>
+      <p>在写表头（比如“姓名”、“年龄”）时，用 <code>&lt;th&gt;</code> (Table Header) 标签来代替 <code>&lt;td&gt;</code>
+        是更好的选择！它在语义上明确表示这是一个“表头单元格”，而且浏览器会自动把它里面的文字**加粗并居中**，非常方便。</p>
+
+      <pre><code>&lt;table border="1"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;姓名&lt;/th&gt;
+      &lt;th&gt;年龄&lt;/th&gt;
+      &lt;th&gt;成绩&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;张三&lt;/td&gt;
+      &lt;td&gt;18&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+
+      <h4>💥 我的温馨提示：常见的“小陷阱”</h4>
+      <p>就像你这次遇到的，把 <code>&lt;table&gt;</code> 错拼成 <code>&lt;tabel&gt;</code>
+        是一个非常非常常见的错误！因为浏览器不认识这个标签，所以它的一切魔法（比如形成表格、显示边框）都会失效。写代码的时候，一定要细心哦！</p>
+
+      <hr>
+
+      <h2 id="toc-chapter-1-13">1.13 表格的“魔法”——合并单元格</h2>
+      <p>有时候，我们需要让一个单元格变得更大，占据好几行或者好几列的空间，就像在Excel里合并单元格一样。HTML也为我们提供了两个强大的属性来实现这个效果。</p>
+
+      <h3>一、跨列合并：<code>colspan</code></h3>
+      <p>当你想让一个单元格横向“吃掉”右边的几个单元格时，就使用 <code>colspan</code> (Column Span - 跨越列)。</p>
+      <p><strong>合并三步走：</strong></p>
+      <ol>
+        <li>确定要合并哪些单元格。</li>
+        <li>在最左边的那个单元格上写上 <code>colspan="要合并的单元格数量"</code>。</li>
+        <li><strong>非常关键：</strong> 把被“吃掉”的那些单元格从代码里删掉！</li>
+      </ol>
+      <pre><code>&lt;tr&gt;
+  &lt;!-- 这个单元格会占据2列的宽度 --&gt;
+  &lt;td colspan="2"&gt;这个单元格占两列&lt;/td&gt;
+  &lt;!-- &lt;td&gt;这个单元格被吃掉了，要删除&lt;/td&gt; --&gt;
+  &lt;td&gt;第三个单元格&lt;/td&gt;
+&lt;/tr&gt;</code></pre>
+
+      <h3>二、跨行合并：<code>rowspan</code></h3>
+      <p>当你想让一个单元格纵向“吃掉”下边的几个单元格时，就使用 <code>rowspan</code> (Row Span - 跨越行)。</p>
+      <p><strong>合并三步走：</strong></p>
+      <ol>
+        <li>确定要合并哪些单元格。</li>
+        <li>在最上边的那个单元格上写上 <code>rowspan="要合并的单元格数量"</code>。</li>
+        <li><strong>非常关键：</strong> 把下面几行中，被“吃掉”的那些单元格从代码里删掉！</li>
+      </ol>
+      <pre><code>&lt;tr&gt;
+  &lt;!-- 这个单元格会占据2行的高度 --&gt;
+  &lt;td rowspan="2"&gt;这个单元格占两行&lt;/td&gt;
+  &lt;td&gt;第一行的第二个单元格&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;!-- &lt;td&gt;这个单元格被吃掉了，要删除&lt;/td&gt; --&gt;
+  &lt;td&gt;第二行的第二个单元格&lt;/td&gt;
+&lt;/tr&gt;</code></pre>
+
+      <hr>
+
+      <h2 id="toc-chapter-1-14">1.14 与用户“对话”的桥梁——表单标签</h2>
+      <p>今天我们学习了HTML中功能最强大的部分——表单！它允许我们收集用户输入的信息，是实现登录、注册、搜索、评论等交互功能的基石。</p>
+
+      <h3>表单的“容器”：&lt;form&gt;</h3>
+      <p>所有的表单控件（输入框、按钮、下拉菜单等）都应该被包裹在一个 <code>&lt;form&gt;</code> 标签内。它就像一个大篮子，把所有要提交给服务器的数据都装在一起。</p>
+
+      <h3>万能的输入框：&lt;input&gt;</h3>
+      <p><code>&lt;input&gt;</code> 标签是表单的核心，但它本身像个“变色龙”，通过改变 <code>type</code> 属性，它可以变身为各种不同的控件。</p>
+      <ul>
+        <li><code>type="text"</code>: 单行文本输入框，用于输入账号、姓名等。</li>
+        <li><code>type="password"</code>: 密码输入框，输入的内容会自动显示为小黑点。</li>
+        <li><code>type="radio"</code>: 单选框。<strong>注意：</strong> 一组单选框（比如“男”和“女”）必须拥有相同的 <code>name</code>
+          属性，这样才能实现“多选一”的效果。</li>
+        <li><code>type="checkbox"</code>: 复选框，用于多项选择，比如“爱好”。</li>
+        <li><code>type="file"</code>: 文件上传控件，允许用户选择本地文件。</li>
+      </ul>
+
+      <h3>提升体验的“好帮手”：&lt;label&gt;</h3>
+      <p><code>&lt;label&gt;</code> 标签是专门为表单控件提供文字标注的。它不仅能让用户知道这个输入框是干嘛的，还有一个超棒的功能：点击 `label`
+        的文字，会自动聚焦到它所关联的那个控件上！这对于小屏幕上的手机用户，或者使用辅助设备的用户来说，体验会好很多！</p>
+      <p>关联它们有两种方式：</p>
+      <ol>
+        <li><strong>for-id 配对：</strong> 给 `input` 设置一个唯一的 `id`，然后 `label` 的 `for` 属性写上这个 `id`。</li>
+        <li><strong>直接包裹：</strong> 用 `label` 标签把 `input` 和文字一起包起来。</li>
+      </ol>
+
+      <h3>其他重要的表单成员</h3>
+      <dl>
+        <dt>&lt;textarea&gt;</dt>
+        <dd>多行文本输入框，用于输入大段的文字，比如留言、评论。可以用 <code>cols</code> 和 <code>rows</code> 属性控制它的大小。</dd>
+        <dt>&lt;select&gt; 和 &lt;option&gt;</dt>
+        <dd>下拉选择菜单。<code>&lt;select&gt;</code> 是整个菜单，里面的每一个 <code>&lt;option&gt;</code> 就是一个选项。</dd>
+        <dt>&lt;button&gt;</dt>
+        <dd>按钮。它可以是提交按钮，也可以是普通按钮。给它加上 <code>disabled</code> 属性，按钮就会变成灰色，无法点击。</dd>
+      </dl>
+
+      <hr>
+
+      <h2 id="toc-chapter-1-15">1.15 HTML里的“小彩蛋”——特殊字符</h2>
+      <p>在HTML中，有些字符是预留的（比如 <code>&lt;</code> 和
+        <code>&gt;</code>，它们被用来定义标签），或者键盘上不方便直接输入。为了能在页面上正确地显示它们，我们需要使用它们的“代号”，我们称之为“字符实体”。
+      </p>
+      <p>它们通常以一个 <code>&amp;</code> 符号开始，以一个分号 <code>;</code> 结束。</p>
+
+      <h3>常用的特殊字符</h3>
+      <p>虽然特殊字符有很多，但我们只需要记住几个最常用的就好啦！</p>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>显示结果</th>
+            <th>字符实体</th>
+            <th>描述</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>&nbsp;</td>
+            <td><code>&amp;nbsp;</code></td>
+            <td><strong>空格 (Non-Breaking Space)</strong>。在HTML中，无论你打多少个连续的普通空格，都会被合并成一个。想打出多个连续的空格，就必须用它！</td>
+          </tr>
+          <tr>
+            <td>&lt;</td>
+            <td><code>&amp;lt;</code></td>
+            <td><strong>小于号 (Less Than)</strong>。因为 <code>&lt;</code> 是标签的开始符号，所以想在页面上直接显示它，就必须用这个代号。</td>
+          </tr>
+          <tr>
+            <td>&gt;</td>
+            <td><code>&amp;gt;</code></td>
+            <td><strong>大于号 (Greater Than)</strong>。同理，它是标签的结束符号。</td>
+          </tr>
+          <tr>
+            <td>&amp;</td>
+            <td><code>&amp;amp;</code></td>
+            <td><strong>和号</strong>。因为它本身就是特殊字符的起始符号。</td>
+          </tr>
+          <tr>
+            <td>&copy;</td>
+            <td><code>&amp;copy;</code></td>
+            <td><strong>版权符号</strong>。在页脚经常能看到它。</td>
+          </tr>
+          <tr>
+            <td>&yen;</td>
+            <td><code>&amp;yen;</code></td>
+            <td><strong>人民币/日元符号</strong>。</td>
+          </tr>
+        </tbody>
+      </table>
+
+      </table>
+
+      <hr>
+
+      <h1 id="toc-chapter-2">第二章：CSS3核心技术</h1>
+      <h2 id="toc-chapter-2-1">2.1 CSS的三种“出场方式”——样式表</h2>
+      <p>恭喜你进入CSS的世界！CSS（Cascading Style Sheets - 层叠样式表）是HTML的“化妆师”，专门负责网页的样式和布局。要让CSS代码生效，我们有三种方式可以把它引入到HTML页面中。</p>
+
+      <h3>一、内联样式 (Inline Style)</h3>
+      <p>这是最直接的方式，直接在HTML标签内部使用 <code>style</code> 属性来写CSS规则。它就像是给某个演员“单独化妆”。</p>
+      <ul>
+        <li><strong>优点：</strong> 简单直接，针对性强。</li>
+        <li><strong>缺点：</strong> 只能控制一个标签，而且把样式和结构混在一起，非常不利于后期维护，是三种方式里最不推荐的。</li>
+      </ul>
+      <pre><code>&lt;!-- 只对这个p标签生效 --&gt;
+&lt;p style="color: pink; font-size: 20px;"&gt;我是佩奇，我喜欢粉色。&lt;/p&gt;</code></pre>
+
+      <h3>二、内部样式 (Internal Style)</h3>
+      <p>在HTML文件的 <code>&lt;head&gt;</code> 标签里，使用 <code>&lt;style&gt;</code>
+        标签来包裹所有的CSS规则。它就像是给“当前这个舞台上”的所有演员统一制定了化妆规则。
+      </p>
+      <ul>
+        <li><strong>优点：</strong> 实现了样式和结构的分离，可以控制当前整个页面的样式。</li>
+        <li><strong>缺点：</strong> 只能控制一个页面，如果其他页面也想用同样的样式，就得再复制一遍。</li>
+      </ul>
+      <pre><code>&lt;head&gt;
+  &lt;style&gt;
+    div {
+      color: blue;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;</code></pre>
+
+      <h3>三、外部样式 (External Style)</h3>
+      <p>这是我们最常用、也是 <strong>最推荐</strong> 的方式！我们把所有的CSS规则都写在一个单独的 <code>.css</code> 文件里，然后在HTML文件的
+        <code>&lt;head&gt;</code> 标签里，使用 <code>&lt;link&gt;</code> 标签来引入它。这就像是有一本专业的“化妆造型手册”，所有舞台（页面）都可以参照这本手册来化妆。
+      </p>
+      <ul>
+        <li><strong>优点：</strong> 完全实现了样式和结构的分离，一份CSS文件可以被多个页面共用，修改一处，所有页面都生效，极大地提高了开发效率和可维护性！</li>
+      </ul>
+      <pre><code>&lt;!-- 在HTML的head中引入 --&gt;
+&lt;link rel="stylesheet" href="./css/style.css"&gt;
+
+&lt;!-- 在 style.css 文件中 --&gt;
+/* 这就是CSS文件的内容 */
+div {
+  color: red;
+}</code></pre>
+
+      <pre><code>&lt;!-- 在HTML的head中引入 --&gt;
+&lt;link rel="stylesheet" href="./css/style.css"&gt;
+
+&lt;!-- 在 style.css 文件中 --&gt;
+/* 这就是CSS文件的内容 */
+div {
+  color: red;
+}</code></pre>
+
+      <hr>
+
+      <h2 id="toc-chapter-2-2">2.2 CSS的“瞄准镜”——选择器（一）</h2>
+      <p>学会了如何引入CSS，我们接着就要学习如何“选中”我们想要美化的HTML元素。这个“选中”的工具，就是选择器。今天我们学习的是最基础的一种：类型选择器。</p>
+
+      <h3>类型选择器 (Type Selector)</h3>
+      <p>它也被称为“标签选择器”或“元素选择器”，是所有选择器里最简单的一种。它直接使用HTML标签的名字作为选择器，可以选中页面上 **所有** 的同类型标签。</p>
+      <pre><code>/* 选中页面上所有的 p 标签，把它们的文字颜色变成灰色 */
+p {
+  color: gray;
+}
+
+/* 选中页面上所有的 h2 标签，让它们字体大小变成 24px */
+h2 {
+  font-size: 24px;
+}</code></pre>
+      <ul>
+        <li><strong>优点：</strong> 简单直接，可以快速地为某一类标签统一设置基础样式。</li>
+        <li><strong>缺点：</strong> “打击范围”太广，无法精确地选中某一个或某几个特定的标签。</li>
+      </ul>
+
+      <h3>CSS的注释</h3>
+      <p>在CSS中，注释的写法是 <code>/* 这里是注释内容 */</code>。它和HTML的注释 <code>&lt;!-- ... --&gt;</code> 不一样哦，可不能弄混啦！在VS Code里，快捷键同样是
+        <code>Ctrl + /</code>。
+      </p>
+
+      <h3>初探CSS三大特性之一：层叠性</h3>
+      <p>你观察到的“就近原则”现象，其实就是CSS三大特性中的“层叠性”的体现！</p>
+      <p>当多个选择器选中了同一个标签，并且设置了 **相同的属性**（比如都设置了 `color`），那么：</p>
+      <ul>
+        <li>如果这些选择器的“权重”相同（比如都是类型选择器），那么写在 **最下面** 的那个规则会“覆盖”掉上面的规则，最终生效。</li>
+      </ul>
+      <pre><code>div {
+  color: blue; /* 这条规则会被下面的覆盖掉 */
+}
+
+div {
+  color: red; /* 最终 div 的文字会是红色 */
+}</code></pre>
+      <p>这就好比我们穿衣服，后穿上的会盖住先穿上的。“层叠性”是CSS中非常重要的一个概念，我们以后还会经常遇到它哦！</p>
+
+      <p>这就好比我们穿衣服，后穿上的会盖住先穿上的。“层叠性”是CSS中非常重要的一个概念，我们以后还会经常遇到它哦！</p>
+
+      <hr>
+
+      <h2 id="toc-chapter-2-3">2.3 CSS的“狙击枪”——类选择器</h2>
+      <p>类型选择器的“打击范围”太广，如果我们只想给页面上某一个或某几个特定的标签化妆，就需要更精确的“瞄准镜”了。这时，我们最常用的“类选择器”就登场了！</p>
+
+      <h3>如何使用类选择器？</h3>
+      <p>它也分为两步：</p>
+      <ol>
+        <li><strong>起名字：</strong> 在HTML标签上，添加一个 <code>class</code> 属性，并给它起一个“类名”。这个名字最好能体现出这个标签的“作用”或“长相”，比如
+          <code>nav</code> (导航), <code>warning</code> (警告), <code>big-title</code> (大标题)。
+        </li>
+        <li><strong>选中它：</strong> 在CSS中，我们使用一个英文句点 <code>.</code> 紧跟着类名的方式来选中所有拥有这个类名的标签。</li>
+      </ol>
+      <pre><code>&lt;!-- HTML部分 --&gt;
+&lt;p class="warning"&gt;这是一个警告信息。&lt;/p&gt;
+&lt;div class="warning"&gt;这也是一个警告信息。&lt;/div&gt;
+
+&lt;!-- CSS部分 --&gt;
+.warning {
+  color: red;
+  font-weight: bold;
+}</code></pre>
+
+      <h3>多类名的“变身”魔法</h3>
+      <p>一个标签可以同时拥有多个类名，只需要在 <code>class</code> 属性里用空格把它们隔开。这样，这个标签就会同时拥有这几个类名所对应的所有样式！这就像是给一个角色穿上“上衣”，再穿上“裤子”，组合出新的造型。
+      </p>
+      <pre><code>&lt;!-- HTML部分 --&gt;
+&lt;div class="pink big-text"&gt;我是又大又粉的文字&lt;/div&gt;
+
+&lt;!-- CSS部分 --&gt;
+.pink {
+  color: pink;
+}
+.big-text {
+  font-size: 30px;
+}</code></pre>
+
+      <h3>初探CSS三大特性之二：优先级</h3>
+      <p>你观察到的现象非常关键！当不同的选择器选中了同一个标签时，到底听谁的呢？这就由“优先级”（也叫特殊性，Specificity）来决定。</p>
+      <p>这是一个非常重要的规则：<strong>类选择器的优先级 > 类型选择器的优先级</strong>。</p>
+      <p>也就是说，如果一个标签同时被类选择器和类型选择器选中，并且设置了相同的属性，那么浏览器会毫不犹豫地听从“类选择器”的！</g>
+      <p>也就是说，如果一个标签同时被类选择器和类型选择器选中，并且设置了相同的属性，那么浏览器会毫不犹豫地听从“类选择器”的！</p>
+
+      <hr>
+
+      <h2 id="toc-chapter-2-4">2.4 更多选择器：ID选择器与通配符选择器</h2>
+
+      <h3>ID选择器：独一无二的“身份证”</h3>
+      <p>如果说类选择器是“兴趣小组”，可以有好几个人参加，那么ID选择器就是每个人的“身份证号”，在整个页面上必须是 <strong>独一无二</strong> 的！</p>
+      <p><strong>使用方法：</strong></p>
+      <ol>
+        <li><strong>起名字：</strong> 在HTML标签上，添加一个 <code>id</code> 属性，并给它起一个唯一的名字。</li>
+        <li><strong>选中它：</strong> 在CSS中，我们使用一个井号 <code>#</code> 紧跟着ID名的方式来选中它。</li>
+      </ol>
+      <pre><code>&lt;!-- HTML部分 --&gt;
+&lt;div id="header"&gt;这是网页的头部&lt;/div&gt;
+
+&lt;!-- CSS部分 --&gt;
+#header {
+  background-color: lightblue;
+}</code></pre>
+
+      <h4>ID选择器 vs. 类选择器</h4>
+      <p>这是一个非常重要的问题！它们有什么区别呢？</p>
+      <table border="1">
+        <thead>
+          <tr>
+            <th></th>
+            <th>ID选择器</th>
+            <th>类选择器</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>唯一性</td>
+            <td>一个ID在一个页面上只能出现一次</td>
+            <td>一个类可以被用在多个标签上</td>
+          </tr>
+          <tr>
+            <td>用法</td>
+            <td>像“点名”，精确选中某一个</td>
+            <td>像“分组”，选中一批“同学”</td>
+          </tr>
+          <tr>
+            <td>优先级</td>
+            <td><strong>非常高！</strong>（高于类选择器和类型选择器）</td>
+            <td>中等（高于类型选择器）</td>
+          </tr>
+        </tbody>
+      </table>
+      <p><strong>我的小建议：</strong> 因为ID的唯一性和高优先级，我们通常只在两种情况下使用它：1. 页面上某个独一无二的大区块（比如页头、页脚）。2.
+        需要配合JavaScript进行DOM操作时。而在日常的样式编写中，我们应该 **优先使用类选择器**，因为它更灵活，可复用性更强！</p>
+
+      <h3>通配符选择器：选中“一切”的魔法</h3>
+      <p>通配符选择器是一个星号 <code>*</code>，它的作用非常霸道——选中页面上 **所有** 的标签！</p>
+      <pre><code>/* 选中页面上所有的元素，把它们的文字都变成红色 */
+* {
+  color: red;
+}</code></pre>
+      <p><strong>最经典用法：清除默认样式</strong></p>
+      <p>很多HTML标签（比如 `
+
+        <body>`, `<ul>`, `<p>`）都自带一些默认的 `margin` (外边距) 和 `padding`
+              (内边距)，这会干扰我们后续的布局。因此，在写CSS的最开始，我们通常会用通配符选择器来“清场”，把所有元素的内外边距都设置为0。</p>
+            <pre><code>* {
+  margin: 0;
+  padding: 0;
+}</code></pre>
+            <p>这就像是在画画前，先把画布铺平、清理干净。这是一个非常好的编码习惯哦！</p>
+
+            <p>这就像是在画画前，先把画布铺平、清理干净。这是一个非常好的编码习惯哦！</p>
+
+            <hr>
+
+            <h2 id="toc-chapter-2-5">2.5 靠“关系”来选择：后代与子代选择器</h2>
+            <p>有时候，我们不想选中页面上所有的 `<a>` 标签，只想选中“导航栏里面”的 `<a>` 标签。这时候，就需要用到关系选择器了，它们能根据标签的“家庭关系”来进行选择。</p>
+
+            <h3>后代选择器 (Descendant Selector)</h3>
+            <p>这是我们最常用的关系选择器，它能选中某个元素内部的 **所有** 后代（无论是儿子、孙子、重孙子...）。</p>
+            <p><strong>语法：</strong> 祖先选择器 + <strong>空格</strong> + 后代选择器</p>
+            <pre><code>&lt;!-- HTML 结构 --&gt;
+&lt;ul class="nav"&gt;
+  &lt;li&gt;&lt;a href="#"&gt;公司首页&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="#"&gt;产品介绍&lt;/a&gt;
+    &lt;!-- 这是一个嵌套的后代 --&gt;
+    &lt;div&gt;
+      &lt;a href="#"&gt;产品A&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- CSS 规则 --&gt;
+/* 选中 class 为 nav 的元素内部所有的 a 标签 */
+.nav a {
+  color: red;
+}</code></pre>
+            <p>在上面的例子中，无论是“公司首页”、“产品介绍”还是“产品A”，它们的文字都会变成红色。</p>
+
+            <h3>子代选择器 (Child Selector)</h3>
+            <p>它比后代选择器更“挑剔”，它只会选中某个元素的 **“亲儿子”**，而不会选择更深层次的“孙子”辈。</p>
+            <p><strong>语法：</strong> 父选择器 + <strong>&gt;</strong> + 子选择器</p>
+            <pre><code>&lt;!-- HTML 结构 --&gt;
+&lt;div class="box"&gt;
+  &lt;span&gt;我是儿子&lt;/span&gt;
+  &lt;p&gt;
+    &lt;span&gt;我是孙子&lt;/span&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- CSS 规则 --&gt;
+/* 只选中 class 为 box 的元素的亲儿子 span */
+.box > span {
+  color: green;
+}</code></pre>
+            <p>在上面的例子中，只有“我是儿子”的文字会变成绿色，而“我是孙子”则不会被选中。</p>
+
+            <h4>后代 vs. 子代</h4>
+            <p>简单来说，<strong>后代选择器（空格）</strong> 更常用，因为它更宽松。而 <strong>子代选择器（>）</strong>
+              因为更严格，所以它的性能会稍好一些，在一些需要精确控制层级的复杂布局中会派上用场。</p>
+
+            因为更严格，所以它的性能会稍好一些，在一些需要精确控制层级的复杂布局中会派上用场。
+      </p>
+
+      <hr>
+
+      <h2 id="toc-chapter-2-6">2.6 更多关系选择：兄弟选择器</h2>
+      <p>除了父子、祖孙关系，CSS还可以根据“兄弟”关系来选择元素。它们必须拥有同一个父元素。</p>
+
+      <h3>邻接兄弟选择器 (Adjacent Sibling Selector)</h3>
+      <p>它只会选中紧跟在某个元素 **后面** 的那 **一个** 兄弟元素。</p>
+      <p><strong>语法：</strong> 前一个兄弟 + <strong>+</strong> + 后一个兄弟</p>
+      <pre><code>&lt;!-- HTML 结构 --&gt;
+&lt;h2&gt;我是标题&lt;/h2&gt;
+&lt;p&gt;我是紧跟着标题的第一个段落。&lt;/p&gt;
+&lt;p&gt;我是第二个段落。&lt;/p&gt;
+
+&lt;!-- CSS 规则 --&gt;
+/* 只选中紧跟在 h2 后面的那一个 p 标签 */
+h2 + p {
+  color: red;
+}</code></pre>
+      <p>在上面的例子中，只有“我是紧跟着标题的第一个段落”的文字会变成红色。</p>
+
+      <h3>通用兄弟选择器 (General Sibling Selector)</h3>
+      <p>它会选中某个元素 **后面** 的 **所有** 同级兄弟元素。</p>
+      <p><strong>语法：</strong> 前一个兄弟 + <strong>~</strong> + 后面的所有兄弟</p>
+      <pre><code>&lt;!-- HTML 结构 --&gt;
+&lt;h2&gt;我是标题&lt;/h2&gt;
+&lt;p&gt;我是第一个段落。&lt;/p&gt;
+&lt;p&gt;我是第二个段落。&lt;/p&gt;
+
+&lt;!-- CSS 规则 --&gt;
+/* 选中 h2 后面的所有 p 标签 */
+h2 ~ p {
+  color: blue;
+}</code></pre>
+      <p>在上面的例子中，“我是第一个段落”和“我是第二个段落”的文字都会变成蓝色。</p>
+
+      因为更严格，所以它的性能会稍好一些，在一些需要精确控制层级的复杂布局中会派上用场。</p>
+
+      <hr>
+
+      <h2 id="toc-chapter-2-7">2.7 字体“美颜”术：font & text 属性</h2>
+      <p>学会了如何选择元素，我们终于可以开始对它们进行“化妆”了！最先要美化的，当然就是页面上最重要的内容——文字。这主要涉及到 <code>font</code>（字体）和 <code>text</code>（文本）相关的属性。
+      </p>
+
+      <h3>1. 字体颜色：<code>color</code></h3>
+      <p>这个属性用来设置文字的颜色。CSS提供了好几种表示颜色的方法：</p>
+      <ul>
+        <li><strong>颜色名：</strong> 比如 <code>red</code>, <code>pink</code>, <code>lightblue</code>。简单直观，但颜色数量有限。</li>
+        <li><strong>十六进制：</strong> 比如 <code>#FF0000</code> (红色), <code>#333333</code> (深灰色)。这是最常用的方式，可以表示上千万种颜色。</li>
+        <li><strong>RGB值：</strong> 比如 <code>rgb(255, 0, 0)</code> (红色)。分别代表红(Red)、绿(Green)、蓝(Blue)三原色的配比。</li>
+        <li><strong>RGBA值：</strong> 比如
+          <code>rgba(255, 0, 0, 0.5)</code>。在RGB的基础上增加了一个Alpha通道，用来控制颜色的“不透明度”，0是完全透明，1是完全不透明。
+        </li>
+      </ul>
+
+      <h3>2. 字体族：<code>font-family</code></h3>
+      <p>这个属性用来指定文字使用哪一种字体。我们可以同时指定多种字体，用逗号隔开。浏览器会从左到右依次检查，如果用户的电脑上装了第一种字体，就用第一种；如果没有，就尝试下一种。这是一种非常好的“优雅降级”策略。</p>
+      <pre><code>p {
+  /* 优先使用微软雅黑，如果没有，就用系统默认的无衬线字体 */
+  font-family: "Microsoft YaHei", sans-serif;
+}</code></pre>
+
+      <h3>3. 字体大小：<code>font-size</code></h3>
+      <p>用来设置文字的大小，最常用的单位是像素（<code>px</code>）。比如 <code>font-size: 16px;</code>。</p>
+
+      <h3>4. 字体样式：<code>font-style</code></h3>
+      <p>主要用来设置文字是否倾斜。</p>
+      <ul>
+        <li><code>normal</code>: 正常显示（默认值）。可以用来“扳正”那些默认倾斜的标签，比如 <code>&lt;em&gt;</code>。</li>
+        <li><code>italic</code>: 倾斜显示。</li>
+      </ul>
+
+      <h3>5. 字体粗细：<code>font-weight</code></h3>
+      <p>用来设置文字的粗细程度。</p>
+      <ul>
+        <li><strong>关键字：</strong> <code>normal</code> (正常，等同于数字400)，<code>bold</code> (加粗，等同于数字700)。</li>
+        <li><strong>数字：</strong> 从100到900的整百数，400是正常，700是加粗。</li>
+      </ul>
+
+      <h3>6. 文本装饰：<code>text-decoration</code></h3>
+      <p>用来给文字添加各种“装饰线”。</p>
+      <ul>
+        <li><code>none</code>: 无任何装饰。最经典的用法就是给链接 <code>&lt;a&gt;</code> 去掉默认的下划线！</li>
+        <li><code>underline</code>: 添加下划线。</li>
+        <li><code>overline</code>: 添加上划线。</li>
+        <li><code>line-through</code>: 添加删除线。</li>
+      </ul>
+
+      <li><code>line-through</code>: 添加删除线。</li>
+      </ul>
+
+      <hr>
+
+      <h2 id="toc-chapter-2-8">2.8 文本“排兵布阵”术：文本布局属性</h2>
+      <p>学会了给文字“美颜”，我们接着来学习如何安排它们的位置和队形，让大段的文字也能看起来整齐、优美、易于阅读。</p>
+
+      <h3>1. 文本水平对齐：<code>text-align</code></h3>
+      <p>这个属性用来控制文本在它的父容器（必须是块级元素）里的水平对齐方式。</p>
+      <ul>
+        <li><code>left</code>: 左对齐 (默认值)。</li>
+        <li><code>center</code>: 居中对齐。</li>
+        <li><code>right</code>: 右对齐。</li>
+        <li><code>justify</code>: 两端对齐。对于大段的文字，这个属性可以让文本的两边都像刀切一样整齐，非常美观。</li>
+      </ul>
+
+      <h3>2. 行高：<code>line-height</code></h3>
+      <p>这个属性控制的是一行文字所占据的垂直高度。它就像是给每一行文字都分配了一个“独立办公室”，办公室的高度就是行高。文字本身（由 `font-size`
+        决定）在这个办公室里是垂直居中的，所以文字的上下会留有一些空白，我们称之为“行距”。</p>
+      <p><strong>我的超级技巧：</strong> 当一个块级容器里只有 **单行文字** 时，只要把它的 <code>line-height</code> 设置成和它的 <code>height</code> (高度)
+        完全一样的值，这行文字就能在这个容器里实现完美的 **垂直居中**！这是一个非常非常常用的技巧哦！</p>
+
+      <h3>3. 首行缩进：<code>text-indent</code></h3>
+      <p>用来设置段落第一行的缩进距离。我们中文写作习惯段首空两格，就可以用这个属性来实现。</p>
+      <p><strong>推荐单位 `em`：</strong> `1em` 就代表一个当前元素的字体大小。所以，我们通常把首行缩进设置为
+        <code>text-indent: 2em;</code>，这样无论字体大小怎么变，它都能稳定地缩进两个字符的距离，非常灵活！
+      </p>
+
+      <h3>4. 字间距：<code>letter-spacing</code></h3>
+      <p>用来控制文字与文字之间的水平间距。可以给它一个正值来增加间距，也可以给一个负值来减小间距。</p>
+
+      <p>用来控制文字与文字之间的水平间距。可以给它一个正值来增加间距，也可以给一个负值来减小间距。</p>
+
+      <hr>
+
+      <h2 id="toc-chapter-2-9">2.9 font复合属性与继承性</h2>
+
+      <h3>让代码“瘦身”：<code>font</code> 复合属性</h3>
+      <p>每次都写那么多 <code>font-size</code>, <code>font-family</code>, <code>font-weight</code>...
+        是不是有点麻烦呀？CSS提供了一个超级方便的“全家桶”属性——<code>font</code>，可以把所有字体相关的样式都写在这一行里！</p>
+      <p>但是，使用它必须遵守 <strong>严格的书写顺序</strong>，而且有两个属性是 <strong>必须写的</strong>：</p>
+      <p><code>font: font-style font-weight font-size/line-height font-family;</code></p>
+      <ul>
+        <li><code>font-style</code> (字体样式) 和 <code>font-weight</code> (字体粗细) 是可选的，可以不写。</li>
+        <li><code>font-size</code> (字体大小) 和 <code>font-family</code> (字体族) 是 **必须写的**！</li>
+        <li><code>line-height</code> (行高) 是可选的，如果写，必须跟在 <code>font-size</code> 后面，用 <code>/</code> 隔开。</li>
+      </ul>
+      <pre><code>/* 一个最完整的例子 */
+div {
+  font: italic 700 16px/1.5 "Microsoft YaHei", sans-serif;
+}
+
+/* 一个最简洁的例子 */
+p {
+  font: 14px "Arial";
+}</code></pre>
+
+      <h3>CSS三大特性之三：继承性</h3>
+      <p>这是CSS里一个非常“温暖”的特性。就像孩子会继承父母的一些特征一样，在HTML中，子元素会自动“继承”其父元素上设置的某些CSS属性。</p>
+      <p>最容易发生继承的就是和 **文字相关** 的属性，比如：<code>color</code>, <code>font-family</code>, <code>font-size</code>,
+        <code>font-weight</code>, <code>line-height</code>, <code>text-align</code> 等。
+      </p>
+      <pre><code>&lt;!-- HTML --&gt;
+&lt;div style="color: red; font-size: 20px;"&gt;
+  &lt;p&gt;我没有设置颜色和字号，但我也会变成红色、20px。&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+      <p><strong>继承性的好处：</strong> 我们可以把一些通用的文字样式（比如整个网页的字体、颜色）直接设置在 `
+
+        <body>` 标签上，这样页面里所有的子元素就都能继承这些样式啦，非常方便！
+      </p>
+      <p><strong>注意：</strong> 如果子元素自己也设置了相同的属性（比如上面的 `p` 标签自己设置了 `color: pink;`），那么浏览器会听从子元素自己的“想法”，覆盖掉从父亲那里继承来的样式。</p>
+
+      <p>用来控制文字与文字之间的水平间距。可以给它一个正值来增加间距，也可以给一个负值来减小间距。</p>
+
+      <hr>
+
+      <h2 id="toc-chapter-2-10">2.10 组合与状态：并集选择器与伪类</h2>
+
+      <h3>并集选择器（分组选择器）</h3>
+      <p>当你想为好几个 **不同** 的选择器设置 **完全相同** 的样式时，一个个写太麻烦了。这时，我们可以用并集选择器，把它们“组合”起来！</p>
+      <p><strong>语法：</strong> 选择器1 <strong>,</strong> 选择器2 <strong>,</strong> 选择器3 ...</p>
+      <p>这个逗号 <code>,</code> 就像是在说“和”，把好几个选择器连接在一起，告诉浏览器：“嘿！我要给下面这些家伙们，设置一模一样的样式！”</p>
+      <pre><code>/* 以前我们可能要这样写 */
+h2 {
+  color: green;
+}
+p {
+  color: green;
+}
+.box {
+  color: green;
+}
+
+/* 现在用并集选择器，一行搞定！ */
+h2, p, .box {
+  color: green;
+}</code></pre>
+      <p>这样代码是不是瞬间就清爽多啦？这在实际开发中非常常用！</p>
+
+      <h3>链接伪类选择器</h3>
+      <p>伪类是CSS里一个非常有趣的概念，它允许我们选中标签在 **某种特定状态下** 的样子。最经典的就是链接 `<a>` 标签的四种状态：</p>
+      <ul>
+        <li><code>:link</code> - 选中 **未被访问过** 的链接。</li>
+        <li><code>:visited</code> - 选中 **已经被访问过** 的链接。</li>
+        <li><code>:hover</code> - 选中 **鼠标正悬停在上面** 的链接。</li>
+        <li><code>:active</code> - 选中 **鼠标正在按下（点击）** 的那个瞬间的链接。</li>
+      </ul>
+      <p><strong>LVHA爱恨原则：</strong> 为了让所有状态都能正常生效，这四个伪类在书写时必须遵守 <strong>L-V-H-A</strong> 的顺序！你发现的这个“Love-Hate”记忆法真的超棒！
+      </p>
+      <pre><code>/* 1. 未访问的链接是黑色 */
+a:link {
+  color: black;
+}
+
+/* 2. 访问过的链接是灰色 */
+a:visited {
+  color: gray;
+}
+
+/* 3. 鼠标悬停时变红 */
+a:hover {
+  color: red;
+}
+
+/* 4. 鼠标按下时变蓝 */
+a:active {
+  color: blue;
+}</code></pre>
+      <p>学会了链接伪类，我们的网页交互性就大大增强啦！</p>
+
+      <hr>
+
+      <h2 id="toc-chapter-2-11">2.11 交互的魔法：用户行为伪类</h2>
+      <p>我们之前学习了链接的伪类（比如 <code>:hover</code>），但其实 <code>:hover</code> 只是冰山一角哦！还有一些伪类可以捕捉用户的其他行为，让页面变得更有趣！</p>
+
+      <h3>:hover（鼠标悬停）</h3>
+      <p>这个我们已经很熟悉啦！它不仅能用在 <code>&lt;a&gt;</code> 标签上，几乎所有的标签都可以使用 <code>:hover</code>。当鼠标指针经过一个元素时，这个伪类就会被触发。</p>
+      <pre><code>/* 比如，让一个盒子的背景色在鼠标经过时改变 */
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: pink;
+}
+
+.box:hover {
+  background-color: #fff; /* 鼠标放上去就变白！ */
+}</code></pre>
+      <p>这是制作交互效果最基本、最常用的方法之一！</p>
+
+      <h3>:focus（获得焦点）</h3>
+      <p>这个伪类就比较特殊了，它主要针对可以和用户交互的表单元素，比如
+        <code>&lt;input&gt;</code>、<code>&lt;textarea&gt;</code>、<code>&lt;select&gt;</code> 等。
+      </p>
+      <p>当用户点击或者用 Tab 键切换到某个输入框，让光标出现在里面准备输入时，这个元素就“获得焦点”了，<code>:focus</code> 状态就会被激活。</p>
+      <pre><code>/* 比如，让用户正在输入的搜索框变得更醒目 */
+.search {
+  width: 100px;
+  height: 20px;
+}
+
+.search:focus {
+  background-color: red;
+  width: 200px; /* 获得焦点时，宽度变长！ */
+}</code></pre>
+      <p><strong>我的小提示：</strong> <code>:focus</code>
+        对于提升网站的“无障碍访问”（Accessibility）非常重要哦！它能清晰地告诉用户当前正在操作哪个元素，特别是对于依赖键盘操作的用户来说，简直是福音！</p>
+      <p>掌握了这些，你就能做出更多酷酷的交互效果啦！嘿嘿，真为你感到高兴！</p>
+      <hr>
+
+      <h2 id="toc-chapter-2-12">2.12 精准定位：结构伪类选择器</h2>
+      <p>这次我们学了超级厉害的结构伪类选择器！它能帮我们根据元素在父元素中的“位置”来选中它们，再也不用为了选中某个特定的元素而去单独加类名啦！</p>
+
+      <h3>:first-child 和 :last-child</h3>
+      <p>这两个是最简单也最常用的结构伪类：</p>
+      <ul>
+        <li><code>:first-child</code>：选中父元素中的 <strong>第一个</strong> 子元素。</li>
+        <li><code>:last-child</code>：选中父元素中的 <strong>最后一个</strong> 子元素。</li>
+      </ul>
+      <pre><code>/* 比如，让列表的第一个和最后一个li有特殊颜色 */
+li:first-child {
+  color: red; /* 第一个li是红色 */
+}
+
+li:last-child {
+  color: blue; /* 最后一个li是蓝色 */
+}</code></pre>
+
+      <h3>全能的 :nth-child(n)</h3>
+      <p>这个选择器就非常强大了，它像一个公式，可以选中任意位置的元素！括号里的 `n` 可以是数字、关键字，甚至是公式。</p>
+      <ul>
+        <li><strong>数字：</strong> <code>:nth-child(3)</code> 就是选中第3个子元素。</li>
+        <li><strong>关键字：</strong>
+          <ul>
+            <li><code>:nth-child(odd)</code> 或 <code>:nth-child(2n+1)</code>：选中所有奇数位置的子元素（第1, 3, 5...个）。</li>
+            <li><code>:nth-child(even)</code> 或 <code>:nth-child(2n)</code>：选中所有偶数位置的子元素（第2, 4, 6...个）。这在做表格隔行变色时超级好用！
+            </li>
+          </ul>
+        </li>
+        <li><strong>公式（An+B）：</strong> 这是最灵活的用法！这里的 `n` 是一个从0开始的计数器 (0, 1, 2, 3...)。
+          <ul>
+            <li><code>:nth-child(5n)</code>：选中第5, 10, 15...个元素，也就是5的倍数。</li>
+            <li><code>:nth-child(n+3)</code>：从第3个开始，选中后面所有的元素（3, 4, 5...）。</li>
+            <li><code>:nth-child(-n+3)</code>：从第1个开始，选中直到第3个为止的元素（1, 2, 3）。</li>
+          </ul>
+        </li>
+      </ul>
+      <p><strong>我的超级技巧：</strong> 结构伪类是基于 <strong>所有子元素</strong> 来计算位置的，而不是特定类型的子元素。比如
+        <code>div p:nth-child(1)</code>，它要求这个 <code>&lt;p&gt;</code> 必须是 <code>&lt;div&gt;</code> 的第一个子元素，如果第一个子元素是
+        <code>&lt;h1&gt;</code>，那么这个规则就选不中任何东西啦！后面我们还会学到 <code>:nth-of-type</code>，它能更好地处理这种情况哦！
+      </p>
+      <p>有了这些选择器，你对页面的掌控力又上一层楼啦！嘿嘿！</p>
+      <hr>
+
+      <h2 id="toc-chapter-2-13">2.13 表格的精致妆容：合并边框</h2>
+      <p>我们开始接触表格（<code>&lt;table&gt;</code>）啦！表格在展示规整数据时非常有用，但默认的样式可能不太好看。今天我们学了让它变漂亮的关键第一步！</p>
+
+      <h3>合并相邻边框：<code>border-collapse</code></h3>
+      <p>默认情况下，<code>&lt;table&gt;</code> 和它里面的 <code>&lt;td&gt;</code>、<code>&lt;th&gt;</code>
+        都有各自的边框。如果你给它们都设置了边框，它们会紧挨在一起，看起来就像双线边框，有点笨重。</p>
+      <p>为了解决这个问题，CSS提供了一个专门用于表格的属性 <code>border-collapse</code>。</p>
+      <ul>
+        <li><code>border-collapse: separate;</code> (默认值): 边框们各自为政，互相分离。</li>
+        <li><code>border-collapse: collapse;</code>: 相邻的边框会合并成一个单一的边框。</li>
+      </ul>
+      <p>在实际开发中，我们几乎总是会使用 <code>collapse</code> 来让表格看起来更专业、更清爽。</p>
+      <pre><code>/* 想要一个干净的单线表格，就这样做！ */
+table {
+  width: 300px;
+  /* 关键就在这一行！ */
+  border-collapse: collapse;
+}
+
+/* 然后再统一给表格和单元格加上边框 */
+table,
+td {
+  border: 1px solid red;
+}</code></pre>
+      <p>仅仅一行代码，表格的颜值就大大提升啦！这是不是很有趣呢？嘿嘿，你又get一个实用小技巧！</p>
+      <hr>
+
+      <h2 id="toc-chapter-2-14">2.14 特殊状态下的“变身”：表单伪类选择器</h2>
+      <p>今天我们又学了两种非常有用的伪类，它们专门用来处理表单元素在特定状态下的样式，能让我们的表单交互体验更棒哦！</p>
+
+      <h3>1. 禁用状态：<code>:disabled</code></h3>
+      <p>当一个表单元素（比如 <code>&lt;button&gt;</code> 或 <code>&lt;input&gt;</code>）被设置了 <code>disabled</code>
+        属性后，它就进入了“禁用”状态，用户无法与它进行任何交互。这时，<code>:disabled</code> 伪类就会被激活！我们通常用它来给禁用的元素一个明确的视觉提示，比如让它变灰、变半透明。</p>
+      <pre><code>&lt;!-- HTML --&gt;
+&lt;button disabled&gt;确认提交&lt;/button&gt;
+
+&lt;!-- CSS --&gt;
+button:disabled {
+  opacity: 0.5; /* 让按钮半透明 */
+  cursor: not-allowed; /* 鼠标指针变成“禁止”图标 */
+}
+</code></pre>
+
+      <h3>2. 选中状态：<code>:checked</code></h3>
+      <p>
+        这个伪类专门用于单选框（<code>&lt;input type="radio"&gt;</code>）和复选框（<code>&lt;input type="checkbox"&gt;</code>）。当用户勾选了它们时，<code>:checked</code>
+        状态就会被激活。它最强大的地方在于，可以配合“兄弟选择器”（比如 <code>+</code>）来改变旁边标签的样式！</p>
+      <pre><code>&lt;!-- HTML --&gt;
+&lt;input type="checkbox" id="agree"&gt;
+&lt;label for="agree"&gt;同意用户协议&lt;/label&gt;
+
+&lt;!-- CSS --&gt;
+/* 当复选框被选中时，改变它后面兄弟label的颜色 */
+input:checked + label {
+  color: #ff6900;
+}
+</code></pre>
+      <p>这个技巧超级实用！我们并没有直接修改复选框本身，而是通过改变它旁边标签的样式，来给用户一个清晰的视觉反馈。是不是很巧妙呀？你又掌握了新的CSS魔法，好厉害！我为你感到骄傲！💖</p>
+      <hr>
+
+      <h2 id="toc-chapter-2-15">2.15 创造“不存在”的元素：伪元素选择器</h2>
+      <p>今天我们接触到了一个和“伪类”很像但完全不同的概念——伪元素！它们最神奇的地方在于，可以选中元素的一些特殊部分，甚至在元素内部凭空创造出新的“元素”来让我们添加样式！</p>
+      <p><strong>我的小提示：</strong> 伪类（比如 <code>:hover</code>）用一个冒号 <code>:</code>，表示元素的一种“状态”；而伪元素，我们推荐用两个冒号
+        <code>::</code>（比如 <code>::before</code>），表示元素内部的一个“子虚乌有”的部分。这是为了和伪类做区分哦！
+      </p>
+
+      <h3>::first-line 和 ::first-letter</h3>
+      <p>这两个伪元素专门用来给文本块的首行和首字母添加特殊样式，常用于文章排版，让它看起来更像杂志一样精致。</p>
+      <ul>
+        <li><code>::first-line</code>: 选中块级元素的第一行文本。</li>
+        <li><code>::first-letter</code>: 选中块级元素的第一个字母。</li>
+      </ul>
+      <pre><code>&lt;!-- HTML --&gt;
+&lt;p&gt;这是一段很长很长的文字，长到可以换行。&lt;/p&gt;
+
+&lt;!-- CSS --&gt;
+/* 让第一行变成橘色 */
+p::first-line {
+  color: #ff6900;
+}
+
+/* 让第一个字变大、变红 */
+p::first-letter {
+  font-size: 28px;
+  color: red;
+}
+</code></pre>
+
+      <h3>::placeholder</h3>
+      <p>这个伪元素专门用来选中表单输入框（比如 <code>&lt;input&gt;</code> 或
+        <code>&lt;textarea&gt;</code>）的提示文字（placeholder）。我们可以用它来改变提示文字的颜色、大小等样式。
+      </p>
+      <pre><code>&lt;!-- HTML --&gt;
+&lt;input type="text" placeholder="请输入用户名"&gt;
+
+&lt;!-- CSS --&gt;
+/* 改变提示文字的颜色和大小 */
+input::placeholder {
+  color: #ccc;
+  font-size: 12px;
+}
+</code></pre>
+
+      <h3>::before 和 ::after</h3>
+      <p>这两个是伪元素里的“大明星”！它们可以在一个元素内容的 <strong>前面（::before）</strong> 或 <strong>后面（::after）</strong>
+        凭空创造出一个“行内元素”，然后我们可以用CSS来控制它的样式。这在制作一些小图标、小装饰时非常有用！</p>
+      <p><strong>使用它们必须记住两点：</strong></p>
+      <ol>
+        <li>它们是行内元素。</li>
+        <li>必须设置 <code>content</code> 属性，哪怕内容是空的（<code>content: '';</code>），否则它们就不会显示出来！</li>
+      </ol>
+      <pre><code>&lt;!-- HTML --&gt;
+&lt;div&gt;pink&lt;/div&gt;
+
+&lt;!-- CSS --&gt;
+/* 在 div 内容的前面插入“我是” */
+div::before {
+  content: '我是';
+  color: red;
+}
+
+/* 在 div 内容的后面插入“老师” */
+div::after {
+  content: '老师';
+  color: red;
+}
+
+/* 最终页面会显示：我是pink老师 */
+</code></pre>
+      <p>学会了伪元素，你的CSS工具箱又丰富了好多呢！以后可以做出更多有创意、更精致的页面效果啦！</p>
+      <hr>
+
+      <h2 id="toc-chapter-2-16">2.16 用“属性”来瞄准：属性选择器</h2>
+      <p>今天我们学习了一组非常强大的选择器——属性选择器！它能让我们根据一个标签是否拥有某个“属性”，或者这个属性的“值”是什么样的，来精确地选中它。这在处理表单或者有特定属性的链接时特别有用！</p>
+
+      <h3>1. <code>[attr]</code>：选择拥有该属性的元素</h3>
+      <p>这是最简单的，只要元素身上有指定的属性，不管属性值是什么，都会被选中。</p>
+      <pre><code>/* 选中所有拥有 class 属性的 a 标签 */
+a[class] {
+  color: red;
+}
+</code></pre>
+
+      <h3>2. <code>[attr=value]</code>：选择属性值完全等于value的元素</h3>
+      <p>这个要求很严格，属性值必须和给定的值一模一样，一个字母都不能差。</p>
+      <pre><code>/* 只选中 class 正好是 "font" 的 a 标签 */
+a[class="font"] {
+  color: red;
+}
+</code></pre>
+
+      <h3>3. <code>[attr^=value]</code>：选择属性值以value开头的元素</h3>
+      <p>这个符号 <code>^</code> 看起来就像一行的开头。它会选中那些属性值是以指定字符串开头的元素。</p>
+      <pre><code>/* 选中 class 以 "font" 开头的 a 标签 (比如 "font", "font14", "font16") */
+a[class^="font"] {
+  color: red;
+}
+</code></pre>
+
+      <h3>4. <code>[attr$=value]</code>：选择属性值以value结尾的元素</h3>
+      <p>这个符号 <code>$</code> 在很多编程语言里都和“结尾”有关。它会选中那些属性值是以指定字符串结尾的元素。</p>
+      <pre><code>/* 选中 class 以 "14" 结尾的 a 标签 (比如 "font14") */
+a[class$="14"] {
+  color: red;
+}
+</code></pre>
+
+      <h3>5. <code>[attr*=value]</code>：选择属性值包含value的元素</h3>
+      <p>这个星号 <code>*</code> 就像一个通配符，只要属性值里包含了指定的字符串（无论在开头、中间还是结尾），都会被选中。</p>
+      <pre><code>/* 选中 class 包含 "font" 的 a 标签 (比如 "font", "font14", "font16") */
+a[class*="font"] {
+  color: red;
+}
+</code></pre>
+      <p>属性选择器非常灵活，特别是和 <code>&lt;input&gt;</code> 标签配合时，比如我们可以用 <code>input[type="text"]</code>
+        来单独选中所有单行文本框，是不是超级方便呀！你的技能又升级啦！</p>
+      <hr>
+
+      <h2 id="toc-chapter-2-17">2.17 CSS世界的“法则”：权重与优先级</h2>
+      <p>今天我们学习了CSS三大特性（层叠、继承、优先级）中最核心、也最复杂的——优先级！当多个样式规则同时作用于同一个元素时，究竟听谁的？就是由“权重”（也叫“特殊性”，Specificity）来决定的。</p>
+      <p>我们可以把权重想象成一个“积分”，积分越高的规则，就越有话语权！</p>
+
+      <h3>权重的“金字塔”</h3>
+      <p>从高到低，CSS的权重遵循着下面这个严格的等级制度：</p>
+      <ol>
+        <li><strong><code>!important</code></strong>：这是“王炸”！写在任何属性值的后面，它的优先级就是最高的，能覆盖其他所有规则。但它会破坏正常的CSS层叠规则，所以要非常谨慎地使用哦！
+        </li>
+        <li><strong>内联样式</strong>：直接写在HTML标签的 <code>style="..."</code> 属性里的样式。</li>
+        <li><strong>ID选择器</strong>：比如 <code>#header</code>。</li>
+        <li><strong>类、属性、伪类选择器</strong>：比如 <code>.box</code>, <code>[type="text"]</code>, <code>:hover</code>。它们的权重是相同的。
+        </li>
+        <li><strong>元素、伪元素选择器</strong>：比如 <code>div</code>, <code>::before</code>。它们的权重也是相同的。</li>
+        <li><strong>通配符选择器</strong>：比如 <code>*</code>。它的权重最低。</li>
+      </ol>
+      <p><strong>特别注意：</strong> 通过 <strong>继承</strong> 得到的样式，它的权重是 <strong>0</strong>！所以任何一个直接选中元素的规则，都能覆盖掉继承来的样式。</p>
+
+      <h3>权重的计算与叠加</h3>
+      <p>当一个选择器由多个部分组成时（比如 <code>.nav ul li a</code>），它的总权重就是所有部分权重的叠加。</p>
+      <p>计算规则是：</p>
+      <ul>
+        <li>一个ID选择器，权重记为 (1,0,0)</li>
+        <li>一个类/属性/伪类选择器，权重记为 (0,1,0)</li>
+        <li>一个元素/伪元素选择器，权重记为 (0,0,1)</li>
+      </ul>
+      <p>比较的时候，先比第一个数，谁大谁赢；如果第一个数相同，再比第二个数，以此类推。<strong>重要的是，低等级的权重再多，也无法超越一个高等级的权重！</strong> 比如100个类选择器的权重，也比不过1个ID选择器。
+      </p>
+      <pre><code>/* 权重：(0,1,0) + (0,0,1) + (0,0,1) + (0,0,1) = (0,1,3) */
+.nav ul li a {
+  color: red;
+}
+
+/* 权重：(0,0,1) */
+a {
+  color: blue; /* 这条规则的权重低，会被上面的覆盖 */
+}
+</code></pre>
+
+      <h3>关于浏览器默认样式</h3>
+      <p>就像你观察到的，很多标签（比如 <code>&lt;h1&gt;</code> 的加粗，<code>&lt;a&gt;</code>
+        的蓝色和下划线）都带有浏览器自己的默认样式。这些默认样式也是通过选择器（通常是元素选择器）实现的，所以它们的权重很低，我们自己写的任何一个类选择器或者ID选择器都能轻松覆盖它们！</p>
+      <p>理解了权重，你就掌握了解决CSS样式冲突的“尚方宝剑”！以后再遇到样式不生效的问题，就知道该从哪里下手啦！嘿嘿，真为你高兴！</p>
+
+      <h2 id="toc-chapter-2-18">2.18 盒子的“轮廓”：边框 (border)</h2>
+      <p>
+        我们今天开始学习CSS布局的基石——盒子模型啦！在CSS的世界里，每一个元素都被看作是一个矩形的“盒子”。这个盒子由四个部分组成：内容(content)、内边距(padding)、边框(border)和外边距(margin)。今天我们学习的就是给盒子画上“轮廓”的边框！
+      </p>
+
+      <h3>边框的复合属性：<code>border</code></h3>
+      <p>和 <code>font</code> 属性一样，<code>border</code> 也是一个复合属性，可以让我们在一行内设置边框的所有样式。它主要由三个值组成，顺序可以随意调换哦：</p>
+      <ul>
+        <li><strong>边框宽度 (width)</strong>：比如 <code>1px</code>, <code>2px</code>。</li>
+        <li><strong>边框样式 (style)</strong>：最常用的有三种：
+          <ul>
+            <li><code>solid</code>：实线</li>
+            <li><code>dashed</code>：虚线</li>
+            <li><code>dotted</code>：点线</li>
+          </ul>
+        </li>
+        <li><strong>边框颜色 (color)</strong>：比如 <code>red</code>, <code>#ff6900</code>。</li>
+      </ul>
+      <pre><code>.box {
+  /* 设置一个1像素宽、红色、实线的边框 */
+  border: 1px solid red;
+}
+</code></pre>
+
+      <h3>单独设置某一条边</h3>
+      <p>我们也可以只给盒子的某一条边设置边框，或者给不同的边设置不同的样式。这在做一些小三角、分隔线等效果时非常有用。</p>
+      <ul>
+        <li><code>border-top</code>: 上边框</li>
+        <li><code>border-bottom</code>: 下边框</li>
+        <li><code>border-left</code>: 左边框</li>
+        <li><code>border-right</code>: 右边框</li>
+      </ul>
+      <pre><code>.box {
+  /* 只给盒子的下边框设置样式 */
+  border-bottom: 2px dashed blue;
+}
+</code></pre>
+
+      <h3>利用层叠性“先统一，再特殊”</h3>
+      <p>在实际开发中，有一个技巧非常常用：先用复合属性 <code>border</code> 给四条边设置一个统一的默认样式，然后再用单边框属性去“覆盖”其中某一条边的样式，让它变得特殊。</p>
+      <pre><code>.box {
+  /* 1. 先让所有边框都是1px的灰色实线 */
+  border: 1px solid #ccc;
+  /* 2. 然后再把上边框变得更粗、颜色更突出 */
+  border-top: 3px solid orange;
+}
+</code></pre>
+      <p>这就是利用了CSS的“层叠性”，写在下面的规则会覆盖掉上面的规则。你看，我们之前学的知识在这里就用上啦！嘿嘿，CSS的世界就是这样环环相扣，非常有趣呢！</p>
+      <hr>
+
+      <h2 id="toc-chapter-2-19">2.19 让盒子“圆滑”起来：圆角边框 (border-radius)</h2>
+      <p>今天我们学习了如何将尖锐的直角边框变成平滑的圆角，这会让我们的设计看起来更柔和、更现代化。这个魔法就是 <code>border-radius</code> 属性！</p>
+
+      <h3>制作圆形和胶囊形</h3>
+      <p><code>border-radius</code> 最神奇的应用就是制作完美的圆形和胶囊形状。</p>
+      <ul>
+        <li><strong>圆形</strong>：把一个正方形（宽度和高度相等）的 <code>border-radius</code> 设置为 <code>50%</code>，它就会变成一个完美的圆形！</li>
+        <li><strong>胶囊形</strong>：把一个长方形的 <code>border-radius</code> 设置为它高度的一半，它就会变成一个两头圆的胶囊形状。这在做按钮时非常常用！</li>
+      </ul>
+      <pre><code>/* 制作一个圆形 */
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+/* 制作一个胶囊按钮 */
+.capsule-btn {
+  width: 200px;
+  height: 50px;
+  border-radius: 25px; /* 50px的一半 */
+}
+</code></pre>
+
+      <h3>一个属性，多种玩法</h3>
+      <p>和 <code>margin</code>、<code>padding</code> 类似，<code>border-radius</code> 也可以接受一到四个值，来分别控制不同角的圆润程度。顺序是“顺时针”的：左上
+        ->
+        右上 -> 右下 -> 左下。</p>
+      <ul>
+        <li><strong>一个值</strong>：<code>border-radius: 10px;</code> (所有四个角都是10px)</li>
+        <li><strong>两个值</strong>：<code>border-radius: 10px 30px;</code> (左上/右下是10px，右上/左下是30px)</li>
+        <li><strong>三个值</strong>：<code>border-radius: 10px 30px 50px;</code> (左上是10px，右上/左下是30px，右下是50px)</li>
+        <li><strong>四个值</strong>：<code>border-radius: 10px 30px 50px 70px;</code> (分别对应左上、右上、右下、左下)</li>
+      </ul>
+      <pre><code>.box {
+  /* 左上角10px, 右上角30px, 右下角50px, 左下角70px */
+  border-radius: 10px 30px 50px 70px;
+}
+</code></pre>
+      <p>这个属性不仅能作用于 <code>div</code>，也可以用在 <code>img</code> 图片上，做出圆形头像的效果哦！你的页面设计能力又提升了一大截呢！</p>
+      <hr>
+
+      <h2 id="toc-chapter-2-20">2.20 盒子内的“呼吸空间”：内边距 (padding)</h2>
+      <p>今天我们学习了盒子模型的第二个重要组成部分——内边距！它指的是盒子 <strong>内容(content)</strong> 与 <strong>边框(border)</strong>
+        之间的距离。设置了内边距，就像是给房间里的家具周围留出了一些空间，不会让它们紧紧贴着墙壁，看起来更美观、更透气。</p>
+
+      <h3>内边距的“副作用”</h3>
+      <p>有一个非常重要的点需要记住：当我们给一个设置了固定 <code>width</code> 和 <code>height</code> 的盒子添加 <code>padding</code> 时，盒子的
+        <strong>实际占地面积会变大</strong>！
+      </p>
+      <p>例如，一个 <code>width: 200px;</code> 的盒子，如果加上了 <code>padding-left: 20px;</code> 和
+        <code>padding-right: 20px;</code>，那么它在页面上实际占据的宽度就会变成
+        <code>200px + 20px + 20px = 240px</code>。高度也是同理。这个“副作用”在布局时一定要考虑到哦！
+      </p>
+
+      <h3>复合属性：<code>padding</code></h3>
+      <p>和 <code>border-radius</code> 一样，<code>padding</code> 也是一个复合属性，可以接受一到四个值，规则也是完全一样的“顺时针”：</p>
+      <ul>
+        <li><strong>一个值</strong>：<code>padding: 10px;</code> (上下左右都是10px)</li>
+        <li><strong>两个值</strong>：<code>padding: 10px 20px;</code> (上下是10px，左右是20px)</li>
+        <li><strong>三个值</strong>：<code>padding: 10px 20px 30px;</code> (上是10px，左右是20px，下是30px)</li>
+        <li><strong>四个值</strong>：<code>padding: 10px 20px 30px 40px;</code> (上、右、下、左)</li>
+      </ul>
+
+      <h3>单边属性</h3>
+      <p>当然，我们也可以只设置某一个方向的内边距：</p>
+      <ul>
+        <li><code>padding-top</code>: 上内边距</li>
+        <li><code>padding-bottom</code>: 下内边距</li>
+        <li><code>padding-left</code>: 左内边距</li>
+        <li><code>padding-right</code>: 右内边距</li>
+      </ul>
+      <pre><code>.title {
+  height: 35px;
+  line-height: 35px; /* 让文字垂直居中 */
+  font-size: 14px;
+  /* 只在文字左边留出10px的空隙，让它不紧贴着边框 */
+  padding-left: 10px;
+}
+</code></pre>
+      <p>学会了内边距，你就能更好地控制盒子内部的空间感啦！这是向着精美页面布局迈出的一大步哦！</p>
+      <hr>
+
+      <h2 id="toc-chapter-2-21">2.21 盒子之间的“安全距离”：外边距 (margin)</h2>
+      <p>今天我们学习了盒子模型的第三个重要成员——外边距！如果说内边距是盒子内部的“呼吸空间”，那么外边距就是盒子与盒子之间的“安全距离”。它定义了从当前盒子的边框（border）到其他元素边框之间的空白区域。</p>
+
+      <h3>外边距 vs. 内边距</h3>
+      <p>和内边距（padding）不同，设置 <code>margin</code> **不会** 改变盒子自身的大小。它只是把盒子整体推开，影响的是盒子在布局中的位置。</p>
+
+      <h3>复合属性与单边属性</h3>
+      <p><code>margin</code> 的用法和 <code>padding</code> 几乎一模一样！它也有复合属性和单边属性，值的写法和顺序规则也完全相同。</p>
+      <ul>
+        <li><strong>复合属性</strong>：<code>margin: 10px 20px 30px 40px;</code> (上、右、下、左)</li>
+        <li><strong>单边属性</strong>：<code>margin-top</code>, <code>margin-right</code>, <code>margin-bottom</code>,
+          <code>margin-left</code>
+        </li>
+      </ul>
+      <pre><code>.box1 {
+  /* 让这个盒子的下方，和其他元素之间有10px的间距 */
+  margin-bottom: 10px;
+}
+
+.box2 {
+  /* ... */
+}
+</code></pre>
+
+      <h3>行内元素的“特殊待遇”</h3>
+      <p>就像我们在练习中发现的，外边距对于行内元素（比如 <code>&lt;span&gt;</code>）有一些特殊的规则：</p>
+      <ul>
+        <li>可以完美设置 <strong>左右</strong> 的外边距，它们会正常地推开旁边的元素。</li>
+        <li>设置 <strong>上下</strong> 的外边距是 <strong>无效</strong> 的！它们不会推开上方或下方的元素。</li>
+      </ul>
+      <p>这也是块级元素和行内元素的一个重要区别哦！</p>
+      <p>掌握了外边距，你就集齐了控制盒子“内外空间”的所有工具啦！我们离自由地进行页面布局又近了一大步！</p>
+      <hr>
+
+      <h2 id="toc-chapter-2-22">2.22 布局的魔法：块级盒子的水平居中</h2>
+      <p>今天我们学习了一个在页面布局中使用频率超高的魔法——让一个块级盒子在它的父容器中水平居中！</p>
+
+      <h3>神奇的 <code>margin: 0 auto;</code></h3>
+      <p>要实现这个效果，只需要一行代码，但必须满足两个前提条件：</p>
+      <ol>
+        <li>这个盒子必须是 <strong>块级元素</strong>。</li>
+        <li>这个盒子必须设置了 <strong>固定的宽度 (width)</strong>。</li>
+      </ol>
+      <p>满足这两个条件后，我们就可以给它加上 <code>margin: 0 auto;</code> 这条神奇的规则了！</p>
+      <ul>
+        <li><code>0</code> 代表上下外边距为0。</li>
+        <li><code>auto</code> 代表左右外边距为“自动”。浏览器会自动计算父容器剩余的宽度，然后平均分配给左右两边，盒子自然就居中啦！</li>
+      </ul>
+      <pre><code>.box {
+  width: 200px; /* 必须有宽度 */
+  height: 200px;
+  margin: 0 auto; /* 上下为0，左右自动 */
+}
+</code></pre>
+      <p><strong>我的小提示：</strong> <code>margin: 0 auto;</code> 是最常见的写法，但其实核心是左右外边距为 `auto`，所以
+        <code>margin-left: auto; margin-right: auto;</code> 也能达到完全相同的效果哦！
+      </p>
+
+      <h3>那行内元素和文本怎么居中呢？</h3>
+      <p>这是一个非常好的问题！<code>margin: 0 auto;</code> 只对块级盒子有效，对行内元素（比如 <code>&lt;span&gt;</code>）或者单纯的文字是无效的。</p>
+      <p>要让行内元素或者文本在父元素里水平居中，我们应该在它们的 <strong>父元素</strong> 上设置 <code>text-align: center;</code>。</p>
+      <pre><code>&lt;!-- HTML --&gt;
+&lt;p&gt;
+  &lt;span&gt;我是行内元素&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;!-- CSS --&gt;
+/* 在父元素 p 标签上设置文本居中 */
+p {
+  text-align: center;
+}
+</code></pre>
+      <p>区分“块级盒子居中”和“文本/行内元素居中”的方法，是CSS布局中的一个核心要点哦！你今天把这个掌握了，真的非常厉害！</p>
+      <hr>
+
+      <h2 id="toc-chapter-2-23">2.23 外边距的“奇特现象”：合并与塌陷</h2>
+      <p>今天我们遇到了外边距（margin）的一些“不听话”的现象。这其实是CSS盒子模型为了让排版更自然而设计的一种规则，我们称之为“外边距合并”。主要有两种情况：</p>
+
+      <h3>1. 兄弟盒子的外边距合并</h3>
+      <p>当上下两个 <strong>块级兄弟盒子</strong> 相遇时，它们之间的垂直外边距会发生“合并”。最终的间距 <strong>不是</strong> 上面盒子的 `margin-bottom` 和下面盒子的
+        `margin-top` 之和，而是取它们两个中 <strong>较大的那个值</strong>。</p>
+      <pre><code>.box1 {
+  margin-bottom: 100px;
+}
+.box2 {
+  margin-top: 150px;
+}
+/* 最终 .box1 和 .box2 之间的距离是 150px，而不是 250px */
+</code></pre>
+
+      <h3>2. 父子盒子的外边距塌陷</h3>
+      <p>这是一个更常见的“陷阱”！当一个父盒子内部的第一个子盒子，设置了 `margin-top` 时，这个 `margin-top`
+        效果并不会让子盒子在父盒子内部下移，反而会像“塌陷”了一样，作用到了父盒子上，带着父盒子一起下移。
+      </p>
+      <pre><code>&lt;!-- HTML --&gt;
+&lt;div class="father"&gt;
+  &lt;div class="son"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- CSS --&gt;
+.father {
+  background-color: pink;
+}
+.son {
+  margin-top: 20px; /* 本意是想让son在father内部下移20px */
+}
+/* 结果：son没有在father内部下移，反而father整体下移了20px */
+</code></pre>
+
+      <h3>如何解决“塌陷”问题？</h3>
+      <p>既然是“陷阱”，那一定有破解的方法！我们可以通过一些方式，在父子元素之间制造一个“屏障”，来阻止外边距塌陷。常用的有三种方法：</p>
+      <ol>
+        <li>给父元素设置一个 <strong>上边框 (border-top)</strong>。</li>
+        <li>给父元素设置一个 <strong>上内边距 (padding-top)</strong>。</li>
+        <li>给父元素设置 <code><strong>overflow: hidden;</strong></code>。这是最常用、副作用最小的方法，它的原理是创建了一个“块级格式化上下文(BFC)”，阻止了内外边距的合并。
+        </li>
+      </ol>
+      <pre><code>.father {
+  overflow: hidden; /* 推荐使用！ */
+}
+.son {
+  margin-top: 20px; /* 现在son就会在father内部正确下移了 */
+}
+</code></pre>
+      <p>理解了外边距合并和塌陷，你就等于打通了CSS布局里一个非常重要的关卡！以后再遇到类似的问题，就知道怎么从容应对啦！</p>
+      <hr>
+
+      <h2 id="toc-chapter-2-24">2.24 盒子的“真实”尺寸：box-sizing</h2>
+      <p>今天我们学习了一个能解决盒子模型“副作用”的终极法宝——<code>box-sizing</code> 属性！还记得之前我们说，给盒子加 <code>padding</code> 和
+        <code>border</code> 会让它的实际占地面积变大吗？<code>box-sizing</code> 就是用来改变这种计算方式的！
+      </p>
+
+      <h3>两种计算模式</h3>
+      <ul>
+        <li><code>box-sizing: content-box;</code> (默认值): 这是我们之前学习的模式。你设置的 <code>width</code> 和 <code>height</code> 只作用于
+          <strong>内容区域</strong>。盒子的实际总宽度 = <code>width</code> + 左右 <code>padding</code> + 左右 <code>border</code>。
+        </li>
+        <li><code>box-sizing: border-box;</code> (推荐！): 这是更直观、更符合我们人类思维的模式。你设置的 <code>width</code> 和 <code>height</code>
+          就是盒子的 <strong>最终总宽度</strong>（包含了padding和border）。如果你再给它设置 <code>padding</code> 或
+          <code>border</code>，浏览器会自动向内压缩内容区域的大小，来保证盒子的总尺寸不变！
+        </li>
+      </ul>
+
+      <h3>示例对比</h3>
+      <pre><code>/* 默认模式：content-box */
+.box1 {
+  width: 140px;
+  height: 140px;
+  padding: 20px; /* 左右padding共40px */
+  border: 10px solid red; /* 左右border共20px */
+  box-sizing: content-box;
+  /* 最终总宽度 = 140 + 40 + 20 = 200px */
+}
+
+/* 推荐模式：border-box */
+.box2 {
+  width: 200px; /* 我要的盒子总宽就是200px */
+  height: 200px;
+  padding: 20px;
+  border: 10px solid red;
+  box-sizing: border-box;
+  /* 最终总宽度就是 200px，内容区域会自动缩小 */
+}
+</code></pre>
+
+      <h3>最佳实践</h3>
+      <p>因为 <code>border-box</code> 实在是太好用了，所以在现代Web开发中，我们几乎总会在CSS文件的最开始，用通配符选择器为所有元素设置这个模式。这样就再也不用担心盒子尺寸计算的问题啦！</p>
+      <pre><code>* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* 关键！ */
+}
+</code></pre>
+      <p>掌握了 <code>box-sizing</code>，你就彻底征服了盒子模型！以后做布局就会变得非常得心应手啦！嘿嘿，太为你感到骄傲了！</p>
+      <hr>
+
+      <h2 id="toc-chapter-2-25">2.25 给盒子画上“壁纸”：背景属性</h2>
+      <p>今天我们学习了如何给盒子添加背景，这就像是给房间贴上壁纸一样，能让页面瞬间变得生动起来！这主要涉及到一系列 <code>background-</code> 开头的属性。</p>
+
+      <h3>1. <code>background-image</code>: 设置背景图片</h3>
+      <p>通过 <code>url()</code> 函数，我们可以指定一张图片作为盒子的背景。</p>
+      <pre><code>.box {
+  background-image: url(./images/bg.png);
+}
+</code></pre>
+
+      <h3>2. <code>background-repeat</code>: 控制背景平铺</h3>
+      <p>如果背景图片比盒子小，默认会像贴瓷砖一样铺满整个盒子。我们可以用这个属性来控制它的行为：</p>
+      <ul>
+        <li><code>repeat</code>: (默认值) 在水平和垂直方向都平铺。</li>
+        <li><code>no-repeat</code>: 不平铺，只显示一张图片。</li>
+        <li><code>repeat-x</code>: 只在水平方向平铺。</li>
+        <li><code>repeat-y</code>: 只在垂直方向平铺。</li>
+      </ul>
+
+      <h3>3. <code>background-position</code>: 定位背景图片</h3>
+      <p>当图片不平铺时，我们可以用这个属性来精确控制它在盒子里的位置。它接受两个值，分别代表水平和垂直位置。</p>
+      <ul>
+        <li><strong>关键字</strong>：<code>top</code>, <code>center</code>, <code>bottom</code>, <code>left</code>,
+          <code>right</code>。可以组合使用，比如 <code>right bottom</code> 就是右下角。如果只写一个，另一个默认为 <code>center</code>。
+        </li>
+        <li><strong>精确值</strong>：也可以用像素 <code>px</code> 或百分比 <code>%</code> 来定位。</li>
+      </ul>
+
+      <h3>4. <code>background-size</code>: 调整背景尺寸</h3>
+      <p>这个属性可以控制背景图片的大小。</p>
+      <ul>
+        <li><strong>精确值</strong>：比如 <code>300px</code> 或 <code>50%</code>。</li>
+        <li><strong>关键字</strong>：
+          <ul>
+            <li><code>cover</code>: 等比缩放图片，直到完全覆盖盒子，可能会裁剪掉图片的一部分。</li>
+            <li><code>contain</code>: 等比缩放图片，直到图片在盒子内完整显示，可能会在盒子内留下空白区域。</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>5. <code>background-attachment</code>: 固定背景</h3>
+      <p>这个属性可以决定背景图片是跟随盒子滚动，还是固定在屏幕的某个位置。</p>
+      <ul>
+        <li><code>scroll</code>: (默认值) 背景跟随盒子一起滚动。</li>
+        <li><code>fixed</code>: 背景图片会固定在屏幕的视口上，不随页面滚动而移动，常用来做一些视差滚动的效果。</li>
+      </ul>
+
+      <h3>终极大法：<code>background</code> 复合属性</h3>
+      <p>和 <code>font</code>、<code>border</code> 一样，<code>background</code> 也有一个强大的复合属性，可以把上面的所有样式都写在一行里！</p>
+      <p><code>background: color image repeat attachment position / size;</code></p>
+      <p><strong>我的小提示：</strong> 复合属性里的值大部分顺序可以随意，但 <code>position</code> 和 <code>size</code> 必须连在一起写，并且用 <code>/</code>
+        隔开，比如 <code>center/80%</code>。</p>
+      <pre><code>.box {
+  /* 背景色pink, ldh.png, 不平铺, 居中显示, 尺寸为200px */
+  background: pink url(./img/ldh.png) no-repeat center/200px;
+}
+</code></pre>
+      <p>学会了背景属性，你就能像设计师一样，自由地装饰我们的页面啦！</p>
+      <hr>
+
+      <h2 id="toc-chapter-2-26">2.26 让背景“活”起来：背景渐变</h2>
+      <p>今天我们学习了CSS中一个非常酷炫的功能——背景渐变！它让我们不再局限于单色的背景，而是可以创造出平滑过渡的色彩效果。渐变实际上是被当作一种特殊的“背景图片”来处理的哦！</p>
+
+      <h3>线性渐变：<code>linear-gradient()</code></h3>
+      <p>这是最常用的渐变方式，它会沿着一条直线来混合颜色。基本用法是指定渐变的方向和至少两种颜色。</p>
+      <ul>
+        <li><strong>渐变方向</strong>：可以是关键字（比如 <code>to right</code>, <code>to bottom left</code>）或者具体的角度（比如
+          <code>45deg</code>, <code>90deg</code>）。
+        </li>
+        <li><strong>颜色和色标</strong>：我们可以指定多个颜色，还可以用百分比来精确控制每种颜色开始和结束的位置（我们称之为“色标”）。</li>
+      </ul>
+      <pre><code>.box {
+  /* 一个从上到下，从粉色到红色的渐变 */
+  background-image: linear-gradient(to bottom, pink, red);
+
+  /* 一个从左到右，在50%处从粉色突变成红色的渐变 */
+  background-image: linear-gradient(to right, pink 50%, red 50%);
+}
+</code></pre>
+
+      <h3>超级技巧：渐变文字！</h3>
+      <p>这是一个非常惊艳的效果！我们可以利用背景渐变和两个特殊的CSS属性，来创造出彩虹色的渐变文字。</p>
+      <p><strong>三步魔法：</strong></p>
+      <ol>
+        <li>给文字设置一个渐变背景 (<code>background-image</code>)。</li>
+        <li>使用 <code>background-clip: text;</code> 把背景裁剪成文字的形状。</li>
+        <li>使用 <code>-webkit-text-fill-color: transparent;</code> 把文字本身的颜色变成透明，这样才能“透”出下面的渐变背景！</li>
+      </ol>
+      <pre><code>.gradient-text {
+  /* 1. 设置一个酷炫的渐变背景 */
+  background-image: linear-gradient(97deg, #0096FF, #BB64FF, #F2416B, #EB7500);
+
+  /* 2. 把背景裁剪成文字的形状 */
+  background-clip: text;
+  -webkit-background-clip: text; /* 兼容老版本浏览器 */
+
+  /* 3. 把文字颜色变透明 */
+  -webkit-text-fill-color: transparent;
+}
+</code></pre>
+      <p>学会了背景渐变，你的设计工具箱里又多了一件强大的“武器”！以后无论是做按钮、背景还是标题，都可以变得更加引人注目啦！</p>
+      <hr>
+
+      <h2 id="toc-chapter-2-27">2.27 让盒子“浮”起来：盒子阴影 (box-shadow)</h2>
+      <p>今天我们学习了如何为盒子添加阴影，这能创造出一种纵深感和层次感，让页面元素看起来像是浮在背景之上。实现这个效果的属性就是 <code>box-shadow</code>！</p>
+
+      <h3><code>box-shadow</code> 的参数</h3>
+      <p><code>box-shadow</code> 属性可以接受多个值，来精确地控制阴影的样子：</p>
+      <p><code>box-shadow: h-shadow v-shadow blur spread color inset;</code></p>
+      <ul>
+        <li><strong>h-shadow (必需)</strong>: 水平偏移量。正值向右，负值向左。</li>
+        <li><strong>v-shadow (必需)</strong>: 垂直偏移量。正值向下，负值向上。</li>
+        <li><strong>blur</strong> (可选): 模糊距离。值越大，阴影边缘越模糊、越柔和。</li>
+        <li><strong>spread</strong> (可选): 扩散距离。正值让阴影向四周扩大，负值则让阴影缩小。</li>
+        <li><strong>color</strong> (可选): 阴影的颜色。通常我们会使用带有透明度的 <code>rgba()</code> 颜色，让阴影看起来更自然。</li>
+        <li><strong>inset</strong> (可选): 加上这个关键字，会变成“内阴影”，阴影会投射在盒子内部。</li>
+      </ul>
+      <pre><code>.box {
+  /* 一个向右下偏移，带有模糊和扩散的半透明黑色阴影 */
+  box-shadow: 5px 10px 20px 5px rgba(0, 0, 0, 0.3);
+}
+</code></pre>
+
+      <h3>配合过渡 (transition) 创造动态效果</h3>
+      <p><code>box-shadow</code> 最酷的玩法之一，就是和 <code>transition</code> 属性配合使用！我们可以给盒子设置一个默认的阴影，然后在鼠标悬停
+        (<code>:hover</code>)
+        时改变阴影的参数，再通过 <code>transition</code> 让这个变化过程变得平滑，创造出非常优雅的交互效果。</p>
+      <pre><code>.box {
+  /* 默认状态，阴影比较淡 */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  /* 关键！告诉浏览器，所有属性的变化都需要0.3秒来完成 */
+  transition: all .3s;
+}
+
+.box:hover {
+  /* 鼠标悬停时，让盒子向上偏移一点，同时阴影变得更深、更明显 */
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+</code></pre>
+      <p>学会了盒子阴影，你的页面就拥有了“光影”和“质感”，离专业的设计又近了一大步呢！</p>
+      <hr>
+
+      <h2 id="toc-chapter-2-28">2.28 赢在起跑线：CSS 初始化</h2>
+      <p>今天我们学习了每一个专业前端项目都会做的第一件事——CSS 初始化！因为不同的浏览器（比如 Chrome, Firefox）对同一个标签的默认样式（比如 `body` 的外边距、`ul`
+        的列表点）可能有些微差异。为了避免这些差异导致我们的页面在不同浏览器上看起来不一样，我们需要先“重置”或“标准化”它们的样式。</p>
+
+      <h3>简单粗暴的“硬重置” (Reset)</h3>
+      <p>最常见、最简单的方法就是用通配符选择器 <code>*</code> 把所有元素的内外边距都清零，并且统一设置 <code>box-sizing</code>。</p>
+      <pre><code>* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+</code></pre>
+      <p>除此之外，我们还会针对一些特定标签进行重置：</p>
+      <ul>
+        <li><code>ul, ol { list-style: none; }</code>: 清除列表项前面的小圆点或数字。</li>
+        <li><code>a { text-decoration: none; }</code>: 清除链接默认的下划线。</li>
+        <li><code>input, button { outline: none; }</code>: 清除输入框和按钮在聚焦时默认的轮廓线。</li>
+      </ul>
+
+      <h3>更优雅的“标准化” (Normalize)</h3>
+      <p>除了“硬重置”，社区里还有一种更流行的方案，就是使用一个现成的CSS文件，比如 <code>normalize.css</code>。它不像硬重置那样“一刀切”地去掉所有样式，而是：</p>
+      <ul>
+        <li>保留有用的默认样式（比如标题的字号）。</li>
+        <li>修复一些浏览器的常见bug。</li>
+        <li>让所有浏览器对同一个标签的默认样式尽可能地保持一致。</li>
+      </ul>
+      <p>我们只需要下载这个文件，然后在我们自己的CSS文件之前引入它就可以了。这是一种更现代、更推荐的做法哦！</p>
+      <pre><code>&lt;!-- 先引入 normalize.css 来标准化浏览器差异 --&gt;
+&lt;link rel="stylesheet" href="./css/normalize.css"&gt;
+&lt;!-- 再引入我们自己的样式文件 --&gt;
+&lt;link rel="stylesheet" href="./css/style.css"&gt;
+</code></pre>
+      <p>学会了CSS初始化，你就掌握了开启一个专业、健壮项目的重要前提！这标志着我们对CSS的理解又进入了一个新的阶段！</p>
+      <hr>
+
+      <h2 id="toc-chapter-2-29">2.29 文本溢出的艺术：多行省略号</h2>
+      <p>今天我们学习了一个非常实用的CSS技巧，它能解决一个很常见的设计问题：当一段文字太长，在一个固定大小的盒子里放不下时，如何优雅地显示省略号，而不是让它丑丑地溢出或者被粗暴地截断。</p>
+      <p>对于单行文本，我们有
+        <code>text-overflow: ellipsis;</code>，但对于多行文本，就需要一套“组合拳”了。这套组合拳主要依赖于一些比较“古老”的Webkit浏览器私有属性，但因为效果好，至今仍在广泛使用！
+      </p>
+
+      <h3>“魔法组合”实现多行省略</h3>
+      <p>要实现这个效果，我们需要给文本的容器盒子加上下面这几个关键属性：</p>
+      <ol>
+        <li><code>display: -webkit-box;</code>: 将元素的显示模式设置为一个“旧版”的弹性盒子。这是整个技巧的基础。</li>
+        <li><code>-webkit-box-orient: vertical;</code>: 设置弹性盒子的子元素（也就是文字）垂直排列。</li>
+        <li><code>-webkit-line-clamp: 2;</code>: 这是最关键的一步！它会“夹住”文本，限制在一个指定的行数内（这里是2行）。</li>
+        <li><code>overflow: hidden;</code>: 配合上面一步，把被“夹断”的、多余的文本彻底隐藏起来。</li>
+      </ol>
+      <pre><code>.box {
+  width: 200px;
+  /* 想要显示2行，高度最好是 2 * line-height */
+  height: 48px; 
+  line-height: 24px;
+
+  /* --- 魔法组合开始 --- */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* 限制为2行 */
+  overflow: hidden;
+}
+</code></pre>
+      <p><strong>我的小提示：</strong> 因为这个方法需要精确控制行数，所以我们通常会把盒子的高度设置为“行高 × 想要显示的行数”，这样效果最完美哦！</p>
+      <p>掌握了这个技巧，你在做新闻列表、产品简介这类卡片式布局时，就再也不怕文字长短不一，导致页面排版错乱啦！</p>
+      <hr>
+
+      <h2 id="30">2.30 矢量级的清晰度：字体图标 (Icon Font)</h2>
+      <p>今天我们学习了一种现代网页开发中非常流行、非常优雅的图标解决方案——字体图标！它彻底告别了过去用小图片做图标的种种不便。</p>
+      <p>顾名思义，字体图标就是“像字体一样使用的图标”。它本质上是一种特殊的字体文件（比如 <code>.ttf</code>,
+        <code>.woff</code>），但里面包含的不是字母，而是各种各样的图标。因为是矢量图形，所以它可以无限放大而不失真，而且我们可以像控制文字一样，用 <code>font-size</code> 和
+        <code>color</code> 来随意改变它的大小和颜色！
+      </p>
+
+      <h3>如何使用字体图标？</h3>
+      <p>使用字体图标通常分为三步：</p>
+      <ol>
+        <li><strong>引入样式文件</strong>：就像引入外部CSS一样，我们需要在HTML的 <code>&lt;head&gt;</code> 中，用 <code>&lt;link&gt;</code>
+          标签引入字体图标库提供的CSS文件。</li>
+        <li><strong>挑选“容器”标签</strong>：通常我们会用一个没有语义的 <code>&lt;span&gt;</code> 或 <code>&lt;i&gt;</code> 标签来充当图标的容器。</li>
+        <li><strong>添加类名</strong>：给这个容器标签加上两个关键的类名：一个是基础类名（比如 <code>iconfont</code>），用来声明这是一个字体图标；另一个是具体的图标类名（比如
+          <code>icon-good</code>），用来指定显示哪个图标。
+        </li>
+      </ol>
+      <pre><code>&lt;!-- 1. 在 head 中引入字体图标的CSS文件 --&gt;
+&lt;link rel="stylesheet" href="./iconfont/iconfont.css"&gt;
+
+&lt;!-- 2. 在 body 中使用 span 或 i 标签 --&gt;
+&lt;!-- 3. 加上基础类名和图标类名 --&gt;
+&lt;span class="iconfont icon-good"&gt;&lt;/span&gt;
+&lt;i class="iconfont icon-xihuan"&gt;&lt;/i&gt;
+
+&lt;!-- 4. 像控制文字一样，用CSS改变它的大小和颜色 --&gt;
+&lt;style&gt;
+  .icon-good {
+    font-size: 140px;
+    color: red;
+  }
+&lt;/style&gt;
+</code></pre>
+      <p>学会了使用字体图标，你的页面就能用上大量清晰、美观、易于管理的矢量图标啦！这可是现代网页开发必备的技能哦！</p>
+      <hr>
+
+      <h2 id="toc-chapter-2-31">2.31 性能优化的“拼图”艺术：CSS精灵图</h2>
+      <p>今天我们学习了一种非常经典的前端性能优化技术——CSS精灵图！它的核心思想是，将网站上所有的小图标、小背景图都“拼”到一张大的图片上。然后，我们利用
+        <code>background-position</code> 属性，像移动“取景框”一样，只显示出我们需要的那一小块图标。
+      </p>
+      <p>这样做最大的好处就是，原本需要请求几十张小图片，现在只需要请求一张大图就可以了，极大地减少了服务器的请求次数，能显著加快页面的加载速度！</p>
+
+      <h3>如何使用精灵图？</h3>
+      <p>使用精灵图主要也是两步：</p>
+      <ol>
+        <li><strong>设置背景</strong>：给一个固定了宽高的盒子（比如 <code>div</code> 或 <code>span</code>）设置这张大的精灵图作为背景，并且设置为不平铺
+          (<code>no-repeat</code>)。</li>
+        <li><strong>精确定位</strong>：通过测量，计算出目标小图标在大图上的精确坐标 (x, y)，然后使用 <code>background-position</code>
+          将背景图移动到正确的位置。通常，我们需要移动的是背景图的负方向。</li>
+      </ol>
+      <pre><code>.icon {
+  /* 盒子的宽高就是小图标的宽高 */
+  width: 27px;
+  height: 26px;
+  /* 1. 将大图设置为背景 */
+  background: url(./images/sprites.png) no-repeat;
+}
+
+.icon-weibo {
+  /* 2. 将背景图向左、向上移动，露出微博的图标 */
+  background-position: -90px -170px;
+}
+
+.icon-weixin {
+  /* 2. 移动到另一个位置，露出微信的图标 */
+  background-position: 0 -169px;
+}
+</code></pre>
+      <p>虽然现在有了字体图标和SVG等更现代的方案，但在很多场景下，精灵图依然是一种非常高效、非常值得掌握的性能优化手段哦！</p>
+      <p><strong>至此，第二章CSS核心技术的学习就全部结束啦！你真的好厉害，坚持完成了这么多重要的知识点！我为你感到无比的骄傲和自豪！让我们一起期待第三章更精彩的冒险吧！💖</strong></p>
+      <hr>
+
+      <h1 id="toc-chapter-3">第三章：现代网页布局</h1>
+      <h2 id="toc-chapter-3-1">3.1 元素的“变身”魔法：display 属性</h2>
+      <p>我们正式踏入了现代网页布局的精彩世界！今天我们学习了 <code>display</code>
+        属性，它就像一个“变身”魔法，可以改变元素天生的显示模式（块级、行内、行内块），是CSS布局中最基本、也最强大的属性之一！</p>
+
+      <h3>display: block (变身为块级元素)</h3>
+      <p>当把一个行内元素（比如 <code>&lt;a&gt;</code>）设置为 <code>display: block;</code> 后，它就会拥有块级元素的所有特性：</p>
+      <ul>
+        <li>独占一行。</li>
+        <li>可以自由设置宽度和高度。</li>
+        <li>可以设置内外边距。</li>
+      </ul>
+      <p>这在制作垂直排列的导航菜单时非常有用，因为它可以让整个链接区域都可以点击，而不仅仅是文字部分。</p>
+      <pre><code>/* 制作一个导航菜单 */
+.subbar a {
+  /* 把行内元素 a 变成块级元素 */
+  display: block;
+  height: 42px; /* 现在可以设置高度了 */
+  line-height: 42px;
+  color: #fff;
+}
+.subbar a:hover {
+  background-color: #ff6700;
+}
+</code></pre>
+
+      <h3>display: inline-block (变身为行内块元素)</h3>
+      <p>这是 <code>display</code> 属性最灵活的一个值！它让元素同时拥有行内元素和块级元素的优点：</p>
+      <ul>
+        <li><strong>行内特性</strong>：可以和其他行内或行内块元素并排显示在一行。</li>
+        <li><strong>块级特性</strong>：可以自由设置宽度、高度、内外边距。</li>
+      </ul>
+      <p>这在制作并排的标签、小卡片等场景下非常完美！</p>
+      <pre><code>/* 制作并排的标签 */
+.list a {
+  /* 变身为行内块元素 */
+  display: inline-block;
+  height: 30px;
+  padding: 0 15px;
+  margin: 4px;
+}
+</code></pre>
+
+      <h3>行内块的“幽灵空白”问题</h3>
+      <p>当把多个 <code>inline-block</code> 元素放在一起时，它们之间经常会出现一个神秘的空白间隙。这是因为HTML代码中的换行符被浏览器当作一个空格来处理了。解决这个问题最常用的方法是：</p>
+      <p>在它们的 <strong>父元素</strong> 上设置 <code>font-size: 0;</code> 来消除这个“空格”，然后再在 <code>inline-block</code> 元素自己身上把
+        <code>font-size</code> 设置回需要的值。
+      </p>
+      <pre><code>.box {
+  /* 在父元素上消除“幽灵空白” */
+  font-size: 0;
+}
+.box li {
+  display: inline-block;
+  /* 在子元素上恢复字体大小 */
+  font-size: 14px;
+}
+</code></pre>
+      <p>掌握了 <code>display</code> 属性，你就掌握了改变元素“天性”的能力，为我们后续学习更复杂的浮动和弹性布局打下了坚实的基础！</p>
+      <hr>
+
+      <h2 id="toc-chapter-3-2">3.2 “漂浮”的盒子：浮动 (float)</h2>
+      <p>今天我们学习了传统网页布局的核心——浮动！它的初衷是为了实现文字环绕图片的效果，但后来被开发者们创造性地用来实现多列布局，统治了网页设计很长一段时间。</p>
+
+      <h3>浮动的特性</h3>
+      <p>当一个盒子被设置了 <code>float</code> 属性（值通常是 <code>left</code> 或 <code>right</code>）后，它会立刻拥有几个非常重要的特性：</p>
+      <ul>
+        <li><strong>脱离标准流 (脱标)</strong>：浮动的盒子会从正常的文档流中“浮”起来，不再占据原来的位置。</li>
+        <li><strong>像行内块一样排列</strong>：多个浮动的块级盒子会“肩并肩”地在一行显示，直到一行的空间不够，才会换到下一行。</li>
+        <li><strong>可以设置宽高</strong>：即使是行内元素（比如 <code>&lt;span&gt;</code>），一旦设置了浮动，也会立刻获得块级元素的特性，可以自由设置宽度和高度。</li>
+      </ul>
+      <pre><code>.box li {
+  /* 让所有 li 元素向左浮动，并排显示 */
+  float: left;
+  width: 190px;
+  height: 200px;
+  margin-right: 15px;
+}
+
+/* 选中每行的最后一个（第3n个），去掉它的右边距，实现完美对齐 */
+.box li:nth-child(3n) {
+  margin-right: 0;
+}
+</code></pre>
+
+      <h3>浮动带来的“副作用”：父容器高度塌陷</h3>
+      <p>浮动虽然强大，但它有一个非常著名的副作用：当一个父容器内部的所有子元素都浮动后，这些子元素就无法再“撑开”父容器了。如果父容器自己没有设置高度，它的高度就会“塌陷”成0，导致后面的布局错乱。</p>
+      <p>这个问题我们会在下一节课学习如何用“清除浮动”来完美解决！</p>
+      <p>理解了浮动，你就等于掌握了解读大部分传统网页布局的“钥匙”！虽然现在我们有了更先进的Flex和Grid布局，但浮动在一些小场景下依然有用，而且理解它对我们理解CSS的文档流非常有帮助哦！</p>
+      <hr>
+
+      <h2 id="toc-chapter-3-3">3.3 解决浮动“后遗症”：清除浮动</h2>
+      <p>我们上一节课留了一个悬念：浮动的子元素无法撑开父容器，导致父容器高度塌陷。今天我们就来学习如何完美地解决这个“后遗症”，这个过程我们称之为“清除浮动”。</p>
+
+      <h3>为什么要清除浮动？</h3>
+      <p>因为父容器高度塌陷后，它下面的元素就会“跑”上来，占据原本不属于它的位置，导致整个页面的布局彻底乱掉。所以，清除浮动是使用浮动布局时必须完成的一步！</p>
+
+      <h3>清除浮动的方法</h3>
+      <p>我们有几种方法可以做到这一点，从简单到完美，我们来一一认识一下：</p>
+
+      <h4>1. 直接设置父容器高度</h4>
+      <p>这是最简单粗暴的方法，直接给父容器一个固定的 <code>height</code>。但它非常不灵活，如果子元素的高度会变化，我们就得频繁地去修改CSS，所以这种方法在实际开发中基本不用。</p>
+
+      <h4>2. 额外标签法</h4>
+      <p>在所有浮动元素的末尾，添加一个空的块级元素（比如 <code>&lt;div&gt;</code>），并给它设置 <code>clear: both;</code> 样式。<code>clear: both;</code>
+        的意思是“我的左右两边都不允许有浮动的元素”，它就像一个屏障，强行把父容器的底部撑开。</p>
+      <pre><code>&lt;div class="father"&gt;
+  &lt;div class="son1"&gt;&lt;/div&gt;
+  &lt;div class="son2"&gt;&lt;/div&gt;
+  &lt;!-- 在最后添加一个用于清除浮动的标签 --&gt;
+  &lt;div style="clear: both;"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+      <p><strong>优点：</strong> 通俗易懂。 <strong>缺点：</strong> 在页面中添加了没有实际语义的空标签，不优雅。</p>
+
+      <h4>3. 单伪元素法</h4>
+      <p>这是对额外标签法的改进。我们利用 <code>::after</code> 伪元素，在父元素的内部最后面“凭空”创造一个看不见的元素，并让它来清除浮动。这样就不用在HTML里写真实的标签了。</p>
+      <pre><code>.clearfix::after {
+  content: '';
+  display: block; /* 伪元素默认是行内，需要变成块级才能生效 */
+  clear: both;
+}
+</code></pre>
+      <p><strong>优点：</strong> 没有增加无意义的HTML标签。 <strong>缺点：</strong> 在某些老旧浏览器上可能需要处理兼容性问题。</p>
+
+      <h4>4. 双伪元素法 (最推荐)</h4>
+      <p>这是目前最成熟、最完美的清除浮动方案，很多著名的前端框架（如Bootstrap）都在使用它。它在单伪元素法的基础上，又用 <code>::before</code> 伪元素来解决一些潜在的边距合并问题。</p>
+      <pre><code>/* 这就是大名鼎鼎的 clearfix (清除浮动) */
+.clearfix::before,
+.clearfix::after {
+  content: " ";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+</code></pre>
+      <p><strong>优点：</strong> 写法标准，解决了所有已知问题，兼容性好。我们只需要把这个 <code>.clearfix</code> 类加给任何一个需要清除浮动的父元素，就可以一劳永逸啦！</p>
+
+      <h4>5. overflow: hidden</h4>
+      <p>给父元素设置 <code>overflow: hidden;</code>
+        也能清除浮动。它的原理是创建了一个“块级格式化上下文(BFC)”，BFC可以包裹住内部的浮动元素。这种方法代码最少，但如果父元素内部有内容需要溢出显示，就会被裁切掉，所以需要根据场景来使用。</p>
+
+      <p>掌握了清除浮动，你就等于完全驯服了浮动这个布局工具！以后再复杂的传统网页布局，也难不倒你啦！</p>
+      <hr>
+
+      <h2 id="toc-chapter-3-4">3.4 现代布局的基石：弹性布局 (Flexbox)</h2>
+      <p>我们终于迎来了现代网页布局的王者——Flexbox（弹性盒子）！它彻底改变了我们对齐、分布空间的方式，让很多以前需要用浮动和清除浮动等复杂技巧才能实现的布局，现在变得异常简单！</p>
+
+      <h3>Flexbox 的核心概念</h3>
+      <p>要使用Flexbox，我们只需要做一件事：在父元素上设置 <code>display: flex;</code>。一旦设置了，这个父元素就变成了一个“弹性容器”（flex
+        container），而它的所有直接子元素就自动变成了“弹性项目”（flex items）。</p>
+      <pre><code>.box {
+  /* 只需要这一行，魔法就开始了！ */
+  display: flex;
+}
+</code></pre>
+      <p>成为弹性项目后，它们会默认在“主轴”（默认是水平方向）上排成一行，并且拥有了很多神奇的特性！</p>
+
+      <h3><code>flex: 1;</code> 的魔力：弹性分配空间</h3>
+      <p>在今天的练习中，我们给子元素（弹性项目）设置了 <code>flex: 1;</code>。这是一个复合属性，它在这里的意思是：让所有设置了 <code>flex: 1;</code> 的项目来
+        <strong>均分</strong> 父容器的剩余空间。
+      </p>
+      <p>比如，我们有4个项目，那么每个项目都会占据父容器宽度的 1/4。如果我们有5个项目，每个就会占据 1/5。Flexbox会自动为我们计算，是不是超级智能！</p>
+      <pre><code>.item {
+  /* 让所有 item 均分父容器的宽度 */
+  flex: 1;
+}
+</code></pre>
+
+      <h3><code>gap</code> 属性：优雅的间距</h3>
+      <p>在以前，要给并排的元素之间添加间距，我们可能需要用 <code>margin</code>，并且还要处理最后一个元素多余的边距。但在Flexbox中，我们有了一个更优雅的解决方案：直接在父容器（弹性容器）上使用
+        <code>gap</code> 属性！
+      </p>
+      <pre><code>.box {
+  display: flex;
+  /* 在所有弹性项目之间，创建一个10px的间隙 */
+  gap: 10px;
+}
+</code></pre>
+      <p><code>gap</code> 属性会自动在项目之间创建间隙，但不会在容器的边缘添加多余的间距，完美解决了我们的痛点！</p>
+      <p>今天只是Flexbox世界的初探，你已经感受到了它的强大！它还有更多更厉害的属性，可以让我们随心所欲地控制对齐、排序和换行，我们接下来会慢慢学习。掌握了Flexbox，就等于掌握了现代网页布局的半壁江山哦！</p>
+      <hr>
+
+      <h2 id="toc-chapter-3-5">3.5 Flexbox的“队列”艺术：主轴对齐 (justify-content)</h2>
+      <p>
+        今天我们深入学习了Flexbox中用于控制“主轴”方向对齐的超能力属性——<code>justify-content</code>！它决定了弹性项目们在容器内如何排列和分布空间，是我们进行页面布局时最常使用的属性之一。
+      </p>
+      <p>默认情况下，主轴是从左到右的水平线。<code>justify-content</code> 提供了多种对齐策略，就像指挥官在给一队士兵排队一样！</p>
+
+      <dl>
+        <dt><code>flex-start</code> (默认值)</dt>
+        <dd>所有项目都向主轴的起点看齐，紧紧地靠在一起。</dd>
+
+        <dt><code>flex-end</code></dt>
+        <dd>所有项目都向主轴的终点看齐，紧紧地靠在一起。</dd>
+
+        <dt><code>center</code></dt>
+        <dd>所有项目都在主轴上居中对齐，作为一个整体居中。</dd>
+
+        <dt><code>space-between</code></dt>
+        <dd>“两端对齐”。项目之间会平均分配空间，但第一个项目紧贴起点，最后一个项目紧贴终点，中间没有任何多余的边距。</dd>
+
+        <dt><code>space-around</code></dt>
+        <dd>“环绕对齐”。每个项目的两侧都会分配相等的空间。这就导致项目之间的间距会是项目与容器边缘间距的两倍，因为中间的间距是两个项目各自的“环绕空间”叠加起来的。</dd>
+
+        <dt><code>space-evenly</code></dt>
+        <dd>“均等对齐”。这是最完美的平均分配方式！所有项目之间的间距，以及项目与容器边缘的间距，都是完全相等的。</dd>
+      </dl>
+
+      <pre><code>.box {
+  display: flex;
+  /* 尝试把下面的值换成上面提到的任何一个，看看效果！ */
+  justify-content: space-evenly;
+}
+</code></pre>
+      <p>掌握了 <code>justify-content</code>，你就拥有了随心所欲控制水平布局的能力！无论是导航菜单、商品列表，还是任何需要并排对齐的场景，它都能轻松搞定！</p>
+      <hr>
+
+      <h2 id="toc-chapter-3-6">3.6 Flexbox的“垂直”艺术：交叉轴对齐 (align-items)</h2>
+      <p>
+        我们已经学会了如何在主轴（水平方向）上对齐项目，今天我们来学习它的好搭档——<code>align-items</code>！这个属性专门用来控制项目在“交叉轴”（默认是垂直方向）上的对齐方式。当主轴和交叉轴的对齐都掌握后，我们就真正拥有了二维布局的能力！
+      </p>
+      <p><code>align-items</code> 作用于弹性容器上，它决定了所有弹性项目在垂直方向上如何表现。</p>
+
+      <dl>
+        <dt><code>stretch</code> (默认值)</dt>
+        <dd>“拉伸对齐”。如果弹性项目没有设置高度（或者主轴是垂直方向时，没有设置宽度），那么它们的高度会自动拉伸，占满整个容器的高度。这在做等高布局时非常有用！</dd>
+
+        <dt><code>flex-start</code></dt>
+        <dd>所有项目都向交叉轴的起点看齐，也就是顶部对齐。</dd>
+
+        <dt><code>flex-end</code></dt>
+        <dd>所有项目都向交叉轴的终点看齐，也就是底部对齐。</dd>
+
+        <dt><code>center</code></dt>
+        <dd>所有项目都在交叉轴上居中对齐。这是实现垂直居中最简单、最常用的方法之一！</dd>
+      </dl>
+
+      <pre><code>.box {
+  height: 300px; /* 容器必须有高度才能看出垂直对齐效果 */
+  display: flex;
+  /* 尝试把下面的值换成上面提到的任何一个，看看效果！ */
+  align-items: center;
+}
+</code></pre>
+      <p>有了 <code>justify-content</code> 和 <code>align-items</code>
+        这对“王牌组合”，你现在可以轻松地实现各种复杂的对齐效果，比如让一个元素在容器中完美地水平垂直居中，只需要在父容器上写上
+        <code>display: flex; justify-content: center; align-items: center;</code> 就行啦！是不是超级简单！
+      </p>
+      <hr>
+
+      <h2 id="toc-chapter-3-7">3.7 Flexbox的“乾坤大挪移”：修改主轴方向 (flex-direction)</h2>
+      <p>今天我们学习了Flexbox中一个能“颠倒乾坤”的属性——<code>flex-direction</code>！它能改变弹性容器的主轴方向，让我们的布局从水平排列轻松切换到垂直排列。</p>
+
+      <h3>主轴的四种方向</h3>
+      <p><code>flex-direction</code> 提供了四个值，来定义主轴的方向和项目的排列顺序：</p>
+      <dl>
+        <dt><code>row</code> (默认值)</dt>
+        <dd>主轴为水平方向，项目从左到右排列。</dd>
+
+        <dt><code>row-reverse</code></dt>
+        <dd>主轴为水平方向，但项目从右到左反向排列。</dd>
+
+        <dt><code>column</code></dt>
+        <dd><strong>主轴变为垂直方向</strong>，项目从上到下排列。这是我们今天练习的重点！</dd>
+
+        <dt><code>column-reverse</code></dt>
+        <dd>主轴为垂直方向，但项目从下到上反向排列。</dd>
+      </dl>
+
+      <h3>当主轴方向改变后...</h3>
+      <p>这是一个非常非常重要的概念！一旦我们把主轴设置为垂直方向（<code>flex-direction: column;</code>），那么 <strong>主轴和交叉轴就互换了</strong>！</p>
+      <ul>
+        <li><strong>主轴</strong> 变成了从上到下的 <strong>垂直线</strong>。</li>
+        <li><strong>交叉轴</strong> 变成了从左到右的 <strong>水平线</strong>。</li>
+      </ul>
+      <p>这意味着，我们之前学习的对齐属性，它们的作用也跟着互换了：</p>
+      <ul>
+        <li><code>justify-content</code> 现在控制的是 <strong>垂直方向</strong> 的对齐！</li>
+        <li><code>align-items</code> 现在控制的是 <strong>水平方向</strong> 的对齐！</li>
+      </ul>
+
+      <pre><code>.sanlian li a {
+  display: flex;
+  /* 1. 将主轴变为垂直方向 */
+  flex-direction: column;
+  /* 2. 沿垂直方向居中对齐 (因为主轴是垂直的) */
+  justify-content: center;
+  /* 3. 沿水平方向居中对齐 (因为交叉轴是水平的) */
+  align-items: center;
+}
+</code></pre>
+      <p>理解了主轴方向的改变以及它对其他对齐属性的影响，你对Flexbox的理解就又深入了一个层次！我们现在可以同时搞定水平和垂直的布局啦，好耶！</p>
+      <hr>
+
+      <h2 id="toc-chapter-3-8">3.8 Flexbox的“智能换行”：flex-wrap</h2>
+      <p>今天我们解决了Flexbox布局中的一个常见问题：当一行里的项目太多，容器装不下时该怎么办？默认情况下，Flexbox会尽力压缩所有项目，让它们挤在同一行里，但这通常不是我们想要的效果。而
+        <code>flex-wrap</code> 属性就是来解决这个问题的！
+      </p>
+
+      <h3>换行的三种策略</h3>
+      <p><code>flex-wrap</code> 属性定义了当弹性项目在主轴上溢出时，是否以及如何换行。</p>
+      <dl>
+        <dt><code>nowrap</code> (默认值)</dt>
+        <dd>不换行。所有的项目都会被强制压缩在同一行内，即使它们的宽度加起来已经超过了容器宽度。</dd>
+
+        <dt><code>wrap</code></dt>
+        <dd>换行。当一行容纳不下所有项目时，多余的项目会自动“掉”到下一行开始排列。这在创建响应式的网格布局时非常有用！</dd>
+
+        <dt><code>wrap-reverse</code></dt>
+        <dd>反向换行。和 <code>wrap</code> 类似，但新的一行会出现在上一行的上方。</dd>
+      </dl>
+
+      <h3><code>flex-wrap</code> 与 <code>justify-content</code> 的完美配合</h3>
+      <p>当 <code>flex-wrap: wrap;</code> 和 <code>justify-content: space-between;</code>
+        结合使用时，我们可以轻松创建出两端对齐的网格布局。每一行的第一个项目贴着左边，最后一个项目贴着右边，中间的项目平均分配空间。这在商品列表页非常常见！</p>
+
+      <pre><code>.box {
+  display: flex;
+  /* 允许项目换行 */
+  flex-wrap: wrap;
+  /* 实现两端对齐 */
+  justify-content: space-between;
+  width: 830px;
+}
+
+.box .item {
+  width: 200px;
+  /* ...其他样式... */
+}
+</code></pre>
+      <p>学会了换行，你的Flexbox技能就更加全面了！我们现在可以创建出能够适应不同屏幕尺寸、自动调整排列的“响应式”布局了，是不是超级有成就感呀！</p>
+      <hr>
+
+      <h2 id="toc-chapter-3-9">3.9 Flexbox的“行间距”艺术：多行交叉轴对齐 (align-content)</h2>
+      <p>今天我们学习了Flexbox中一个专门用于处理“多行”弹性布局的属性——<code>align-content</code>！当我们的弹性容器因为 <code>flex-wrap: wrap;</code>
+        而产生了多行时，这个属性就能决定这些行在交叉轴（默认是垂直方向）上如何对齐和分布空间。</p>
+
+      <h3><code>align-content</code> vs. <code>align-items</code></h3>
+      <p>这是一个非常重要的区别！</p>
+      <ul>
+        <li><code>align-items</code>：负责控制 <strong>单行</strong> 内，项目在交叉轴上的对齐方式。</li>
+        <li><code>align-content</code>：负责控制 <strong>多行</strong> 之间，作为一个整体，在交叉轴上的对齐方式。可以把它想象成是调整“行与行”之间的距离。</li>
+      </ul>
+      <p><strong>注意：</strong> 如果你的弹性容器内只有一行，那么 <code>align-content</code> 属性是不会起任何作用的哦！</p>
+
+      <h3>与 <code>justify-content</code> 相似的对齐策略</h3>
+      <p>你会发现，<code>align-content</code> 的值和我们之前学的 <code>justify-content</code> 非常相似，只是作用的方向不同而已：</p>
+      <dl>
+        <dt><code>stretch</code> (默认值)</dt>
+        <dd>“拉伸对齐”。如果项目没有设置高度，那么多行会平分容器的垂直空间。</dd>
+
+        <dt><code>flex-start</code></dt>
+        <dd>所有行都向交叉轴的起点（顶部）紧凑排列。</dd>
+
+        <dt><code>flex-end</code></dt>
+        <dd>所有行都向交叉轴的终点（底部）紧凑排列。</dd>
+
+        <dt><code>center</code></dt>
+        <dd>所有行作为一个整体，在交叉轴上（垂直方向）居中对齐。</dd>
+
+        <dt><code>space-between</code></dt>
+        <dd>“两端对齐”。第一行紧贴顶部，最后一行紧贴底部，剩余的行在中间平均分布。</dd>
+
+        <dt><code>space-around</code></dt>
+        <dd>“环绕对齐”。每一行的上下两侧都会分配相等的空间。</dd>
+
+        <dt><code>space-evenly</code></dt>
+        <dd>“均等对齐”。所有行之间的间距，以及第一行与容器顶部、最后一行与容器底部的间距，都是完全相等的。</dd>
+      </dl>
+
+      <pre><code>.box {
+  display: flex;
+  flex-wrap: wrap; /* 必须有多行，align-content才生效 */
+  height: 500px; /* 容器必须有高度，才能看出垂直对齐效果 */
+  /* 尝试把下面的值换成上面提到的任何一个，看看效果！ */
+  align-content: space-evenly;
+}
+</code></pre>
+      <p>至此，Flexbox容器相关的所有重要属性我们都学习完啦！你已经拥有了创建各种强大、灵活、响应式布局的核心能力！太为你感到骄傲了！💖</p>
+      <hr>
+
+      <h2 id="toc-chapter-3-10">3.10 Flex项目的“弹性”：flex 属性</h2>
+      <p>我们之前学习的都是设置在父容器（flex container）上的属性，它们像“指挥官”，统一管理所有项目。今天，我们开始学习设置在子元素（flex
+        item）自己身上的属性，它们让每个项目拥有自己的“个性”！其中最核心、最强大的就是 <code>flex</code> 属性。</p>
+
+      <h3><code>flex</code> 属性：定义项目的伸缩能力</h3>
+      <p><code>flex</code> 属性是一个复合属性，它定义了弹性项目如何分配容器中的剩余空间。它通常被赋予一个简单的数字，这个数字代表项目所占的“份数”。</p>
+
+      <h4><code>flex: 1;</code> 的含义</h4>
+      <p>这是最常见的用法，它的意思是“占据1份空间”。当一个容器内有多个项目，并且都设置了 <code>flex: 1;</code> 时，它们会 <strong>均等</strong> 地瓜分容器主轴上的所有可用空间。</p>
+
+      <h4><code>flex</code> 的优先级</h4>
+      <p>就像我们在练习中看到的，<code>flex</code> 属性的优先级非常高，它会覆盖掉项目自己设置的 <code>width</code> 或
+        <code>height</code>（取决于主轴方向）。一个项目一旦被赋予了
+        `flex` 值，它的尺寸就不再由自己决定，而是由容器和兄弟项目们共同决定。
+      </p>
+
+      <h4>按比例分配空间</h4>
+      <p><code>flex</code> 属性最强大的地方在于可以按比例分配空间。比如，我们有4个项目，其中3个是 <code>flex: 1;</code>，另一个是
+        <code>flex: 2;</code>。那么，容器会被分成
+        1+1+2+1 = 5 份，那个设置为 <code>flex: 2;</code> 的项目，就会占据 2/5 的空间，是其他项目的两倍宽！
+      </p>
+
+      <pre><code>.box {
+  display: flex;
+}
+
+.item {
+  /* 默认都占1份 */
+  flex: 1;
+}
+
+.item:nth-child(3) {
+  /* 第3个孩子，我让你占2份！ */
+  flex: 2;
+}
+</code></pre>
+      <p>掌握了 <code>flex</code> 属性，你就掌握了创建真正“弹性”布局的精髓！我们可以轻松做出那种无论容器怎么拉伸，内部元素都能按比例智能缩放的超酷效果啦！</p>
+      <hr>
+
+      <h2 id="toc-chapter-3-11">3.11 Flex布局高级技巧：淘宝网格布局</h2>
+      <p>今天我们学习了一个非常实用、在真实项目中（比如淘宝、京东的商品列表）广泛应用的Flex布局高级技巧！它通过 <code>flex</code>
+        属性和“负外边距”的精妙配合，解决了创建响应式、等间距网格布局的经典难题。</p>
+
+      <h3>更深入地理解 <code>flex</code> 属性</h3>
+      <p>我们之前学习了 <code>flex: 1;</code>，但其实 <code>flex</code> 是一个复合属性，它由三个子属性组成：</p>
+      <p><code>flex: flex-grow flex-shrink flex-basis;</code></p>
+      <ul>
+        <li><strong><code>flex-grow</code></strong> (放大比例): 当容器有剩余空间时，项目放大的比例。默认为0，即不放大。</li>
+        <li><strong><code>flex-shrink</code></strong> (缩小比例): 当容器空间不足时，项目缩小的比例。默认为1，即大家等比例缩小。</li>
+        <li><strong><code>flex-basis</code></strong> (基准尺寸): 在分配多余空间之前，项目占据的主轴空间。可以是百分比、px等。</li>
+      </ul>
+      <p>在今天的练习中，我们使用了 <code>flex: 0 0 16.666666%;</code>，它的意思是：</p>
+      <ul>
+        <li><code>flex-grow: 0</code> - 我不放大。</li>
+        <li><code>flex-shrink: 0</code> - 我不缩小。</li>
+        <li><code>flex-basis: 16.666666%</code> - 我的基准宽度是父容器的 1/6。</li>
+      </ul>
+      <p>这样设置的效果就是，无论容器怎么变化，每个项目都雷打不动地占据 1/6 的宽度，从而实现了一个固定的六列布局！</p>
+
+      <h3>“负外边距”的魔法</h3>
+      <p>这个技巧最精髓的地方，在于如何处理项目之间的间距。我们不使用 <code>gap</code> 或 <code>justify-content</code>，而是用了“父容器负外边距”和“子元素内边距”的组合：</p>
+      <ol>
+        <li><strong>给子元素 <code>.item</code> 左右内边距</strong>：比如 <code>padding: 0 8px;</code>。这样，每个项目之间就有了
+          <code>8px + 8px = 16px</code> 的间距。
+        </li>
+        <li><strong>问题出现</strong>：但这样一来，第一列的左边和最后一列的右边，也各自多出了 <code>8px</code> 的内边距，导致整个列表无法和页面上其他内容完美对齐。</li>
+        <li><strong>解决方案</strong>：给父容器 <code>.box</code>
+          设置一个和子元素内边距数值相等、方向相反的负外边距：<code>margin-left: -8px; margin-right: -8px;</code>。</li>
+      </ol>
+      <p>这个负外边距，就像是把父容器的“边界”向外拉伸了8px，正好把第一列和最后一列多出来的内边距“吃掉”了，从而让整个网格布局完美地嵌入到页面中！</p>
+      <pre><code>.box {
+  display: flex;
+  flex-wrap: wrap;
+  /* 2. 向外拉伸，抵消子元素的padding */
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
+.box .item {
+  /* 固定宽度为1/6，不伸缩 */
+  flex: 0 0 16.666666%;
+  /* 1. 创造项目之间的间距 */
+  padding: 0 8px;
+}
+</code></pre>
+      <p>这个技巧虽然理解起来稍微有点绕，但它非常强大和稳定，是专业前端工程师必备的技能之一哦！你今天能把它复刻出来，真的太厉害了！我为你感到无比自豪！</p>
+      <h2 id="toc-chapter-3-12">3.12 Flex布局高级技巧：京东网格布局</h2>
+      <p>今天我们又解锁了一个新的Flex布局高级技巧！这个方法和昨天的“淘宝布局”异曲同工，但实现思路完全不同。它不依赖负外边距，而是通过 <code>flex: 1</code> 配合
+        <code>min-width</code> 和 <code>max-width</code> 来实现，逻辑也非常好理解哦！
+      </p>
+
+      <h3>核心思路：<code>flex: 1</code> + <code>calc()</code></h3>
+      <p>这次我们不再给项目设置固定的宽度，而是让它们自由伸缩，但同时又给它们的“伸缩范围”加上了严格的限制。</p>
+      <ol>
+        <li><strong><code>flex: 1;</code></strong>: 我们先给所有项目设置 <code>flex: 1;</code>，告诉它们：“你们都是好兄弟，去平均分配父容器的宽度吧！”</li>
+        <li><strong><code>margin: 0 8px 16px;</code></strong>: 然后，我们直接在每个项目上设置外边距，左右各 <code>8px</code>，下方
+          <code>16px</code>，从而创造出项目之间的间距。
+        </li>
+        <li><strong>问题出现</strong>: 如果只有 <code>flex: 1;</code>，当最后一行项目数量不足时（比如只有2个），它们会因为“平均分配”的特性而伸展得很宽，破坏了整体的对齐，非常难看。
+        </li>
+        <li><strong>解决方案：<code>min-width</code> 和 <code>max-width</code> 的双重保险</strong>
+          <p>为了解决这个问题，我们用 <code>calc()</code> 函数给项目的宽度上了一道“双重保险”：</p>
+          <pre><code>.box .item {
+  flex: 1;
+  /* 重点！同时设置最小和最大宽度 */
+  min-width: calc(16.6666667% - 16px);
+  max-width: calc(16.6666667% - 16px);
+  margin: 0 8px 16px;
+}</code></pre>
+          <p>这里的 <code>calc(16.6666667% - 16px)</code> 是什么意思呢？</p>
+          <ul>
+            <li><code>16.6666667%</code>: 这是理想中六分之一列的宽度 (100% / 6)。</li>
+            <li><code>- 16px</code>: 这是为了减去我们刚才在项目上设置的左右外边距 (<code>8px + 8px = 16px</code>)。</li>
+          </ul>
+          <p>通过把 <code>min-width</code> 和 <code>max-width</code> 设置成完全相同的值，我们等于告诉浏览器：这个项目的宽度，既不能小于“理想宽度 -
+            边距”，也不能大于这个值。这就相当于变相地给它设置了一个精确的、响应式的固定宽度！</p>
+          <p>这样一来，即使最后一行的项目数量不够，它们也不会因为 <code>flex: 1</code> 而过度伸展，因为它们的宽度被 <code>max-width</code>
+            牢牢地限制住了。同时，<code>flex: 1</code> 依然保留了它让元素自动换行的好处。是不是非常巧妙呀！</p>
+        </li>
+      </ol>
+      <p>这个方法和“淘宝布局”各有千秋，你可以根据不同的场景选择使用。能掌握这两种方法，以后再遇到复杂的网格布局问题，就都能迎刃而解啦！我真为你感到高兴！</p>
+      <hr>
+      <h2 id="toc-chapter-3-13">3.13 新的布局方式：定位(Positioning)与相对定位</h2>
+      <p>今天我们开启了一个全新的、非常强大的布局篇章——定位！除了我们之前学习的常规流、浮动和弹性布局，定位是第四种布局模式。它能让我们把元素精确地放置在页面的任何位置，实现更自由、更复杂的页面效果。</p>
+
+      <h3>什么是定位？</h3>
+      <p>定位就像是给元素开启了“上帝模式”，让它可以在一定程度上脱离常规的文档流进行布局。我们通过 <code>position</code> 属性来开启定位。</p>
+
+      <h3>相对定位 (<code>position: relative</code>)</h3>
+      <p>今天我们学习的是定位家族中最基础、也是最“温和”的一种：相对定位。它有以下几个非常重要的特点：</p>
+      <ol>
+        <li><strong>开启方式：</strong> 给元素设置 <code>position: relative;</code>。</li>
+        <li>
+          <strong>移动方式：</strong> 开启相对定位后，我们就可以使用 <code>top</code>, <code>bottom</code>, <code>left</code>,
+          <code>right</code> 这四个方位属性来移动它了。
+          <pre><code>.box1 {
+  position: relative;
+  /* 让盒子的顶部，距离它原来的位置的顶部 100px */
+  top: 100px;
+  /* 让盒子的左侧，距离它原来的位置的左侧 100px */
+  left: 100px;
+}</code></pre>
+        </li>
+        <li><strong>参照物：</strong> 这是相对定位最核心的一点！它的移动，是 <strong>相对于它自己在文档流中原来的位置</strong>
+          来进行移动的。就像一个人在队伍里，虽然他自己左右横跳了一下，但他心里的“原点”还是队伍里他本该站的位置。</li>
+        <li><strong>不脱离标准流 (不脱标)：</strong> 这是它最“温和”的体现！一个元素设置了相对定位后，它在文档流中所占据的原始空间
+          **依然会被保留**。它就像一个“灵魂出窍”的人，身体还留在原地，所以它后面的元素不会移动位置来填补它的空缺。在今天的例子里，蓝色的盒子依然在粉色盒子原来的位置下面，就是最好的证明！</li>
+      </ol>
+
+      <h3>相对定位的应用场景</h3>
+      <p>你可能会问，既然它不脱标，移动了还会留下一个大坑，那它有什么用呢？</p>
+      <p>问得好！相对定位最最常见的用途，并不是用它自己来做大幅度的位置调整，而是作为
+        <strong>绝对定位元素的“容器”或“参照物”</strong>。这是我们后面要学习的“子绝父相”模式的核心基础。今天我们先记住它的特性，尤其是“不脱标”这一点，这对我们以后理解更复杂的定位非常有帮助哦！
+      </p>
+      <hr>
+      <h2 id="toc-chapter-3-14">3.14 定位布局的王牌：绝对定位与“子绝父相”</h2>
+      <p>今天我们学习了定位家族里最强大、最常用，也最“叛逆”的成员——绝对定位！如果说相对定位是“灵魂出窍”，那绝对定位就是“完全起飞”了！它能帮我们实现各种自由灵活的布局效果。</p>
+
+      <h3>绝对定位 (<code>position: absolute</code>)</h3>
+      <p>它和相对定位有两个本质的区别，一定要牢牢记住哦！</p>
+      <dl>
+        <dt>1. 完全脱离标准流 (脱标)</dt>
+        <dd>
+          当一个元素被设置为
+          <code>position: absolute;</code>，它就会从文档流中被完全抽离。它之前占据的位置会被彻底释放，后面的兄弟元素会立刻“补位”上来，就好像这个绝对定位的元素从来没有存在过一样！
+          <br>在今天的例子里，当蓝色的 <code>.son1</code> 盒子设为绝对定位后，紫色的 <code>.son2</code> 盒子就马上占据了它原来的位置，跑到了父盒子的左上角，这就是“脱标”最直观的证明。
+        </dd>
+        <dt>2. 参照物会“寻找”祖先</dt>
+        <dd>
+          绝对定位元素的移动，不再是相对于“自己原来的位置”，而是会沿着它的祖先链（父元素、爷爷元素、曾爷爷元素...）向上寻找，直到找到第一个设置了 <strong>除 <code>static</code> (默认值)
+            以外定位属性</strong> (也就是 <code>relative</code>, <code>absolute</code>, <code>fixed</code>)
+          的祖先元素，并以该祖先的边界作为自己的定位参照物。
+          <br>如果它一直没有找到这样的祖先，那它最终会以整个浏览器窗口（也就是最初的 <code>&lt;html&gt;</code> 元素）作为参照物。
+        </dd>
+      </dl>
+
+      <h3>布局黄金法则：“子绝父相”</h3>
+      <p>理解了上面两点，我们就能引出今天，乃至整个定位布局中最重要的一个设计模式——“子绝父相”！这就像你在代码里记下的那样，是pink老师强调的重点哦！</p>
+      <ul>
+        <li><strong>子绝 (子级绝对定位):</strong> 我们把需要自由移动的子元素设置为 <code>position: absolute;</code>。</li>
+        <li><strong>父相 (父级相对定位):</strong> 我们把它的直系父元素设置为 <code>position: relative;</code>。</li>
+      </ul>
+      <h4>为什么要这样做呢？</h4>
+      <p>这是一个绝妙的组合！给父级设置
+        <code>position: relative;</code>，它本身在布局上几乎不受影响（不脱标，还待在原地），但它却创建了一个“定位容器”。这样一来，那个“绝对定位”的子元素在寻找参照物时，第一时间就找到了它带定位的爸爸，于是就会乖乖地把自己“锁”在爸爸的怀里，它所有的
+        <code>top</code>, <code>left</code>, <code>bottom</code>, <code>right</code> 值都是相对于爸爸的边界来计算的了！
+      </p>
+      <p>这个技巧的应用场景超级广泛，比如：</p>
+      <ul>
+        <li>把关闭按钮放在弹窗的右上角。</li>
+        <li>在轮播图上放置左右箭头。</li>
+        <li>在商品图片上叠加“新品”或“折扣”的角标。</li>
+      </ul>
+      <pre><code>.father {
+  /* 2. 父级开启相对定位，但不脱标，为子级创建一个定位的“牢笼” */
+  position: relative;
+}
+
+.son {
+  /* 1. 子级开启绝对定位，完全脱标，可以自由移动 */
+  position: absolute;
+  /* 3. 现在，子级的 top 和 right 就是相对于 father 的了 */
+  top: 20px;
+  right: 20px;
+}</code></pre>
+      <p>掌握了“子绝父相”，你的布局能力就正式进入专业级别啦！真的太为你开心了，你！</p>
+      <hr>
+      <h2 id="toc-chapter-3-15">3.15 钉在屏幕上的图钉：固定定位</h2>
+      <p>今天我们来认识定位家族里一个非常“固执”的成员——固定定位
+        (<code>position: fixed</code>)！它就像一颗钉在屏幕上的图钉，无论你怎么滚动页面，它都会雷打不动地待在同一个位置。这个特性让它在制作网页的某些常见模块时特别好用！</p>
+
+      <h3>固定定位 (<code>position: fixed</code>)</h3>
+      <p>固定定位和绝对定位很像，但也有一个关键的区别：</p>
+      <dl>
+        <dt>1. 同样会脱离标准流 (脱标)</dt>
+        <dd>
+          和绝对定位一样，一旦元素被设置为 <code>position: fixed;</code>，它也会立刻脱离标准流，不再占据文档中的任何空间。
+        </dd>
+        <dt>2. 参照物是浏览器窗口</dt>
+        <dd>
+          这是它和绝对定位最大的不同！绝对定位会去寻找带定位的祖先元素作为参照，而固定定位的元素，它的参照物<strong>永远都是浏览器可视窗口</strong>。它不关心自己的父元素在哪里，也不关心页面滚动到了什么位置，它的眼中只有屏幕的边界。
+        </dd>
+      </dl>
+
+      <h3>固定定位的应用</h3>
+      <p>因为这个“钉在屏幕上”的特性，固定定位最常用于：</p>
+      <ul>
+        <li>网站顶部的导航栏，无论页面怎么滚，导航一直都在。</li>
+        <li>右下角的“返回顶部”小按钮。</li>
+        <li>两侧的广告或悬浮客服窗口。</li>
+      </ul>
+
+      <h3>让固定定位的盒子水平居中</h3>
+      <p>你在代码里一定注意到了，对于一个脱标的盒子，我们熟悉的 <code>margin: 0 auto;</code> 已经失效了。那该怎么让它水平居中呢？pink老师教给了我们一个特别经典的技巧：</p>
+      <pre><code>.box {
+  position: fixed;
+  width: 600px; /* 必须先知道盒子的宽度 */
+
+  /* 1. 让盒子的左边线对齐屏幕的正中心 */
+  left: 50%;
+  /* 2. 再用 margin-left 把它往左拉回自己宽度的一半 */
+  margin-left: -300px; /* - (600px / 2) */
+}</code></pre>
+      <p>这个方法超级好用，一定要记住哦！先走一大步（到50%），再退一小步（负的半宽），盒子就稳稳地站在舞台中央啦！嘿嘿，是不是很巧妙呀？</p>
+      <hr>
+      <h2 id="toc-chapter-3-16">3.16 智能“胶水”：粘性定位</h2>
+      <p>今天我们学习了定位家族里最“聪明”的一个成员——粘性定位
+        (<code>position: sticky</code>)！它就像是相对定位和固定定位的混合体，平时安安分分地待在自己的位置上，可一旦滚动到某个特定点，它就会像涂了强力胶一样“粘”在屏幕上！</p>
+
+      <h3>粘性定位 (<code>position: sticky</code>) 的特点</h3>
+      <p>它最神奇的地方就在于它的双重身份：</p>
+      <dl>
+        <dt>1. 不脱离标准流</dt>
+        <dd>
+          在“粘住”之前，它就像一个普通的 <code>position: relative</code> 元素，会老老实实地占据它在文档流中的原始位置，不会影响其他元素的布局。
+        </dd>
+        <dt>2. 在特定位置“固定”</dt>
+        <dd>
+          它必须搭配 <code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code>
+          中的至少一个属性来使用。这个属性就是它的“触发线”。比如，当我们设置 <code>top: 0;</code>，那么当页面向上滚动，这个元素的顶部边缘即将要滚出屏幕时，它就会立刻切换成类似
+          <code>position: fixed</code> 的状态，牢牢地固定在屏幕顶部，直到你反向滚动把它“解救”出来。
+        </dd>
+      </dl>
+
+      <h3>粘性定位的应用场景</h3>
+      <p>因为这个特性，粘性定位非常适合制作：</p>
+      <ul>
+        <li>吸顶导航栏：页面向下滚动时，导航栏能固定在顶部方便用户随时点击。</li>
+        <li>表格的表头：当表格内容很长时，可以让表头一直显示，方便对照数据。</li>
+        <li>手机通讯录的字母索引。</li>
+      </ul>
+      <p>它比用 JavaScript 来实现类似的效果要简单得多，性能也更好哦！</p>
+      <pre><code>.nav {
+  /* 1. 开启粘性定位，它此时表现得像一个普通元素 */
+  position: sticky;
+  /* 2. 设置它的“触发线” */
+  /* 当它滚动到距离视口顶部为0的位置时，就会被“粘”住 */
+  top: 0;
+}</code></pre>
+      <p>有了这个属性，实现吸顶效果就变得超级简单啦！你又掌握了一个超级实用的CSS技巧呢，真为你感到骄傲！</p>
+      <hr>
+      <h2 id="toc-chapter-3-17">3.17 控制元素的“楼层”：z-index 叠放次序</h2>
+      <p>今天我们来学习一个能控制元素“谁压着谁”的魔法属性——<code>z-index</code>！当多个定位元素重叠在一起时，默认情况下是后来者居上（HTML结构中写在后面的元素会盖住前面的）。但有了
+        <code>z-index</code>，我们就可以随心所欲地控制它们的显示层级啦！
+      </p>
+
+      <h3><code>z-index</code> 的工作原理</h3>
+      <p>你可以把浏览器想象成一个立体的空间，除了我们熟悉的 X 轴（水平）和 Y 轴（垂直），还有一条从屏幕里指向我们眼睛的 Z 轴。<code>z-index</code> 控制的就是元素在这条 Z 轴上的位置。</p>
+      <dl>
+        <dt>1. 只对定位元素生效</dt>
+        <dd>
+          这是一个非常非常重要的前提！<code>z-index</code> 属性只能在设置了 <code>position</code> 为 <code>relative</code>,
+          <code>absolute</code>, <code>fixed</code> 或 <code>sticky</code> 的元素上才能起作用。对于普通标准流里的静态元素
+          (<code>position: static</code>)，它是无效的。
+        </dd>
+        <dt>2. 数值越大，越靠上</dt>
+        <dd>
+          <code>z-index</code> 的值可以是一个整数，正数、负数或 0 都可以。数值越大的元素，其“楼层”就越高，就会显示在数值较小的元素之上。
+        </dd>
+        <dt>3. 默认值是 <code>auto</code></dt>
+        <dd>
+          如果不设置 <code>z-index</code>，它的默认值是 <code>auto</code>，可以理解为
+          <code>z-index: 0</code>。在今天的例子里，所有图片默认的“楼层”都是一样的。当我们用
+          <code>:hover</code> 给鼠标悬停的图片设置了 <code>z-index: 1;</code>，它的楼层就比其他图片高了，所以它就跑到了最上面！
+        </dd>
+      </dl>
+
+      <h3>一个有趣的比喻</h3>
+      <p>就像你在玩扑克牌一样，默认情况下，后面发的牌会压在前面发的牌上。但如果你有特权（开启了定位），并且给某张牌一个更高的数字（设置了更高的
+        <code>z-index</code>），那你就可以把这张牌抽出来，放到牌堆的最上面！
+      </p>
+      <pre><code>.box img {
+  /* 1. 必须先开启定位，z-index 才能生效 */
+  position: absolute;
+}
+
+.box img:hover {
+  /* 2. 鼠标悬停时，把这张图片的层级提到 1 */
+  /* (高于其他图片默认的 auto/0) */
+  z-index: 1;
+}</code></pre>
+      <p>掌握了 <code>z-index</code>，我们就能做出各种酷炫的层叠效果啦！比如让弹窗显示在页面的最顶层，或者制作复杂的下拉菜单。你又变强了呢！</p>
+      <hr>
+      <h2 id="toc-chapter-3-18">3.18 初识 Grid：二维布局的开始</h2>
+      <p>今天我们正式推开了 Grid 布局的大门！它和我们已经熟练掌握的 Flex 弹性布局并称现代布局的两大终极武器！如果说 Flex 是一维的，擅长处理一行或一列的对齐，那么 Grid
+        就是二维的，它天生就是为了处理复杂的行与列交叉的网格结构而生的！</p>
+
+      <h3>创建 Grid 容器</h3>
+      <p>和 Flex 一样，我们首先需要一个容器。通过给父元素设置 <code>display: grid;</code>，我们就声明了：“这里面的所有子元素，都要开始接受网格的管理啦！”</p>
+
+      <h3>定义“轨道”：<code>grid-template-columns</code> 和 <code>grid-template-rows</code></h3>
+      <p>这是 Grid 布局最核心的概念——轨道。你可以把它想象成在容器里画好的格子线。</p>
+      <ul>
+        <li><strong><code>grid-template-columns</code></strong>: 用来定义“列轨道”，也就是决定了网格有多少列，以及每一列的宽度。比如
+          <code>grid-template-columns: 100px 100px 100px;</code> 就创建了三条宽度为 100px 的列轨道，也就是一个三列的网格。
+        </li>
+        <li><strong><code>grid-template-rows</code></strong>: 用来定义“行轨道”，也就是决定了网格有多少行，以及每一行的高度。比如
+          <code>grid-template-rows: 100px 100px;</code> 就创建了两条高度为 100px 的行轨道。
+        </li>
+      </ul>
+      <p>当行和列的轨道都画好后，一个二维的网格就诞生了！子元素们会自动地、一个萝卜一个坑地填充到这些格子里去。</p>
+
+      <h3>网格内容的对齐</h3>
+      <p>当我们的轨道总宽高小于容器的宽高时，我们还可以控制整个网格在容器里的对齐方式，这和 Flex 里的属性非常像：</p>
+      <ul>
+        <li><strong><code>justify-content</code></strong>: 控制整个网格内容在<strong>水平方向</strong>的对齐方式（比如
+          <code>space-between</code>）。
+        </li>
+        <li><strong><code>align-content</code></strong>: 控制整个网格内容在<strong>垂直方向</strong>的对齐方式（比如
+          <code>space-between</code>）。
+        </li>
+      </ul>
+
+      <h3>一个实用技巧</h3>
+      <p>在做商品列表这类布局时，我们往往只关心列的数量和宽度，而行的高度则希望由内容或者固定的子元素高度来决定。这时候，我们就可以<strong>只设置
+          <code>grid-template-columns</code>，而不去设置
+          <code>grid-template-rows</code></strong>，这样行高就会变得非常灵活，是不是很方便呀？</p>
+      <pre><code>.box {
+  /* 1. 声明这是一个网格容器 */
+  display: grid;
+  /* 2. 定义三条列轨道，宽度都是 100px */
+  grid-template-columns: 100px 100px 100px;
+  /* 3. 定义三条行轨道，高度都是 100px */
+  grid-template-rows: 100px 100px 100px;
+}</code></pre>
+      <p>今天只是一个开始，Grid 布局还有超级多强大的功能等着我们去探索呢！准备好迎接更广阔的布局世界了吗？</p>
+      <hr>
+      <h2 id="toc-chapter-3-19">3.19 Grid 布局的利器：fr 单位与 gap 间隙</h2>
+      <p>今天我们学习了两个能让 Grid 布局代码变得更简洁、更智能的超级工具：<code>fr</code> 单位和 <code>gap</code> 属性！</p>
+
+      <h3>按比例分配的魔法单位：<code>fr</code></h3>
+      <p><code>fr</code> (fractional unit，片段) 是一个专门为 Grid 布局设计的弹性单位。它代表“网格容器中可用空间的一等份”。</p>
+      <p>有了它，我们就不需要再费劲地去计算每一列具体的像素值了，直接告诉浏览器我们想要的“比例”就行！</p>
+      <ul>
+        <li><code>grid-template-columns: 1fr 1fr 1fr;</code> 意思就是：“把所有可用宽度平均分成 3 份，每一列占 1 份。”</li>
+        <li><code>grid-template-columns: 2fr 1fr 1fr;</code> 意思就是：“把所有可用宽度分成 4 份，第一列独占 2 份，第二、三列各占 1 份。”</li>
+      </ul>
+      <p>是不是很像我们之前在 Flex 布局里学的 <code>flex: 1;</code>？没错！它们都是用来做弹性分配的，但 <code>fr</code> 是 Grid 世界的专属语法，写起来更直观！</p>
+
+      <h3>告别 Margin 的优雅间距：<code>gap</code></h3>
+      <p>在以前，为了创建元素之间的间距，我们总是要和各种 <code>margin</code> 打交道，有时候还会遇到烦人的外边距合并问题。但在 Grid 和 Flex
+        的世界里，我们有了一个更优雅的解决方案——<code>gap</code> 属性！</p>
+      <ul>
+        <li><code>gap: 10px;</code> 这是一个简写属性，它会同时设置行与行、列与列之间的间距都是 10px。</li>
+        <li>它等同于分别设置 <code>row-gap: 10px;</code> 和 <code>column-gap: 10px;</code>。</li>
+        <li>最棒的是，<code>gap</code> 只作用于元素与元素<strong>之间</strong>，它不会在容器的边缘添加任何多余的间距！这让对齐变得前所未有的简单！</li>
+      </ul>
+
+      <pre><code>.box {
+  display: grid;
+  /* 把可用空间平均分成三列 */
+  grid-template-columns: 1fr 1fr 1fr;
+  /* 设置所有网格轨道之间的间距为 10px */
+  gap: 10px;
+}</code></pre>
+      <p>学会了 <code>fr</code> 和 <code>gap</code>，我们的 Grid 布局就进入了“自动化”时代！代码更少，效果更好！你是不是也觉得 Grid 布局的魅力越来越大了呀？</p>
+      <hr>
+      <h2 id="toc-chapter-3-20">3.20 Grid 的响应式魔法：repeat, auto-fill, minmax</h2>
+      <p>你！今天我们学了 Grid 布局里一组堪称“黑魔法”的组合，它们能让我们的网格在不同屏幕宽度下，自动判断一行能放几个元素，从而实现真正流畅的响应式布局！</p>
+
+      <h3>更偷懒的写法：<code>repeat()</code> 函数</h3>
+      <p>首先是一个能让我们少写很多代码的函数 <code>repeat()</code>。当我们需要创建很多个重复的轨道时，再也不用傻傻地一个一个写了！</p>
+      <ul>
+        <li><code>grid-template-columns: repeat(3, 1fr);</code> 就完全等同于 <code>grid-template-columns: 1fr 1fr 1fr;</code>。
+        </li>
+      </ul>
+
+      <h3>尺寸范围的守护者：<code>minmax()</code> 函数</h3>
+      <p>接着是一个给轨道尺寸上“双重保险”的函数 <code>minmax()</code>。它接受两个参数：<code>minmax(最小值, 最大值)</code>。</p>
+      <ul>
+        <li><code>minmax(100px, 1fr)</code> 的意思就是：这个轨道的宽度最小不能小于 100px，但如果空间足够，就让它自由地去占据一份（1fr）空间。</li>
+      </ul>
+      <p>这就保证了我们的网格元素既有最小的尺寸保障，不会被挤得太小，又能享受弹性布局的好处！</p>
+
+      <h3>响应式的核心：<code>auto-fill</code> 与 <code>auto-fit</code></h3>
+      <p>当把 <code>repeat()</code> 和 <code>minmax()</code> 结合，再配上这两个关键字，魔法就诞生了！</p>
+      <p><code>grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));</code></p>
+      <p>这行代码的意思是：“浏览器，请你自动地用‘最小 100px，最大 1fr’的轨道，尽可能多地填充我的容器吧！” 于是，当容器变宽时，它会自动塞进更多的列；当容器变窄时，它会自动减少列数并让元素换行。这就是响应式的精髓！
+      </p>
+      <dl>
+        <dt><code>auto-fill</code> vs <code>auto-fit</code></dt>
+        <dd>
+          它们非常相似，唯一的区别在于：当容器的宽度足够宽，以至于能放下比实际元素数量更多的轨道时，<code>auto-fill</code> 会保留那些“空轨道”的位置，而 <code>auto-fit</code>
+          则会把这些“空轨道”折叠掉（宽度变为0），让有内容的轨道去占据所有可用空间。在大多数场景下，<code>auto-fit</code> 的表现可能更符合我们的预期。
+        </dd>
+      </dl>
+      <pre><code>.box {
+  display: grid;
+  /* 
+    用 repeat, auto-fill, minmax 实现终极响应式布局！
+    - auto-fill: 自动填充，尽可能多地放轨道
+    - minmax(100px, 1fr): 每个轨道的宽度最小100px，最大1fr
+  */
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+}</code></pre>
+      <p>掌握了这个组合拳，我们几乎可以不费吹灰之力就实现超级流畅的响应式网格布局！你是不是也觉得 CSS 的世界越来越奇妙了呀？</p>
+      <hr>
+      <h2 id="toc-chapter-3-21">3.21 用网格线“画”布局：grid-column / grid-row</h2>
+      <p>今天我们学习了 Grid 布局的精髓所在——如何让单个元素跨越多行或多列，从而创造出像 B 站首页那样丰富多变的不规则布局！实现这个魔法的关键，就是理解“网格线”并使用
+        <code>grid-column</code> 和 <code>grid-row</code> 属性。
+      </p>
+
+      <h3>看不见的“网格线”</h3>
+      <p>首先，我们要建立一个重要的心智模型：一个 N 列的网格，拥有 N+1 根垂直的网格线；一个 M 行的网格，拥有 M+1 根水平的网格线。</p>
+      <p>比如，一个 5 列的网格，它就有 6 根垂直的线，从左到右编号分别是 1, 2, 3, 4, 5, 6。</p>
+
+      <h3>指定元素的起止位置</h3>
+      <p><code>grid-column</code> 和 <code>grid-row</code> 就是用来告诉浏览器，一个网格项目应该从哪根线开始，到哪根线结束。</p>
+      <ul>
+        <li><strong><code>grid-column: &lt;start-line&gt; / &lt;end-line&gt;;</code></strong>: 指定元素在水平方向（列）的起始线和结束线。
+        </li>
+        <li><strong><code>grid-row: &lt;start-line&gt; / &lt;end-line&gt;;</code></strong>: 指定元素在垂直方向（行）的起始线和结束线。</li>
+      </ul>
+      <p>例如，<code>grid-column: 1 / 3;</code> 就表示这个元素从第 1 根垂直线开始，一直延伸到第 3 根垂直线结束，也就是占据了第 1 列和第 2 列，总共 2 个单元格的宽度。</p>
+
+      <h3>更方便的 <code>span</code> 关键字</h3>
+      <p>有时候我们不想去计算结束线是第几根，我们只想说“让这个元素跨越 N 个格子”。这时候，<code>span</code> 关键字就派上用场了！</p>
+      <ul>
+        <li><code>grid-column: 1 / span 2;</code> 的意思和 <code>grid-column: 1 / 3;</code> 完全一样，都是“从第 1 根线开始，跨越 2 个单元格”。
+        </li>
+        <li><code>grid-row: 1 / span 2;</code> 也是同理，“从第 1 根水平线开始，跨越 2 行”。</li>
+      </ul>
+      <p>在今天的 B 站布局例子中，我们就是让第一个元素同时跨越了 2 列和 2 行，从而占据了一个 2x2 的大空间！</p>
+      <pre><code>.item:first-child {
+  /* 水平方向：从第1根线开始，跨越2个单元格 */
+  grid-column: 1 / span 2;
+  /* 垂直方向：从第1根线开始，跨越2个单元格 */
+  grid-row: 1 / span 2;
+}</code></pre>
+      <p>掌握了基于网格线的布局，我们才算真正发挥出了 Grid 的威力！以后再看到各种复杂的网页布局，你是不是也更有信心去实现它了呀？</p>
+      <hr>
+      <h2 id="toc-chapter-3-22">3.22 Grid 进阶：填充流与图片优雅缩放</h2>
+      <p>今天我们又学习了两个让 Grid 布局更强大、更美观的进阶技巧：改变网格的自动填充流方向，以及如何让图片在容器中优雅地缩放而不失真！</p>
+
+      <h3>改变自动布局的方向：<code>grid-auto-flow</code></h3>
+      <p>默认情况下，Grid 会优先把项目一个一个地“按行”往下填充。但有时候，我们希望它能“按列”填充。这时候，<code>grid-auto-flow</code> 就派上用场了！</p>
+      <ul>
+        <li>它的默认值是 <code>row</code>，也就是先行后列。</li>
+        <li>当我们把它设置为 <code>column</code> 时，Grid 就会改变它的自动布局算法，变成优先“按列”从上往下填充，填满一列后再去填充下一列。</li>
+      </ul>
+      <p>在今天的例子里，我们定义了一个 3 列 2 行的网格，但只有 4 个项目。通过设置 <code>grid-auto-flow: column;</code>，浏览器就会先把第 1
+        列填满（放了项目1和项目2），然后再去填充第
+        2 列（放了项目3），以此类推，从而形成了我们看到的独特布局。</p>
+
+      <h3>图片响应式神器：<code>object-fit</code></h3>
+      <p>这绝对是现代 CSS 中最伟大的属性之一！在过去，要把一张图片塞进一个和它比例不符的容器里，同时还不让它变形，是一件非常头疼的事。但现在，我们有了 <code>object-fit</code>！</p>
+      <p>这个属性专门用来处理“替换元素”（比如 <code>&lt;img&gt;</code> 或 <code>&lt;video&gt;</code>）在其内容框中的填充方式。它最常用的两个值是：</p>
+      <dl>
+        <dt><code>object-fit: contain;</code></dt>
+        <dd>保持图片的原始宽高比，将图片缩放到能<strong>完全容纳</strong>在容器里的大小。这可能会导致容器的某些区域留白。</dd>
+        <dt><code>object-fit: cover;</code></dt>
+        <dd>保持图片的原始宽高比，将图片缩放到能<strong>完全覆盖</strong>整个容器的大小。这可能会导致图片的某些部分被裁剪掉，但容器一定会被填满。<strong>这是我们最常用的值！</strong></dd>
+      </dl>
+      <p>配合 <code>object-position</code> 属性（比如 <code>object-position: center;</code>），我们还可以控制图片在被裁剪时，优先显示哪个部分。</p>
+      <pre><code>.box img {
+  width: 100%;
+  height: 100%;
+  /* 
+    让图片保持自身比例，
+    同时缩放到能完全覆盖父容器，
+    超出部分直接裁剪掉。
+  */
+  object-fit: cover;
+}</code></pre>
+      <p>有了 <code>object-fit: cover;</code>，我们再也不用担心图片被压扁或拉伸了！无论容器怎么变，图片都能保持最优美的姿态！这个技巧一定要牢牢记住哦，以后会无数次用到的！</p>
+      <hr>
+      <h2 id="toc-chapter-3-23">3.23 Grid 项目对齐：justify-items / align-items</h2>
+      <p>今天我们来区分一组非常重要的概念：是“整个网格”对齐，还是“网格里的项目”对齐？之前我们学的 <code>justify-content</code> 和 <code>align-content</code>
+        控制的是前者，而今天的主角 <code>justify-items</code> 和 <code>align-items</code> 控制的是后者！</p>
+
+      <h3>控制“格子内部”的对齐</h3>
+      <p>当我们的网格项目（子元素）的尺寸小于它所在的网格单元（也就是那个“格子”）时，我们就可以控制它在格子里的对齐方式。</p>
+      <ul>
+        <li><strong><code>justify-items</code></strong>: 控制项目在单元格内的<strong>水平</strong>对齐方式。</li>
+        <li><strong><code>align-items</code></strong>: 控制项目在单元格内的<strong>垂直</strong>对齐方式。</li>
+      </ul>
+      <p>它们都作用于 Grid 容器上，统一管理容器内所有的项目。常用的值有：</p>
+      <ul>
+        <li><code>start</code>: 在单元格的起始位置对齐。（水平靠左，垂直靠上）</li>
+        <li><code>end</code>: 在单元格的结束位置对齐。（水平靠右，垂直靠下）</li>
+        <li><code>center</code>: 在单元格内居中对齐。</li>
+        <li><code>stretch</code>: （默认值）拉伸项目，使其填满整个单元格的宽度或高度。</li>
+      </ul>
+
+      <h3><code>*-content</code> vs <code>*-items</code></h3>
+      <p>一定要分清这两组属性的区别哦，这是一个常见的混淆点！</p>
+      <ul>
+        <li><strong><code>justify-content</code> / <code>align-content</code></strong>:
+          把整个网格系统（所有的格子加在一起）看作一个整体，控制这个<strong>整体</strong>在 Grid 容器里的对齐。</li>
+        <li><strong><code>justify-items</code> / <code>align-items</code></strong>:
+          控制<strong>每一个项目</strong>在它自己所在的那个<strong>小格子内部</strong>的对齐。</li>
+      </ul>
+      <p>就像一个大停车场（Grid 容器）里画了很多停车位（Grid 单元格）。<code>*-content</code> 决定的是所有停车位这个整体是靠左停、靠右停还是居中停；而 <code>*-items</code>
+        决定的是每一辆车，是在自己的停车位里靠左停、靠右停还是停在正中间。</p>
+
+      <pre><code>.box {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+
+  /* 让所有项目在自己的格子里水平居中 */
+  justify-items: center;
+  /* 让所有项目在自己的格子里垂直居中 */
+  align-items: center;
+}
+
+.item {
+  /* 项目本身尺寸小于格子尺寸 */
+  width: 50px;
+  height: 50px;
+}</code></pre>
+      <p>理解了这个区别，你对 Grid 布局的掌控就更加精准啦！</p>
+      <hr>
+      <h2 id="toc-chapter-3-24">3.24 瀑布流布局的基石：多栏布局</h2>
+      <p>今天我们接触了一种不太一样但非常有用的布局方式——多栏布局 (Columns)。它能像报纸分栏一样，自动地把一个容器里的内容分配到多个栏目中，是实现“瀑布流”效果的基础之一哦！</p>
+
+      <h3>如何创建多栏布局</h3>
+      <p>我们只需要在父容器上设置几个简单的属性，就能开启多栏布局：</p>
+      <ul>
+        <li><strong><code>column-count</code></strong>: 指定容器应该被分成多少栏。比如 <code>column-count: 5;</code> 就是分成 5 栏。</li>
+        <li><strong><code>column-gap</code></strong>: 设置栏与栏之间的间距。</li>
+        <li><strong><code>column-rule</code></strong>: 设置栏与栏之间的分割线样式，它的写法和 <code>border</code> 属性一模一样，比如
+          <code>column-rule: 1px dashed red;</code>。
+        </li>
+      </ul>
+      <p>开启之后，容器里的子元素们就会像流水一样，自动从第一栏的顶部开始向下排列，填满第一栏后，再自动流到第二栏的顶部继续排列，以此类推。</p>
+
+      <h3>防止元素被“腰斩”：<code>break-inside</code></h3>
+      <p>在多栏布局中，一个常见的问题是，一个完整的子元素可能会在换栏的时候被“切开”，一半留在前一栏的底部，一半跑到后一栏的顶部，非常难看。为了解决这个问题，我们可以在子元素上设置：</p>
+      <ul>
+        <li><strong><code>break-inside: avoid-column;</code></strong></li>
+      </ul>
+      <p>这个属性会告诉浏览器：“请尽量不要在这个元素的中间打断换栏！” 这样，浏览器就会尝试保持这个元素的完整性，让它要么完整地留在前一栏，要么整个移动到后一栏。为了兼容一些旧的浏览器，我们通常还会加上带前缀的写法
+        <code>-webkit-column-break-inside: avoid;</code>。
+      </p>
+
+      <pre><code>.box {
+  /* 把容器分成 5 栏 */
+  column-count: 5;
+  /* 设置栏间距 */
+  column-gap: 20px;
+  /* 设置栏之间的分割线 */
+  column-rule: 1px dashed red;
+}
+
+.item {
+  /* 防止这个项目在换栏时被切开 */
+  break-inside: avoid-column;
+  -webkit-column-break-inside: avoid;
+}</code></pre>
+      <p>虽然现在有了 Grid 布局，我们可以用更现代的方式来实现瀑布流，但了解一下多栏布局的原理也很有趣呀！你又拓宽了自己的知识面呢！</p>
+      <hr>
+      <h2 id="toc-chapter-3-25">3.25 细节决定体验：鼠标样式 cursor</h2>
+      <p>今天我们来学习一个能提升用户体验的小细节——<code>cursor</code> 属性！它能改变鼠标悬停在元素上时的指针样式，给用户最直观的操作反馈。</p>
+      <p>比如，当鼠标在一个链接上变成小手形状时，用户就立刻知道“哦，这个可以点！”。这种细节的交互提示非常重要哦！</p>
+      <h3>常见的鼠标样式</h3>
+      <p><code>cursor</code> 属性有很多值，这里是一些我们最常用的：</p>
+      <ul>
+        <li><code>pointer</code>: 小手形状，用于所有可以点击的元素，比如链接、按钮。这是最重要的一个！</li>
+        <li><code>text</code>: I 型光标，用于提示这里的文字可以选择。</li>
+        <li><code>wait</code>: 等待光标（沙漏或旋转圆圈），告诉用户程序正在处理中，请稍候。</li>
+        <li><code>not-allowed</code>: 禁止图标，明确告诉用户此处的元素不可用或操作被禁止。</li>
+        <li><code>grab</code> / <code>grabbing</code>: 抓取的手 / 抓紧的手，常用于可拖拽的元素，给予用户可以“抓住”和“移动”的暗示。</li>
+        <li><code>help</code>: 带问号的箭头，提示用户这里有帮助信息。</li>
+      </ul>
+      <p>正确地使用鼠标样式，能让我们的网页交互更清晰、更符合直觉。这是一个优秀前端工程师必备的细节处理能力哦！</p>
+      <hr>
+      <h2 id="toc-chapter-3-26">3.26 代码的“仪容仪表”：CSS 属性书写顺序</h2>
+      <p>在第三章的最后，pink老师教给了我们一个非常重要的“软技能”——CSS
+        属性的书写顺序！这就像是代码的“仪容仪表”，虽然不影响功能，但一个清晰、统一的顺序能让我们的代码变得特别容易阅读和维护，是专业前端开发的体现！</p>
+      <p>老师推荐的逻辑顺序是：<strong>布局 → 盒模型 → 视觉 → 交互 → 其他</strong>。核心思想是“从外到内，从结构到表现”。</p>
+      <ol>
+        <li><strong>布局相关 (Layout)</strong>: 首先确定元素怎么放，它在文档流中的角色是什么。这决定了元素的骨架。
+          <ul>
+            <li><code>display</code>, <code>position</code>, <code>float</code>, <code>clear</code>,
+              <code>visibility</code>, <code>overflow</code>, <code>z-index</code>
+            </li>
+          </ul>
+        </li>
+        <li><strong>盒模型 (Box Model)</strong>: 骨架搭好了，接着定义它自己的尺寸和内外边距。
+          <ul>
+            <li><code>box-sizing</code>, <code>width</code>, <code>height</code>, <code>margin</code>,
+              <code>padding</code>, <code>border</code>, <code>outline</code>
+            </li>
+          </ul>
+        </li>
+        <li><strong>视觉样式 (Visual)</strong>: 有了形状，再给它“化妆”，比如颜色、背景、字体等。
+          <ul>
+            <li><code>color</code>, <code>background</code>, <code>font</code>, <code>line-height</code>,
+              <code>text-align</code>, <code>white-space</code>
+            </li>
+          </ul>
+        </li>
+        <li><strong>交互与动画 (Interaction & Animation)</strong>: 然后添加一些交互效果和动画。
+          <ul>
+            <li><code>cursor</code>, <code>opacity</code>, <code>transition</code>, <code>animation</code>,
+              <code>transform</code>
+            </li>
+          </ul>
+        </li>
+        <li><strong>其他 (Misc)</strong>: 最后放一些不常用或特殊的属性。
+          <ul>
+            <li><code>filter</code>, <code>clip-path</code>, <code>will-change</code>, <code>scroll-behavior</code></li>
+          </ul>
+        </li>
+      </ol>
+      <p>当然，这只是一个推荐的规范，最重要的还是<strong>团队保持一致</strong>！养成一个好的书写习惯，不仅方便自己回顾，也方便和其他人协作。从现在开始，我们就试着按照这个顺序来写 CSS 好不好呀，你？
+      </p>
+      <p>第三章的学习到这里就圆满结束啦！我们一起掌握了浮动、弹性布局、定位、网格布局等等超级强大的现代布局方案！你真的太棒了，进步神速！我为你感到无比的骄傲！接下来，让我们一起满怀期待地进入第四章的学习吧！</p>
+      <hr>
+      <h1 id="toc-chapter-4">第四章：交互动效设计</h1>
+      <p>欢迎来到第四章！在这一章，我们会学习如何使用 CSS 的 <code>transform</code> 和 <code>transition</code>
+        属性，让我们的静态页面变得生动有趣！这就像是为我们的网页元素注入灵魂，让它们能够移动、旋转、缩放，并拥有流畅的动画效果！</p>
+      <h2 id="toc-chapter-4-1">4.1 2D变化之位移：transform: translate</h2>
+      <p>今天我们学习了让元素“动起来”的第一个魔法——位移！这是通过 <code>transform</code> 属性里的 <code>translate()</code> 函数来实现的。</p>
+
+      <h3>核心属性：<code>transform</code></h3>
+      <p><code>transform</code> 是一个非常强大的 CSS 属性，它允许我们对元素进行移动、旋转、缩放和倾斜等操作，但又<strong>不会影响到其他元素的布局</strong>。这一点和相对定位
+        <code>position: relative</code> 很像，元素移动后，它原本占据的空间依然保留。但 <code>transform</code>
+        在性能上通常更优，尤其是在做动画时，浏览器可以对它进行硬件加速，让动画效果更流畅！
+      </p>
+
+      <h3>位移函数：<code>translate()</code></h3>
+      <p><code>translate()</code> 就是专门用来移动元素的。它有几种写法：</p>
+      <ul>
+        <li><strong><code>transform: translate(x, y);</code></strong>: 同时在水平（X轴）和垂直（Y轴）方向上移动。</li>
+        <li><strong><code>transform: translateX(x);</code></strong>: 只在水平方向上移动。</li>
+        <li><strong><code>transform: translateY(y);</code></strong>: 只在垂直方向上移动。</li>
+      </ul>
+      <p>这些值可以是像素（px）、百分比（%）等单位。</p>
+
+      <h3>百分比单位的特殊之处</h3>
+      <p>这是一个非常重要的知识点！当 <code>translate()</code> 使用百分比作为单位时，它参照的不是父容器的尺寸，而是<strong>元素自身的尺寸</strong>！</p>
+      <ul>
+        <li><code>transform: translateX(50%);</code> 意思是“让这个元素向右移动它自身宽度的 50%”。</li>
+        <li><code>transform: translateY(50%);</code> 意思是“让这个元素向下移动它自身高度的 50%”。</li>
+      </ul>
+      <p>这个特性让它在实现某些居中对齐效果时特别有用！</p>
+
+      <pre><code>.box1:hover {
+  /* 鼠标悬停时，让元素向下移动 100px */
+  transform: translateY(100px);
+}
+
+.box2 {
+  /* 让元素向右移动自身宽度的 50% */
+  transform: translateX(50%);
+}</code></pre>
+      <p>配合我们之前学过的 <code>transition</code> 属性，就可以做出非常平滑的位移动画效果啦！是不是已经感觉到让页面动起来的乐趣了呀？</p>
+      <hr>
+      <h2 id="toc-chapter-4-2">4.2 2D变化之旋转：transform: rotate</h2>
+      <p>今天我们学习了 <code>transform</code> 家族的第二个成员——旋转！通过 <code>rotate()</code> 函数，我们可以让元素像陀螺一样转起来！</p>
+
+      <h3>旋转函数：<code>rotate()</code></h3>
+      <p><code>rotate()</code> 函数接受一个角度值作为参数，单位是 <code>deg</code> (degree，度)。</p>
+      <ul>
+        <li>正数值表示<strong>顺时针</strong>旋转。</li>
+        <li>负数值表示<strong>逆时针</strong>旋转。</li>
+      </ul>
+      <p>比如，<code>transform: rotate(90deg);</code> 就是让元素顺时针旋转 90 度。</p>
+
+      <h3>改变旋转中心：<code>transform-origin</code></h3>
+      <p>这是今天学习的另一个重点！默认情况下，所有的变形（包括位移、旋转、缩放）都是以元素的<strong>正中心</strong>为基准点进行的。但 <code>transform-origin</code>
+        属性允许我们改变这个中心点！</p>
+      <p>它接受两个值，分别代表 X 轴和 Y 轴的中心点位置。我们可以用方位名词（<code>left</code>, <code>center</code>, <code>right</code>,
+        <code>top</code>, <code>bottom</code>），也可以用像素或百分比。
+      </p>
+      <ul>
+        <li>它的默认值是 <code>center center</code> 或者 <code>50% 50%</code>。</li>
+        <li>在今天的例子里，我们设置了 <code>transform-origin: left;</code>，这就等同于 <code>transform-origin: left center;</code> 或
+          <code>transform-origin: 0 50%;</code>。它的意思是，把变形的中心点从元素的正中心，移动到了元素左边线的中点上。
+        </li>
+      </ul>
+      <p>所以，当我们再执行 <code>rotate(180deg)</code> 时，图片就会像一扇门一样，绕着它的左门轴旋转啦！</p>
+
+      <pre><code>img {
+  /* 把旋转的中心点设置在元素的左侧边缘 */
+  transform-origin: left;
+}
+
+img:hover {
+  /* 鼠标悬停时，顺时针旋转 180 度 */
+  transform: rotate(180deg);
+  transition: all 1s;
+}</code></pre>
+      <p>理解了 <code>transform-origin</code>，我们就能做出各种各样有趣的、非中心对称的动画效果了！是不是感觉自己像个魔术师，能控制页面上的一切了呀？</p>
+      <hr>
+      <h2 id="toc-chapter-4-3">4.3 2D变化之缩放：transform: scale</h2>
+      <p>今天我们学习了 <code>transform</code> 家族里负责“变大变小”的成员——缩放！通过 <code>scale()</code> 函数，我们可以轻松地改变元素的尺寸。</p>
+
+      <h3>缩放函数：<code>scale()</code></h3>
+      <p><code>scale()</code> 函数接受一个或两个数值作为参数，这个数值是没有单位的，它代表一个倍率。</p>
+      <ul>
+        <li><strong><code>transform: scale(1.5);</code></strong>: 如果只写一个值，代表水平（X轴）和垂直（Y轴）方向等比例缩放 1.5 倍。</li>
+        <li><strong><code>transform: scale(1.2, 0.8);</code></strong>: 如果写两个值，第一个代表水平方向的缩放倍率，第二个代表垂直方向的缩放倍率。</li>
+        <li><code>scaleX(1.5)</code> 和 <code>scaleY(1.5)</code> 则可以单独控制某个轴向的缩放。</li>
+      </ul>
+      <p>数值大于 1 是放大，小于 1 是缩小，等于 1 则没有变化。</p>
+
+      <h3><code>transform: scale</code> vs. 修改 <code>width/height</code></h3>
+      <p>这是一个非常非常重要的区别！为什么我们推荐用 <code>transform</code> 来做缩放动画，而不是直接修改元素的 <code>width</code> 和 <code>height</code> 呢？</p>
+      <p>因为 <code>transform</code> 是一种“视觉上”的变化，它<strong>不会影响文档流的布局</strong>！当一个元素通过 <code>scale</code>
+        变大时，它看起来变大了，但它在布局中所占据的原始空间并没有改变，所以它不会推开旁边的其他元素。而如果你直接修改 <code>width</code> 和
+        <code>height</code>，元素在布局中的“占地面积”就真的变了，很可能会导致整个页面的重新排列，引发“重排（reflow）”，这在性能上是比较昂贵的。
+      </p>
+      <p>所以，在做交互动画时，我们应该优先使用 <code>transform</code>！</p>
+
+      <pre><code>.box1:hover {
+  /* 
+    让元素等比例放大 1.5 倍。
+    注意：这个变化不会影响到它旁边的 .box2 元素的位置！
+  */
+  transform: scale(1.5);
+  transition: all 1s;
+}</code></pre>
+      <p>和旋转一样，我们也可以用 <code>transform-origin</code> 来改变缩放的中心点哦！是不是又学到了一个提升网页性能和表现力的关键技巧呀？</p>
+      <hr>
+      <h2 id="toc-chapter-4-4">4.4 2D变化之斜切：transform: skew</h2>
+      <p>今天我们学习了 <code>transform</code> 2D 变形的最后一位成员——斜切！通过 <code>skew()</code>
+        函数，我们可以让元素产生一种倾斜、扭曲的视觉效果，非常有设计感和速度感！</p>
+
+      <h3>斜切函数：<code>skew()</code></h3>
+      <p><code>skew()</code> 函数同样接受角度值 <code>deg</code> 作为参数，它有两个变体：</p>
+      <ul>
+        <li><strong><code>transform: skewX(15deg);</code></strong>: 仅在水平方向（X轴）上进行倾斜。</li>
+        <li><strong><code>transform: skewY(15deg);</code></strong>: 仅在垂直方向（Y轴）上进行倾斜。</li>
+        <li>我们也可以用 <code>skew(x-angle, y-angle)</code> 同时在两个方向上倾斜。</li>
+      </ul>
+      <p>这个效果在制作一些动感十足的按钮或者有创意的卡片设计时非常有用！</p>
+
+      <h3>意外收获：毛玻璃效果 <code>backdrop-filter</code></h3>
+      <p>在今天的卡片案例中，pink老师还向我们展示了一个超级酷炫的属性——<code>backdrop-filter</code>！</p>
+      <p>这个属性可以让我们为元素后方的区域添加图形效果，比如模糊、变色等。当我们在一个半透明的元素上使用它时，就能做出非常漂亮的“毛玻璃”或“磨砂玻璃”质感！</p>
+      <p><code>backdrop-filter: blur(30px);</code> 的意思就是：“让我这个元素后面所有被它盖住的内容，都产生一个 30px 的高斯模糊效果！”</p>
+      <p>要让它生效，元素本身需要有一定的透明度，比如我们案例中设置的 <code>background-color: rgba(255, 255, 255, 0.4);</code>，那个 `0.4` 的透明度就是关键！</p>
+
+      <pre><code>.box {
+  /* 仅在水平方向倾斜 -16 度 */
+  transform: skewX(-16deg);
+}
+
+.front {
+  /* 半透明背景是毛玻璃效果的前提 */
+  background-color: rgba(255, 255, 255, 0.4);
+  /* 让这个元素背后的所有东西都模糊 30px */
+  backdrop-filter: blur(30px);
+}</code></pre>
+      <p><code>skew</code> 加上 <code>backdrop-filter</code>，我们就能做出非常有质感、有创意的 UI 效果了！是不是感觉我们的武器库又变强了好多呀！</p>
+      <hr>
+      <h2 id="toc-chapter-4-5">4.5 组合拳：多组 2D 变化的叠加</h2>
+      <p>今天我们学习了如何将多种 2D 变化（位移、旋转、缩放、斜切）组合在一起，施展出一套华丽的“组合拳”！</p>
+
+      <h3>如何叠加多种变化</h3>
+      <p>我们可以在一个 <code>transform</code> 属性里，用空格隔开，写上多个变化函数。浏览器会按照从左到右的顺序依次执行这些变化。</p>
+      <p><code>transform: rotate(360deg) translateX(100px);</code></p>
+
+      <h3>顺序的重要性：结果大不同！</h3>
+      <p>这是今天最最核心的知识点！<strong><code>transform</code> 中多个变化函数的书写顺序，会直接影响最终的动画效果！</strong></p>
+      <p>因为每一次变化，都是在前一次变化的基础上进行的。更重要的是，每一次变化（尤其是旋转和斜切），都会改变元素的坐标轴！</p>
+      <ul>
+        <li><strong>先旋转，再位移</strong>:
+          <code>transform: rotate(45deg) translateX(100px);</code><br>浏览器会先让元素原地旋转45度，此时元素的坐标轴也跟着旋转了45度。然后再执行
+          <code>translateX(100px)</code>，元素就会沿着这个“新的、倾斜的X轴”移动100px，最终的效果就是斜着飞出去了！
+        </li>
+        <li><strong>先位移，再旋转</strong>:
+          <code>transform: translateX(100px) rotate(45deg);</code><br>浏览器会先让元素沿着“原始的、水平的X轴”移动100px，到达新位置后，再以新位置的中心点进行原地旋转45度。
+        </li>
+      </ul>
+      <p>可以看出来，两种顺序最终的位置和姿态是完全不同的！所以，在写组合动画时，一定要想清楚我们想要的动画逻辑，再决定函数书写的先后顺序哦！</p>
+
+      <pre><code>.box:hover img {
+  /* 
+    推荐的写法：先位移，再做其他操作。
+    这样可以保证位移是沿着我们预想的直线方向进行的。
+  */
+  transform: translateX(600px) rotate(360deg);
+}</code></pre>
+      <p>掌握了组合变化的秘诀，我们就能创造出几乎所有我们能想象到的 2D 动画效果了！是不是感觉自己对动画的理解又加深了一层呀？</p>
+      <hr>
+      <h2 id="toc-chapter-4-6">4.6 进入3D世界：3D旋转</h2>
+      <p>从今天开始，我们的动效设计将从 2D 平面，跃升到更酷炫的 3D 空间！这意味着我们除了 X 轴（水平）和 Y 轴（垂直），还多了一条从屏幕里指向我们眼睛的 Z 轴！</p>
+
+      <h3>认识三维坐标系</h3>
+      <p>在 3D 世界里，我们需要重新认识一下三个轴：</p>
+      <ul>
+        <li><strong>X 轴</strong>: 依然是水平方向的轴，你可以想象成一根穿过元素中心的横着的烤串签子。<code>rotateX()</code> 就是让元素绕着这根签子“上下翻滚”。</li>
+        <li><strong>Y 轴</strong>: 依然是垂直方向的轴，像一根竖着的签子。<code>rotateY()</code> 就是让元素绕着它“左右旋转”，就像旋转门一样。</li>
+        <li><strong>Z 轴</strong>: 这是新增的轴，它是一条从屏幕深处穿出来，垂直于屏幕，指向你眼睛的线。<code>rotateZ()</code>
+          就是让元素绕着这根线“在平面上打转”，它的效果和我们之前学的
+          2D <code>rotate()</code> 完全一样！</li>
+      </ul>
+
+      <h3>3D 旋转函数</h3>
+      <p>和 2D 类似，我们现在有了三个新的旋转函数：</p>
+      <ul>
+        <li><code>transform: rotateX(180deg);</code></li>
+        <li><code>transform: rotateY(180deg);</code></li>
+        <li><code>transform: rotateZ(180deg);</code></li>
+      </ul>
+      <p>它们分别控制元素绕着对应的轴进行旋转。</p>
+
+      <h3>一个问题：为什么看起来“不像3D”？</h3>
+      <p>你在写代码的时候一定发现了，虽然我们用了 3D 旋转，但效果看起来还是“平平的”，有点像把图片压扁了再还原，并没有“近大远小”的立体感。这是为什么呢？</p>
+      <p>因为我们还缺少一个关键的东西——“透视”！这就好比我们虽然在三维空间里旋转一个物体，但我们的眼睛（视点）离它是无限远，所以看不出透视关系。在下一节课，我们就会学习如何开启“透视”，让我们的 3D 效果真正变得立体起来！
+      </p>
+
+      <pre><code>/* 绕着 X 轴（横轴）翻转 */
+.ldhx:hover {
+  transform: rotateX(180deg);
+}
+
+/* 绕着 Y 轴（竖轴）旋转 */
+.ldhy:hover {
+  transform: rotateY(180deg);
+}
+
+/* 绕着 Z 轴（指向你的轴）旋转，效果同 2D rotate */
+.ldhz:hover {
+  transform: rotateZ(180deg);
+}</code></pre>
+      <p>今天我们成功地在脑海中建立起了三维坐标系，这是后续所有 3D 效果的基础！准备好给我们的动画加上“透视”镜头，让它变得更逼真了吗？</p>
+      <hr>
+      <h2 id="toc-chapter-4-7">4.7 开启3D之眼：透视(perspective)</h2>
+      <p>还记得上一节课的疑问吗？为什么我们的3D旋转看起来“平平无奇”？答案就是缺少了“透视”！今天，我们就来为我们的3D世界装上“眼睛”，让一切都变得立体起来！</p>
+
+      <h3>什么是透视？</h3>
+      <p>透视，在CSS中就是 <code>perspective</code> 属性。你可以把它想象成是我们的“眼睛”到屏幕（Z=0平面）的距离。有了这个距离，浏览器才能计算出“近大远小”的视觉效果。</p>
+      <ul>
+        <li><code>perspective</code> 的值是一个长度单位（比如 <code>500px</code>），这个值<strong>不是越大越好</strong>！</li>
+        <li><strong>值越小</strong>：代表眼睛离屏幕越近，看到的物体形变越大，3D效果就越夸张、越强烈。</li>
+        <li><strong>值越大</strong>：代表眼睛离屏幕越远，看到的物体形变越小，3D效果就越平缓、越真实。通常在 <code>800px</code> 到 <code>1200px</code>
+          之间，是比较舒服的范围。</li>
+      </ul>
+
+      <p>我们有两种方法来为元素添加透视效果：</p>
+      <ol>
+        <li>
+          <strong>作为属性，给父元素添加</strong>
+          <p>这是最常用，也是最推荐的方法。我们将 <code>perspective</code>
+            属性直接加在需要产生3D效果的元素的<strong>父级</strong>上。这样做的好处是，所有在这个父容器里的3D元素，都会共享同一个“消失点”，它们仿佛处在同一个统一的3D空间里，看起来非常和谐。</p>
+          <pre><code>/* 方法一：给父元素添加透视 */
+.container {
+    perspective: 800px; /* 设置视距为800px */
+}
+
+.container:hover .box {
+    transform: rotateY(180deg);
+}</code></pre>
+        </li>
+        <li>
+          <strong>作为函数，在 transform 中使用</strong>
+          <p>我们也可以把 <code>perspective()</code> 作为一个函数，写在 <code>transform</code> 属性里。但这种方法有一些限制：只对元素自身生效，且必须写在所有变换函数的最前面！
+          </p>
+          <pre><code>/* 方法二：在 transform 函数中直接使用 */
+.box:hover {
+    transform: perspective(800px) rotateY(180deg);
+}</code></pre>
+        </li>
+      </ol>
+      <p>加上了 <code>perspective</code> 之后，我们的3D世界是不是瞬间就变得“真实”起来了？你已经掌握了开启3D大门的关键钥匙啦！嘿嘿~</p>
+      <hr>
+      <h2 id="toc-chapter-4-8">4.8 魔法卡片：两面翻转效果与 backface-visibility</h2>
+      <p>今天我们来学习一个超级酷炫的效果——就像变魔术一样，让一张卡片在鼠标悬停时翻转过来，显示出背面的内容！</p>
+
+      <h3>核心魔法：<code>backface-visibility</code></h3>
+      <p>这个效果的关键，是一个叫做 <code>backface-visibility</code> 的CSS属性。它的意思是“背面可见性”。</p>
+      <ul>
+        <li>默认情况下，一个元素即使被翻转到背面（比如 <code>rotateY(180deg)</code>），它的背面也依然是可见的，只不过是镜像的。</li>
+        <li>但是，当我们给它设置 <code>backface-visibility: hidden;</code> 之后，就等于施加了一个“隐身咒”！当这个元素的背面朝向我们时，它就会变得完全透明，看不见了！</li>
+      </ul>
+      <p>这正是我们实现翻转效果的基石！</p>
+
+      <h3>翻转卡片的制作步骤</h3>
+      <p>要制作一个翻转卡片，我们需要像搭积木一样，一步步来：</p>
+      <ol>
+        <li><strong>搭建舞台</strong>: 创建一个父容器（比如 <code>.card</code>），并给它设置 <code>position: relative;</code> 和
+          <code>perspective</code>，为卡片翻转提供3D空间。
+        </li>
+        <li><strong>放置卡片</strong>: 在父容器里，放入“正面”和“背面”两张卡片（比如 <code>.front</code> 和 <code>.back</code>）。用
+          <code>position: absolute;</code> 让它们完美地叠在一起。
+        </li>
+        <li><strong>施展隐身咒</strong>: 给“正面”和“背面”的卡片都加上 <code>backface-visibility: hidden;</code>。</li>
+        <li><strong>初始布局</strong>:
+          让“正面”卡片朝向我们（默认状态），同时把“背面”卡片预先翻转180度（<code>transform: rotateY(180deg);</code>），让它背对着我们，因为有隐身咒，所以我们看不见它。</li>
+        <li><strong>触发翻转</strong>: 当鼠标悬停在父容器上时，让“正面”卡片翻转180度过去（背对我们，于是隐身），同时让“背面”卡片从180度翻转回来（正对我们，于是现身）。</li>
+      </ol>
+      <p>通过这样一隐一现的配合，就实现了完美的翻转动画！</p>
+      <pre><code>.card {
+    position: relative;
+    perspective: 1000px; /* 1. 搭建3D舞台 */
+}
+
+.card > div {
+    position: absolute; /* 2. 子绝，让两张卡片叠在一起 */
+    backface-visibility: hidden; /* 3. 施展隐身咒 */
+    transition: transform 0.7s;
+}
+
+.back {
+    /* 4. 背面预先翻过去，背对我们 */
+    transform: rotateY(180deg);
+}
+
+/* 5. 鼠标悬停在父容器上时，触发翻转 */
+.card:hover .front {
+    transform: rotateY(180deg); /* 正面翻过去，隐身 */
+}
+
+.card:hover .back {
+    transform: rotateY(0deg); /* 背面翻回来，现身 */
+}</code></pre>
+      <p>你看，是不是很有趣呀？掌握了这个技巧，以后我们就可以做出很多漂亮的交互效果了呢！</p>
+      <hr>
+      <h2 id="toc-chapter-4-9">4.9 让元素“浮”起来：3D位移与 transform-style</h2>
+      <p>今天，我们来学习如何让元素不仅仅是在2D平面上移动，而是在Z轴（指向我们眼睛的轴）上移动，做出“冲出屏幕”或者“陷入屏幕”的效果！</p>
+
+      <h3>3D位移：translate3d</h3>
+      <p>和2D位移类似，3D位移也有一系列函数：</p>
+      <ul>
+        <li><code>translateX(值)</code>: 沿X轴移动。</li>
+        <li><code>translateY(值)</code>: 沿Y轴移动。</li>
+        <li><code>translateZ(值)</code>: 沿Z轴移动。这是实现“远近”效果的关键！正值向观察者移动（变大），负值远离观察者移动（变小）。</li>
+        <li><code>translate3d(x, y, z)</code>: 这是三合一的完整写法。</li>
+      </ul>
+
+      <h3>开启真·3D空间：transform-style: preserve-3d</h3>
+      <p>这是今天最核心、也最容易让人困惑的属性。<strong>它必须应用在父元素上，用来决定它的子元素是存在于2D平面还是3D空间。</strong></p>
+      <ul>
+        <li><strong>默认值 <code>flat</code></strong>：所有子元素都会被“拍平”到父元素的2D平面上。</li>
+        <li><strong><code>preserve-3d</code></strong>：为子元素们撑开一个真正的3D空间，允许它们在这个空间里拥有自己的3D变换效果。</li>
+      </ul>
+      <p>简单来说：一个元素如果想让自己的孩子能玩3D，那它自己就必须先用 <code>transform-style: preserve-3d;</code> 声明自己是一个“3D容器”！</p>
+
+      <pre><code>/* 父元素必须开启3D空间 */
+.parent {
+    transform-style: preserve-3d;
+}
+
+/* 子元素才能在Z轴上移动，产生“浮空”效果 */
+.child {
+    transform: translateZ(50px);
+}
+
+/* 如果父元素没有 transform-style: preserve-3d，
+   那么子元素的 translateZ 将会失效！*/</code></pre>
+      <p>理解了这一点，我们就能够创造出层次感非常丰富的3D场景了！是不是感觉自己像一个空间魔法师啦？</p>
+      <hr>
+      <h2 id="toc-chapter-4-10">4.10 制作动画片：animation 与 @keyframes</h2>
+      <p>今天我们学习了比 <code>transition</code> 更强大的动画工具——<code>animation</code>！如果说 <code>transition</code> 是简单的状态切换，那
+        <code>animation</code> 就是可以精心编排的“动画片”，它可以自动播放，并且能定义非常复杂的动画过程。
+      </p>
+
+      <h3>动画制作的两大步骤</h3>
+      <p>制作一个 <code>animation</code> 动画，只需要两步：</p>
+      <ol>
+        <li><strong>用 <code>@keyframes</code> 定义动画剧本</strong>：<code>@keyframes</code> 用来创建动画的“剧本”。我们先给剧本起个名字，然后在里面用百分比（或
+          <code>from</code>/<code>to</code>）来定义动画过程中的“关键帧”和对应的样式。
+        </li>
+        <li><strong>用 <code>animation</code> 属性调用动画</strong>：剧本写好后，在需要应用的元素上，通过 <code>animation</code>
+          属性来调用它，并指定动画持续的时间。
+        </li>
+      </ol>
+
+      <pre><code>/* 1. 定义一个名为 move 的动画剧本 */
+@keyframes move {
+  /* 动画开始时 (0%) */
+  from {
+    transform: translateX(0);
+  }
+
+  /* 动画结束时 (100%) */
+  to {
+    transform: translateX(500px);
+  }
+}
+
+/* 2. 把 move 动画应用到 .box 元素上，持续时间为4秒 */
+.box {
+  animation: move 4s;
+}
+
+/* 我们还可以定义更复杂的中间状态 */
+@keyframes rainbow-move {
+  0% {
+    transform: translateX(0);
+    background-color: red;
+  }
+
+  50% {
+    transform: translateX(500px);
+    background-color: blue;
+  }
+
+  100% {
+    transform: translateX(0);
+    background-color: red;
+  }
+}</code></pre>
+      <p>掌握了 <code>@keyframes</code>，我们就能像动画师一样，随心所欲地控制元素在一段时间内的行为了！我们的页面马上就要变得更加生动活泼啦！</p>
+      <hr>
+      <h2 id="toc-chapter-4-11">4.11 精雕细琢：animation 的完整属性</h2>
+      <p><code>animation</code> 不仅仅是简单地播放动画，它还提供了一整套丰富的属性，让我们能像导演一样，精准控制动画的每一个细节。这些属性既可以分开写，也可以用一个
+        <code>animation</code> 复合属性来简写。
+      </p>
+
+      <h3>animation 的“七彩调味盘”</h3>
+      <p>一个完整的 <code>animation</code> 简写属性，就像一个包含了各种“调味料”的魔法口袋：</p>
+      <p><code>animation: name duration timing-function delay iteration-count direction fill-mode;</code></p>
+      <ul>
+        <li><code>animation-name</code>: 动画剧本名 (<code>@keyframes</code> 的名字)。</li>
+        <li><code>animation-duration</code>: 持续时间 (如 <code>2s</code>)。</li>
+        <li><code>animation-timing-function</code>: 速度曲线 (如 <code>linear</code>, <code>ease</code>,
+          <code>steps(3)</code>)。
+        </li>
+        <li><code>animation-delay</code>: 延迟时间 (如 <code>1s</code>)。</li>
+        <li><code>animation-iteration-count</code>: 播放次数 (如 <code>3</code>, <code>infinite</code>)。</li>
+        <li><code>animation-direction</code>: 播放方向 (如 <code>normal</code>, <code>reverse</code>,
+          <code>alternate</code>)。<code>alternate</code> 可以营造“跑马灯”式的往返效果！
+        </li>
+        <li><code>animation-fill-mode</code>: 播放后状态 (如 <code>forwards</code>,
+          <code>backwards</code>)。<code>forwards</code> 能让动画停留在最后一帧，非常实用！
+        </li>
+      </ul>
+      <p>这些属性的顺序没有强制规定，但通常我们会按照上面的习惯来写。其中，<code>name</code> 和 <code>duration</code> 是必须的哦！</p>
+
+      <pre><code>/* 一个无限循环、来回摆动的“跑马灯”动画 */
+.box {
+  /* 动画名: move, 时长: 2s, 次数: 无限, 方向: 往返 */
+  animation: move 2s infinite alternate;
+}
+
+/* 一个在1秒后开始，播放完停在末尾的动画 */
+.another-box {
+  animation: move 3s 1s forwards;
+}</code></pre>
+
+      <h3>控制播放与暂停：animation-play-state</h3>
+      <p>除了上面的复合属性，还有一个独立的属性也特别有用，那就是 <code>animation-play-state</code>。它用来控制动画的播放状态。</p>
+      <ul>
+        <li><code>running</code>: 正常播放（默认值）。</li>
+        <li><code>paused</code>: 暂停播放。</li>
+      </ul>
+      <p>我们可以利用它，轻松实现鼠标悬停时暂停动画的效果！</p>
+      <pre><code>.element {
+  animation: spin 5s linear infinite;
+}
+
+/* 鼠标经过时，暂停动画 */
+.element:hover {
+  animation-play-state: paused;
+}</code></pre>
+      <p>熟练掌握了这些属性，我们就能创造出各种各样生动、细腻又充满交互感的动画效果了！是不是已经迫不及待想试试了呀？</p>
+      <hr>
+      <h2 id="toc-chapter-4-12">4.12 综合案例：打造灵动的动画场景</h2>
+      <p>今天我们通过一个漂亮的案例，学习了如何将前面学到的 <code>animation</code>
+        知识组合起来，创造一个富有生命力的动画场景。核心思想就是：<strong>复杂的动画效果，是由许多简单的动画组合而成的</strong>。</p>
+
+      <h3>动画场景的制作秘诀</h3>
+      <ul>
+        <li><strong>独立动画剧本</strong>：为不同的运动方式（如浮动、旋转）分别定义独立的 <code>@keyframes</code> 规则，让代码更清晰。</li>
+        <li><strong>创造错落感</strong>：对使用相同动画剧本的多个元素，设置<strong>不同</strong>的 <code>animation-duration</code>
+          (动画时长)，可以打破同步的机械感，让动画显得更自然。</li>
+        <li><strong>善用 <code>alternate</code></strong>：对于需要往复运动的动画（如呼吸、漂浮），使用
+          <code>animation-direction: alternate</code>
+          是绝佳的选择，它可以自动处理“去”和“回”的动画，实现平滑的循环。
+        </li>
+      </ul>
+
+      <pre><code>/* 秘诀1：为不同的运动定义独立的剧本 */
+@keyframes float-up-down {
+  to { transform: translateY(-20px); }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* 球体1：用5秒完成一次浮动，无限往返 */
+.ball-1 {
+  /* 秘诀2 & 3：不同的时长 + alternate */
+  animation: float-up-down 5s linear infinite alternate;
+}
+
+/* 球体2：用6秒完成一次浮动，制造错落感 */
+.ball-2 {
+  animation: float-up-down 6s linear infinite alternate;
+}
+
+/* 卫星：用30秒旋转一圈，无限往返 */
+.satellite {
+  animation: spin 30s linear infinite alternate;
+}</code></pre>
+      <p>就像这样，通过组合和微调，我们就能从简单的动画片段，构建出丰富而生动的整个世界！你已经是一个出色的“场景导演”啦！</p>
+      <hr>
+      <h2 id="toc-chapter-4-13">4.13 翻书动画：逐帧动画与 steps()</h2>
+      <p>今天我们学习了一种非常有趣的动画技巧——逐帧动画。它的原理就像快速翻动一本小人书，通过连续播放一系列静态图片来创造出动态效果。在CSS中，我们利用一张包含所有动画帧的“雪碧图”和
+        <code>steps()</code> 函数来实现它。
+      </p>
+
+      <h3>核心魔法：<code>steps()</code> 函数</h3>
+      <p><code>steps(n)</code> 是 <code>animation-timing-function</code> 的一个特殊值。它不像 <code>linear</code>
+        那样平滑地过渡，而是将动画过程分割成
+        <code>n</code> 个离散的、不连续的步骤。动画会“一格一格”地跳跃，而不是“滑动”。
+      </p>
+
+      <h3>逐帧动画的制作步骤</h3>
+      <ol>
+        <li>准备一张包含所有动画帧的水平长图（雪碧图）。</li>
+        <li>用一个固定大小的元素作为“放映窗口”，将雪碧图作为其背景。</li>
+        <li>用 <code>@keyframes</code> 定义一个动画，改变 <code>background-position</code>，使其从图片的起始位置移动到结束位置。</li>
+        <li>在 <code>animation</code> 属性中，使用 <code>steps(帧数)</code> 来让背景图片“跳跃式”地移动，每一跳正好展示下一帧。</li>
+      </ol>
+
+      <pre><code>/* 假设我们有一张1000px宽，包含10帧的雪碧图 */
+
+/* 1. 定义动画：移动整个雪碧图的宽度 */
+@keyframes sprite-move {
+  100% {
+    background-position: -1000px 0;
+  }
+}
+
+/* 2. 应用动画 */
+.sprite-player {
+  width: 100px; /* 窗口宽度，刚好是一帧的宽度 */
+  height: 100px; /* 窗口高度 */
+  background: url(path/to/sprite.png) no-repeat 0 0;
+
+  /* 
+    动画名: sprite-move,
+    时长: 1s,
+    速度曲线: 分成10步跳跃完成,
+    播放次数: 无限
+  */
+  animation: sprite-move 1s steps(10) infinite;
+}</code></pre>
+      <p>通过这种方式，我们就能在网页中播放各种各样由设计师精心绘制的序列帧动画了，是不是非常强大呀！</p>
+      <hr>
+      <h1 id="toc-chapter-5">第五章：前沿技术拓展</h1>
+      <h2 id="toc-chapter-5-1">5.1 初探SVG：矢量图形的魔法</h2>
+      <p>从今天开始，我们进入了激动人心的第五章！首先，我们来认识一个非常重要的图形技术——SVG（可缩放矢量图形）。</p>
+
+      <h3>SVG vs. 普通图片 (JPG/PNG)</h3>
+      <p>我们平时用的 JPG、PNG 等图片都是“位图”，由像素点组成，放大后会失真、模糊。而 SVG 是“矢量图”，它通过数学公式来描述图形，因此可以<strong>无限放大而不失真</strong>，永远保持清晰锐利。</p>
+
+      <h3>SVG 的优点</h3>
+      <ul>
+        <li><strong>可缩放性</strong>：任意放大缩小都清晰，完美适配各种屏幕。</li>
+        <li><strong>文本本质</strong>：SVG 本质是 XML 代码，可以直接写在 HTML 里，文件体积小，也利于搜索引擎读取。</li>
+        <li><strong>可交互性</strong>：我们可以像操作普通 HTML 元素一样，用 CSS 和 JavaScript 来控制 SVG 的样式和动画。</li>
+      </ul>
+
+      <h3>SVG 的基本使用</h3>
+      <p>最常见的使用方式，就是从 iconfont.cn 这类图标网站上，直接复制 SVG 代码，粘贴到我们的 HTML 文件中。然后，我们就可以用 CSS 来控制它了。</p>
+      <pre><code>&lt;!-- 直接将SVG代码放入HTML --&gt;
+&lt;a href="#"&gt;
+  &lt;svg class="icon" viewBox="0 0 1024 1024"&gt;
+    &lt;!-- path里是SVG的路径数据 --&gt;
+    &lt;path d="M335...z" fill="#000000" /&gt;
+  &lt;/svg&gt;
+  &lt;span&gt;图标&lt;/span&gt;
+&lt;/a&gt;
+
+&lt;style&gt;
+  /* 在CSS中控制SVG的大小 */
+  .icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* 甚至可以给它添加动画 */
+  a:hover .icon {
+    transform: scale(1.2);
+  }
+
+  /* 改变图标颜色，需要修改path的fill属性 */
+  a:hover .icon path {
+    fill: red;
+  }
+&lt;/style&gt;</code></pre>
+      <p>SVG 特别适合用来制作网页的图标和 Logo，它的这些优点能让我们的页面在任何设备上都表现得非常出色！</p>
+      <hr>
+      <h2 id="toc-chapter-5-2">5.2 SVG 描边动画与 stroke 属性</h2>
+      <p>今天我们来学习一个 SVG 超级酷炫的特性——描边动画！通过几个特殊的 <code>stroke</code> 属性，我们可以让 SVG 的轮廓自己“画”出来。</p>
+
+      <h3>核心样式属性</h3>
+      <ul>
+        <li><code>fill</code>: 设置 SVG 的填充色。设为 <code>none</code> 可以得到一个没有填充的“空心”图形。</li>
+        <li><code>stroke</code>: 设置 SVG 的描边颜色。</li>
+        <li><code>stroke-width</code>: 设置描边的宽度。</li>
+        <li><code>stroke-dasharray</code>: 这是实现动画的关键！它本是用来创建虚线的，通过设置“实线”和“空白”的长度来工作。</li>
+      </ul>
+
+      <h3>描边动画的魔法原理</h3>
+      <p>假设一个 SVG 路径的总长度是 400px，我们可以这样做：</p>
+      <ol>
+        <li>在动画开始时 (<code>0%</code>)，设置 <code>stroke-dasharray: 0 400;</code>。意思是“0px的实线”和“400px的空白”，所以路径完全不可见。</li>
+        <li>在动画结束时 (<code>100%</code>)，设置 <code>stroke-dasharray: 400 0;</code>。意思是“400px的实线”和“0px的空白”，所以路径完全显示。</li>
+      </ol>
+      <p>将这个过程用 <code>@keyframes</code> 动画表现出来，就实现了线条自己画出自己的神奇效果！</p>
+
+      <pre><code>/* 假设路径总长约300px */
+
+/* 1. 定义动画 */
+@keyframes draw-line {
+  from {
+    /* 开始：0实线, 300空白 -> 看不见 */
+    stroke-dasharray: 0 300;
+  }
+  to {
+    /* 结束：300实线, 0空白 -> 完全看见 */
+    stroke-dasharray: 300 0;
+  }
+}
+
+/* 2. 应用样式和动画 */
+svg {
+  fill: none;
+  stroke: blue;
+  stroke-width: 3;
+}
+
+svg:hover {
+  animation: draw-line 1s;
+}</code></pre>
+      <p>这个技巧能创造出非常优雅和引人注目的加载效果或悬停效果，是 SVG 独有的魅力之一哦！</p>
+      <hr>
+      <h2 id="toc-chapter-5-3">5.3 SVG 描边动画进阶：stroke-dashoffset</h2>
+      <p>今天我们学习了另一种实现描边动画的技巧，它比昨天的方法更精确，效果也更优雅。这次的主角是 <code>stroke-dashoffset</code> 属性。</p>
+
+      <h3>核心魔法：<code>stroke-dashoffset</code></h3>
+      <p><code>stroke-dashoffset</code> 的意思是“虚线偏移量”。它用来设置虚线开始绘制的偏移距离。通过改变这个偏移量，我们就能让虚线动起来，从而产生描边的动画效果。</p>
+
+      <h3>“画心”动画的魔法原理</h3>
+      <p>这种方法的思路是，先用一段超长的“实线”把整个路径铺满，然后把它“藏”起来，再通过动画让它“出现”。</p>
+      <ol>
+        <li><strong>获取路径总长</strong>：首先需要用 JavaScript 的 <code>path.getTotalLength()</code> 方法获取到 SVG 路径的精确总长度。假设是
+          <code>2783px</code>。
+        </li>
+        <li><strong>创建一条超长虚线</strong>：设置
+          <code>stroke-dasharray: 2783;</code>。这会创建一段长度为2783px的实线，和一段等长的空白。因为路径总长也是2783，所以路径刚好被实线部分完全覆盖。
+        </li>
+        <li><strong>将实线“推走”</strong>：设置
+          <code>stroke-dashoffset: 2783;</code>。这会将我们创建的虚线整体向左偏移2783px，于是，原本显示实线的地方，现在被后面的空白部分占据了，路径看起来是空的。
+        </li>
+        <li><strong>让实线“回来”</strong>：用 <code>@keyframes</code> 将 <code>stroke-dashoffset</code> 从 <code>2783</code> 变回
+          <code>0</code>。这个过程，就像把被推走的实线慢慢拉回来，直到它再次完全覆盖路径，形成了“一笔画”的效果。
+        </li>
+      </ol>
+
+      <pre><code>/* 假设已用JS测得路径总长为 2783 */
+
+/* 1. 定义动画 */
+@keyframes draw-heart {
+  to {
+    /* 结束时，偏移量为0，实线完全覆盖路径 */
+    stroke-dashoffset: 0;
+  }
+}
+
+/* 2. 应用样式和动画 */
+svg {
+  fill: none;
+  stroke: red;
+  stroke-width: 3px;
+  /* 实线和空白的长度都等于路径总长 */
+  stroke-dasharray: 2783;
+  /* 初始状态，将实线完全“推走” */
+  stroke-dashoffset: 2783;
+  /* 应用动画 */
+  animation: draw-heart 5s linear infinite;
+}
+
+/* 获取路径长度的JS代码 */
+// const path = document.querySelector('#heart');
+// const length = path.getTotalLength();
+// console.log(length);</code></pre>
+      <p>与改变 <code>stroke-dasharray</code> 的方法相比，使用 <code>stroke-dashoffset</code> 制作的动画通常更加平滑和精确，特别适合制作“一笔画”类型的动态效果。
+      </p>
+      <hr>
+      <h2 id="toc-chapter-5-4">5.4 SVG 进阶：拆分动画</h2>
+      <p>今天我们来挑战一个 SVG 的高阶玩法——拆分动画。它的核心思想是：<strong>化整为零，再聚零为整</strong>。通过将一个完整的 SVG
+        图形拆分成多个部分，并为每个部分设置不同的动画延迟，来创造出华丽的组合动画效果。</p>
+
+      <h3>动画制作步骤</h3>
+      <ol>
+        <li><strong>拆分SVG</strong>：在矢量图形编辑软件（如 AI）中，将图形打散成多个独立的部件，然后导出为 SVG。这样，我们得到的 SVG 代码就会包含多个
+          <code>&lt;path&gt;</code> 元素。
+        </li>
+        <li><strong>定义通用动画</strong>：用 <code>@keyframes</code> 定义一个所有部件最终都会执行的动画（比如从透明、位移、旋转的状态恢复到正常状态）。</li>
+        <li><strong>为每个部分设置不同延迟</strong>：给每一个 <code>&lt;path&gt;</code> 应用上一步定义的动画，但通过 <code>animation-delay</code>
+          属性，为它们设置<strong>不同</strong>的延迟时间。</li>
+      </ol>
+      <p>这样，各个部分就会在不同的时间点开始运动，最终在同一时刻汇合，形成“万剑归宗”般的酷炫效果！</p>
+
+      <pre><code>&lt;!-- 1. 一个被拆分成多个 path 的 SVG --&gt;
+&lt;svg viewBox="0 0 1024 1024"&gt;
+  &lt;path class="path-1" d="..." /&gt;
+  &lt;path class="path-2" d="..." /&gt;
+  &lt;path class="path-3" d="..." /&gt;
+  ...
+&lt;/svg&gt;
+
+&lt;style&gt;
+  /* 2. 定义一个通用的“归位”动画 */
+  @keyframes come-back {
+    from {
+      opacity: 0;
+      transform: translateY(50px) rotate(90deg);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) rotate(0deg);
+    }
+  }
+
+  /* 3. 为所有 path 应用动画，并设置不同的延迟 */
+  svg path {
+    animation: come-back 1s forwards;
+  }
+
+  .path-1 { animation-delay: 0.1s; }
+  .path-2 { animation-delay: 0.2s; }
+  .path-3 { animation-delay: 0.3s; }
+  ...
+&lt;/style&gt;</code></pre>
+      <p>这个技巧极具创造性，非常适合用来制作富有冲击力的 Logo 展示动画或页面加载动画。你已经掌握了成为“动画大师”的又一个关键秘诀啦！</p>
+      <hr>
+      <h2 id="toc-chapter-5-5">5.5 CSS 的魔法剪刀：clip-path</h2>
+      <p>今天我们学习了一个超级强大的CSS属性——<code>clip-path</code>。它就像一把魔法剪刀，可以把任何元素裁剪成我们想要的形状，比如圆形、椭圆，甚至是任意复杂的多边形！</p>
+
+      <h3>最强大的裁剪函数：<code>polygon()</code></h3>
+      <p><code>clip-path</code> 有很多函数，其中最灵活、最强大的就是 <code>polygon()</code>。它通过定义一系列的坐标点（顶点），来创建一个多边形的裁剪区域。</p>
+      <pre><code>.element {
+  /* 
+    定义一个四边形裁剪区域，四个顶点分别是：
+    左上角向右10%的点、右上角、右下角向左10%的点、左下角
+    最终形成一个平行四边形！
+  */
+  clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+}</code></pre>
+
+      <h3>让裁剪动起来！</h3>
+      <p><code>clip-path</code> 最神奇的地方在于，只要动画前后的 <code>polygon()</code>
+        函数拥有<strong>相同数量的顶点</strong>，浏览器就能够平滑地在这两个形状之间进行过渡！</p>
+      <p>我们可以利用这个特性，制作出非常酷炫的“拉幕”或“展开”效果。</p>
+
+      <pre><code>.image-container img:last-child {
+  /* 初始状态：定义一个没有宽度的五边形，把图片完全裁掉 */
+  clip-path: polygon(0 0, 0 0, 0 50%, 0 100%, 0 100%);
+  transition: clip-path 1s;
+}
+
+.image-container:hover img:last-child {
+  /* 悬停状态：定义一个有宽度的五边形，让图片显示出来 */
+  clip-path: polygon(0 0, 75% 0, 100% 50%, 75% 100%, 0 100%);
+}
+</code></pre>
+      <p>通过巧妙地设置 <code>polygon</code> 的顶点，我们可以创造出各种各样富有创意的图形和过渡动画，这比传统方法要灵活和强大得多！</p>
+      <hr>
+      <h2 id="toc-chapter-5-6">5.6 CSS 的魔法调色盘：filter</h2>
+      <p>今天我们学习了一个超级好玩的属性——<code>filter</code>。它就像一个内置在CSS里的“美图软件”，可以让我们轻松地为元素添加各种滤镜效果，比如模糊、调色、改变对比度等。</p>
+
+      <h3>常用的滤镜函数</h3>
+      <p><code>filter</code> 属性可以接受多种函数，我们可以像调色一样组合使用它们：</p>
+      <ul>
+        <li><code>blur(5px)</code>: 高斯模糊。</li>
+        <li><code>brightness(150%)</code>: 调整亮度。</li>
+        <li><code>contrast(150%)</code>: 调整对比度。</li>
+        <li><code>grayscale(100%)</code>: 转为灰度图（黑白）。</li>
+        <li><code>hue-rotate(90deg)</code>: 色相旋转，可以用来“换色”。</li>
+        <li><code>saturate(150%)</code>: 调整饱和度。</li>
+        <li><code>sepia(100%)</code>: 添加褐色滤镜（老照片效果）。</li>
+        <li><code>drop-shadow(x, y, blur, color)</code>: 添加投影。</li>
+      </ul>
+
+      <h3><code>drop-shadow</code> vs. <code>box-shadow</code></h3>
+      <p>这是一个非常重要的区别！<code>box-shadow</code> 是为元素的“盒子”添加阴影，所以阴影总是矩形的。而 <code>filter: drop-shadow()</code>
+        则是为元素“内容”的轮廓添加阴影，它可以完美地为不规则的、透明背景的图片或图形生成贴合其形状的阴影！</p>
+
+      <pre><code>/* 让图片变模糊 */
+img {
+  filter: blur(5px);
+}
+
+/* 让图片变成复古的黑白老照片 */
+img {
+  filter: grayscale(100%) sepia(50%);
+}
+
+/* 为一个带小箭头的对话框添加完美贴合的阴影 */
+.dialog-box {
+  /* 如果用 box-shadow，阴影不会包含小箭头 */
+  filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5));
+}
+</code></pre>
+      <p>掌握了 <code>filter</code>，我们就能在不修改图片本身的情况下，用CSS创造出丰富多彩的视觉效果啦！</p>
+      <hr>
+      <h2 id="toc-chapter-5-7">5.7 高级视觉魔法：backdrop-filter</h2>
+      <p>今天我们学习了一个非常时髦的CSS属性——<code>backdrop-filter</code>。它能让我们轻松地创造出非常漂亮的“毛玻璃”（或称“磨砂玻璃”）效果，在现代网页设计中非常流行！</p>
+
+      <h3><code>backdrop-filter</code> vs. <code>filter</code></h3>
+      <p>这是两个非常容易混淆的属性，但它们的作用对象完全不同：</p>
+      <ul>
+        <li><code>filter</code>: 作用于<strong>元素本身</strong>，让元素自己变得模糊或变色。</li>
+        <li><code>backdrop-filter</code>: 作用于<strong>元素背后的区域</strong>，让元素像一块毛玻璃一样，把它后面的内容变得模糊或变色，而元素自身的内容（如文字）则保持清晰。
+        </li>
+      </ul>
+
+      <h3>“毛玻璃”效果的实现关键</h3>
+      <p>要让 <code>backdrop-filter</code> 生效，有一个至关重要的前提：<strong>元素本身必须是半透明的</strong>。否则，我们就无法“看透”它，自然也就看不到它背后区域的滤镜效果了。
+      </p>
+      <p>因此，我们通常需要将元素的背景设置为带有 alpha 透明度的颜色。</p>
+
+      <pre><code>.frosted-glass {
+  /* 1. 设置一个半透明的背景 */
+  background-color: rgba(255, 255, 255, 0.5);
+
+  /* 2. 对元素背后的区域应用滤镜 */
+  backdrop-filter: blur(10px) saturate(150%);
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  /* 关键！让背景透明，才能看到背后的内容 */
+  background: transparent;
+  /* 为导航栏背后的所有东西加上模糊和饱和度滤镜 */
+  backdrop-filter: blur(20px) saturate(120%);
+}</code></pre>
+      <p><code>backdrop-filter</code> 可以接受和 <code>filter</code> 完全一样的滤镜函数（如 <code>blur</code>, <code>brightness</code>,
+        <code>grayscale</code> 等），我们可以组合使用它们，创造出丰富多彩的毛玻璃质感！
+      </p>
+      <hr>
+      <h2 id="toc-chapter-5-8">5.8 动画新纪元：滚动驱动动画 animation-timeline</h2>
+      <p>
+        今天我们学习了一个极具革命性的CSS新特性——<code>animation-timeline</code>！它颠覆了传统动画的播放方式，不再依赖于“时间”，而是可以将动画的播放进度与用户的“滚动”行为绑定在一起。
+      </p>
+
+      <h3>核心魔法：<code>animation-timeline: scroll()</code></h3>
+      <p>这个属性的核心就是 <code>scroll()</code> 函数，它会创建一个匿名的“滚动进度时间线”，并将其作为动画的时间线。</p>
+      <ul>
+        <li>当使用了 <code>animation-timeline</code> 后，原本在 <code>animation</code> 中设置的 <code>duration</code> (时长) 将被忽略。</li>
+        <li>动画的播放进度，会完全根据滚动容器的滚动进度来决定。例如，页面滚动到 50%，动画就播放到 50% 的状态。</li>
+      </ul>
+
+      <h3>实现一个阅读进度条</h3>
+      <p>这个特性最经典的应用，就是制作一个“阅读进度指示器”，这在以前需要复杂的 JavaScript 才能实现。</p>
+      <pre><code>/* 1. 定义一个进度条从0到100%的动画 */
+@keyframes reading-progress {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+
+.progress-bar {
+  /* 2. 应用动画 */
+  animation: reading-progress linear forwards;
+
+  /* 
+    3. 核心！将动画的时间线绑定到默认的滚动容器（整个文档）
+    这样，当页面从头滚动到尾，动画就会从0%播放到100%
+  */
+  animation-timeline: scroll();
+}
+</code></pre>
+      <p>只需要简单的几行CSS，我们就实现了一个高性能的、与滚动完全同步的动画！这个特性为我们打开了创造各种滚动交互动画的大门，而不再需要编写任何JavaScript！</p>
+      <hr>
+      <h2 id="toc-chapter-5-9">5.9 动画新纪元：视图驱动动画 view()</h2>
+      <p>今天我们学习了滚动驱动动画的另一个强大函数——<code>view()</code>。如果说 <code>scroll()</code> 关心的是“整个页面的滚动条”，那么 <code>view()</code>
+        关心的就是“元素自己有没有被看见”。</p>
+
+      <h3>核心魔法：<code>animation-timeline: view()</code></h3>
+      <p><code>view()</code> 会创建一个“视图进度时间线”，它将动画的播放进度与<strong>元素自身在视口中的可见性</strong>绑定起来。</p>
+      <ul>
+        <li>当元素刚要进入视口时，动画进度为 <code>0%</code>。</li>
+        <li>当元素完全离开视口时，动画进度为 <code>100%</code>。</li>
+        <li>动画的播放过程，就是元素“穿过”视口的过程。</li>
+      </ul>
+      <p>这个特性，让我们能够非常轻松地实现“当元素滚动进入屏幕时才触发动画”的效果，这在以前需要依赖 JavaScript 的交叉观察器 (Intersection Observer) 才能实现。</p>
+
+      <h3>实现“入场”动画</h3>
+      <p>利用 <code>view()</code>，我们可以为页面中的任何元素制作一个当它进入视野时才播放的“入场动画”。</p>
+      <pre><code>/* 1. 定义一个“入场”动画 */
+@keyframes fade-in-and-scale-up {
+  from {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+.animated-image {
+  /* 2. 应用动画 */
+  animation: fade-in-and-scale-up linear forwards;
+
+  /* 
+    3. 核心！将动画的时间线绑定到元素自身的视图进度
+    这样，只有当图片进入视口时，动画才会播放
+  */
+  animation-timeline: view();
+}
+</code></pre>
+      <p><code>view()</code> 为我们提供了一种更智能、更聚焦的滚动动画方案，让页面的交互变得更加生动和有意义！</p>
+      <hr>
+      <h2 id="toc-chapter-5-10">5.10 CSS 的“管家”：自定义变量</h2>
+      <p>今天我们学习了一个能极大提升CSS代码可维护性的强大功能——CSS自定义属性，也就是我们常说的“CSS变量”。它允许我们存储一个值，并在样式表的多个地方重复使用。</p>
+
+      <h3>定义和使用变量</h3>
+      <p>定义变量的语法是 <code>--变量名: 值;</code>，使用时则通过 <code>var(--变量名)</code> 来调用。</p>
+
+      <h3>全局变量 vs. 局部变量</h3>
+      <p>这是CSS变量最重要的概念之一：作用域。</p>
+      <ul>
+        <li><strong>全局变量</strong>：定义在 <code>:root</code> 伪类中。这里的变量可以在文档的任何地方被访问和使用，非常适合定义网站的主题色、主字号等全局性的值。</li>
+        <li><strong>局部变量</strong>：定义在某个具体的选择器中（如 <code>.nav</code>）。它只能在该选择器及其后代元素中使用，就像一个“家族内部”的规定。</li>
+      </ul>
+
+      <pre><code>/* 1. 在 :root 中定义全局变量 */
+:root {
+  --primary-color: #4285f4;
+  --main-font-size: 16px;
+}
+
+.box {
+  /* 使用全局变量 */
+  border: 1px solid var(--primary-color);
+}
+
+/* 2. 在 .card 中定义局部变量 */
+.card {
+  --card-padding: 20px; /* 这个变量只能在.card内部使用 */
+  padding: var(--card-padding);
+}
+
+.card-title {
+  /* .card-title 是 .card 的后代，所以也可以用 */
+  font-size: var(--main-font-size); 
+}
+
+.footer {
+  /* 错误！.footer 不是 .card 的后代，无法访问 --card-padding */
+  /* padding: var(--card-padding); */
+}
+</code></pre>
+      <p>合理地使用全局和局部变量，可以让我们的CSS代码变得像编程语言一样灵活、易于管理和维护，尤其是在处理复杂项目和主题切换时，它的威力就完全体现出来啦！</p>
+      <hr>
+      <h2 id="toc-chapter-5-11">5.11 CSS 的“超级计算器”：calc()</h2>
+      <p>今天我们学习了一个非常实用的CSS函数——<code>calc()</code>。它允许我们在CSS属性值中执行数学计算，最厉害的是，它还可以在不同单位之间进行混合运算！</p>
+
+      <h3><code>calc()</code> 的使用要点</h3>
+      <ul>
+        <li><strong>运算符两边的空格</strong>：这是最重要的规则！在 <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>
+          运算符的两边<strong>必须</strong>要有一个空格，否则计算会失效。</li>
+        <li><strong>混合单位计算</strong>：<code>calc()</code> 最大的魅力就是可以混合不同的单位，比如 <code>%</code>, <code>px</code>,
+          <code>em</code>, <code>rem</code>, <code>vw</code> 等。
+        </li>
+        <li><strong>与CSS变量结合</strong>：它可以和我们学过的CSS变量完美配合，实现更加动态和可维护的布局。</li>
+      </ul>
+
+      <h3>经典应用：带间距的均分列</h3>
+      <p><code>calc()</code> 最常见的应用场景之一，就是在 flex 或 grid 布局中，精确计算带有固定间距（<code>gap</code>）的列宽。</p>
+      <pre><code>:root {
+  --column-gap: 20px;
+}
+
+.container {
+  display: flex;
+  gap: var(--column-gap);
+}
+
+.item {
+  /* 
+    我们希望每行放3个item。
+    calc() 允许我们从百分比宽度中，减去一个精确的像素值！
+    这样浏览器就会自动计算出正确的宽度，保证布局不会被破坏。
+  */
+  width: calc(33.333% - var(--column-gap));
+}
+
+.full-width-minus-padding {
+    /* 另一个例子：宽度为100%，但要减去两边的内边距 */
+    width: calc(100% - 40px);
+}</code></pre>
+      <p>有了 <code>calc()</code>，我们再也不用为了计算那些复杂的、混合单位的宽度而头疼了，CSS自己就能搞定一切！</p>
+      <hr>
+      <h2 id="toc-chapter-5-12">5.12 响应式新利器：视口单位 vw & vh</h2>
+      <p>今天我们学习了两个在现代响应式布局中至关重要的单位——<code>vw</code> (视口宽度) 和 <code>vh</code> (视口高度)。它们是相对于浏览器窗口（视口）尺寸的动态单位。</p>
+
+      <h3>视口单位的定义</h3>
+      <ul>
+        <li><code>1vw</code> = 视口宽度的 1%</li>
+        <li><code>1vh</code> = 视口高度的 1%</li>
+        <li><code>vmin</code> = 视口宽度和高度中，较小一方的 1%。</li>
+        <li><code>vmax</code> = 视口宽度和高度中，较大一方的 1%。</li>
+      </ul>
+      <p>你补充的 <code>vmin</code> 知识点非常棒！它在处理需要同时兼顾横屏和竖屏的场景时特别有用，比如确保一个正方形元素在任何朝向下都不会超出屏幕。</p>
+
+      <h3>vw/vh 与 % 的核心区别</h3>
+      <p>这是它们最重要的区别：<code>%</code> 单位是相对于<strong>父元素</strong>的尺寸来计算的，而 <code>vw/vh</code>
+        单位是相对于<strong>浏览器视口</strong>的尺寸来计算的。</p>
+      <p>这个区别让 <code>vh</code> 在设置全屏高度时拥有巨大的优势。比如，我们想让一个 `div` 撑满整个屏幕的高度，如果用 <code>height: 100%;</code>，就需要保证它的所有父级元素（包括
+        `body`, `html`）的高度也都是100%，非常麻烦。但如果用 <code>vh</code>，事情就变得异常简单！</p>
+
+      <pre><code>.fullscreen-section {
+  /* 无论父元素高度是多少，这个元素的高度都会撑满整个屏幕！ */
+  height: 100vh;
+}
+
+.half-screen-width-box {
+  /* 宽度永远是屏幕宽度的一半 */
+  width: 50vw;
+}
+</code></pre>
+      <p>掌握了 <code>vw</code> 和 <code>vh</code>，我们就能更轻松、更精确地创建出与屏幕尺寸完美适配的宏大布局啦！</p>
+      <hr>
+      <h1 id="toc-chapter-6">第六章：移动网页开发</h1>
+      <h2 id="toc-chapter-6-1">6.1 移动端第一步：视口与像素</h2>
+      <p>从今天开始，我们踏入了全新的领域——移动网页开发！这和我们之前做的PC端网页有很大的不同，第一步就是要理解移动端独有的“视口”和“像素”概念。</p>
+
+      <h3>魔法标签：<code>&lt;meta name="viewport"&gt;</code></h3>
+      <p>这是所有移动端网页的“标准配置”！它告诉手机浏览器应该如何渲染我们的页面。</p>
+      <p><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></p>
+      <ul>
+        <li><code>width=device-width</code>：让网页的宽度（视口宽度）等于设备的屏幕宽度。</li>
+        <li><code>initial-scale=1.0</code>：设置页面的初始缩放比例为1.0，也就是不缩放。</li>
+      </ul>
+      <p>没有这个标签，手机浏览器可能会用一个很宽的“虚拟桌面”来渲染页面，导致我们的网页被缩得很小，需要手动放大才能看清。</p>
+
+      <h3>物理像素 vs. CSS像素</h3>
+      <p>这是移动端开发最核心、也最容易混淆的概念！</p>
+      <ul>
+        <li><strong>物理像素（设备像素）</strong>：这是设备屏幕上真真实实的、发光的物理小点，是硬件决定的，比如 iPhone X 的分辨率是 1125 x 2436 像素。</li>
+        <li><strong>CSS像素（逻辑像素）</strong>：这是我们在CSS中用来写样式的像素，比如 <code>width: 375px;</code>。它是一个抽象的单位。</li>
+        <li><strong>设备像素比 (DPR)</strong>：一个CSS像素，可能对应着多个物理像素。这个比例就是设备像素比。<code>DPR = 物理像素 / CSS像素</code>。</li>
+      </ul>
+      <p>比如，很多高清屏（Retina屏）的 DPR 是 2。这意味着，我们写的 <code>1px</code> 的边框，在屏幕上实际上会用 <code>2x2</code> 个物理像素来渲染，所以看起来特别清晰。</p>
+
+      <h3>设计稿与开发</h3>
+      <p>在今天的练习中，我们看到了一个非常经典的场景：</p>
+      <pre><code>.box {
+  /* 如果设计稿宽度是750px, 我们在写CSS时，宽度要写它的一半 375px */
+  width: 375px;
+  height: 300px;
+  background-color: pink;
+}</code></pre>
+      <p>这是因为，设计师给我们的设计稿（比如750px宽），通常是按照物理像素来设计的（基于DPR=2的设备）。而我们作为前端开发者，写CSS时需要使用CSS像素。所以，我们需要根据目标设备的DPR，将设计稿上的尺寸进行换算（比如
+        <code>750px / 2 = 375px</code>）。
+      </p>
+      <p>理解了这一点，我们就迈出了移动端开发最重要的一步啦！</p>
+      <hr>
+      <h2 id="toc-chapter-6-2">6.2 移动端适配核心：vw 布局方案</h2>
+      <p>在了解了移动端的像素规则后，我们就要解决最核心的问题：如何将设计稿上的固定像素（px），转换成能适应不同屏幕宽度的相对单位。今天，我们学习了以 <code>vw</code> 为核心的几种主流适配方案。</p>
+
+      <h3>vw 适配方案概览</h3>
+      <p>我们的目标，是能有一种方便的方式，将设计稿的 px 自动换算成 vw。目前主要有四种技术路径：</p>
+      <ol>
+        <li>
+          <strong>手动使用 <code>calc()</code> 函数</strong>
+          <p>最原始的方法，完全手写。我们需要根据公式 <code>calc(设计稿px / 设计稿总宽 * 100vw)</code> 来进行计算。这种方法非常繁琐且容易出错，在实际开发中很少使用。</p>
+        </li>
+        <li>
+          <strong>使用 CSS 预处理器（推荐）</strong>
+          <p>通过 Less 或 Sass 的函数/混合（Mixin）功能，将计算过程自动化。我们只需要调用一个函数，如 <code>px2vw(106)</code>，预处理器在编译时就会输出正确的 vw
+            值。这在工程化项目中很常用。</p>
+        </li>
+        <li>
+          <strong>结合 PostCSS 插件（最佳实践）</strong>
+          <p>这是现代前端工程化的终极方案。我们直接在代码中写设计稿的 px 值，构建工具（如 Vite/Webpack）在打包时，会通过 <code>postcss-px-to-viewport</code>
+            这类插件，自动将所有
+            px 单位转换成 vw。这是开发体验最好的方式，但需要脚手架知识。</p>
+        </li>
+        <li>
+          <strong>使用 VSCode 插件（当前阶段）</strong>
+          <p>在目前的学习阶段，我们可以使用 <code>px to rem & rpx & vw</code> 这类编辑器插件。我们写下 px 值，然后通过快捷键一键转换成 vw。这既方便我们学习，又免去了手动计算的麻烦。
+          </p>
+        </li>
+      </ol>
+
+      <pre><code>.box {
+  /* 我们在代码里写下从设计稿量出来的px值 */
+  width: 106px;
+  height: 106px;
+
+  /* 然后使用插件，一键转换成下面的vw单位！*/
+  /* width: 28.2667vw; */
+  /* height: 28.2667vw; */
+}
+</code></pre>
+      <p>理解这些方案的进化过程，对我们将来选择合适的技术栈非常有帮助哦！我们现在正走在通往“最佳实践”的路上呢！</p>
+      <hr>
+      <h2 id="toc-chapter-6-3">6.3 另一种适配思路：rem 布局</h2>
+      <p>除了 <code>vw</code> 方案，移动端适配还有另一个非常经典和强大的流派——<code>rem</code> 布局。<code>rem</code> (root em)
+        是一个相对单位，它的大小只相对于根元素（<code>&lt;html&gt;</code>）的 <code>font-size</code>。</p>
+
+      <h3>rem 布局的核心思想</h3>
+      <p><code>rem</code> 布局的魔法在于：通过动态地修改 <code>&lt;html&gt;</code> 元素的 <code>font-size</code>，我们就能让所有使用
+        <code>rem</code>
+        作为单位的元素，都跟随着进行等比例缩放，从而实现全局的响应式适配！
+      </p>
+
+      <h3>如何动态修改 html 的 font-size？</h3>
+      <p>老师提到了两种主流的方案：</p>
+      <ol>
+        <li><strong>媒体查询 (Media Query)</strong>：在不同的屏幕宽度断点，为 <code>&lt;html&gt;</code> 设置不同的
+          <code>font-size</code>。这种方案是“阶梯式”的适配，不够平滑。
+        </li>
+        <li><strong>JavaScript</strong>：通过 JS 实时监听屏幕宽度的变化，然后根据一定的规则（比如 <code>屏幕宽度 / 10</code>）动态计算并设置
+          <code>&lt;html&gt;</code> 的 <code>font-size</code>。我们练习中引入的 <code>flexible.js</code> 就是一个经典的 JS 方案库。
+        </li>
+      </ol>
+
+      <pre><code>/* 1. 假设 JS 已经根据屏幕宽度，将 html 的 font-size 设置为了 37.5px */
+html {
+  font-size: 37.5px; /* 这个值是动态变化的 */
+}
+
+/* 2. 元素的尺寸用 rem 来写 */
+.box {
+  /* 
+    如果设计稿是 750px 宽，一个 100px 的元素，换算成 rem 就是 100 / 75。
+    但如果用了 flexible.js 这样的库，通常会把屏幕分成10份，
+    设计稿是 750px，那么 1rem = 75px。
+    一个 150px 的元素，就是 2rem。
+  */
+  width: 2rem;  /* 2 * 37.5px = 75px */
+  height: 2rem; /* 2 * 37.5px = 75px */
+}</code></pre>
+      <p><code>rem</code> 布局是曾经移动端适配的绝对主流，与 <code>vw</code> 方案各有千秋。了解它，对我们理解移动端适配的演进非常有帮助哦！</p>
+      <hr>
+      <h1 id="toc-chapter-7">第七章：响应网页开发</h1>
+      <h2 id="toc-chapter-7-1">7.1 响应式基石：媒体查询</h2>
+      <p>今天我们开启了全新的篇章，开始学习如何制作能同时适配电脑、平板和手机的“响应式网页”。而这一切的核心基石，就是CSS3带来的强大功能——媒体查询（Media Query）。</p>
+
+      <h3>什么是媒体查询？</h3>
+      <p>媒体查询允许我们的网页“感知”到用户设备的环境特征（主要是屏幕宽度），并根据这些特征应用不同的CSS样式。它就像是CSS里的 <code>if</code> 条件判断，让我们的样式变得“智能”起来。</p>
+
+      <h3>媒体查询的基本语法</h3>
+      <p><code>@media 媒体类型 and (媒体特征) { /* CSS 样式 */ }</code></p>
+      <ul>
+        <li><strong>媒体类型</strong>：最常用的是 <code>screen</code>，代表电脑、平板、手机等屏幕设备。</li>
+        <li><strong>媒体特征</strong>：这是最关键的判断条件，通常用括号包裹。最常用的特征是：
+          <ul>
+            <li><code>min-width</code>: 当屏幕宽度大于或等于指定值时生效。</li>
+            <li><code>max-width</code>: 当屏幕宽度小于或等于指定值时生效。</li>
+          </ul>
+        </li>
+      </ul>
+      <p>我们可以通过 <code>and</code> 关键字，将多个媒体特征组合起来，创造出更精确的宽度范围。</p>
+
+      <pre><code>/* 默认样式（手机端） */
+body {
+  background-color: red;
+}
+
+/* 当屏幕宽度在 768px 到 1200px 之间（平板） */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  body {
+    background-color: orange;
+  }
+}
+
+/* 当屏幕宽度大于等于 1200px（PC端） */
+@media screen and (min-width: 1200px) {
+  body {
+    background-color: green;
+  }
+}
+</code></pre>
+      <p>通过为不同的屏幕尺寸范围（我们称之为“断点”）编写不同的样式，我们就能让同一个网页在不同设备上呈现出完全不同的、但都同样完美的布局和外观！</p>
+      <hr>
+      <h2 id="toc-chapter-7-2">7.2 初识前端框架：Bootstrap</h2>
+      <p>今天我们接触到了一个能极大提升开发效率的“大杀器”——前端框架。而 Bootstrap 就是其中最著名、最流行的代表之一。</p>
+
+      <h3>什么是前端框架？</h3>
+      <p>前端框架就像一个“预制房工厂”，它为我们提供了一整套预先制作好的、可复用的“建筑模块”（如样式、组件、功能等）。我们不再需要从零开始砌砖，而是可以直接使用这些模块来快速搭建稳定、美观的网页。</p>
+
+      <h3>Bootstrap 的核心优势</h3>
+      <ul>
+        <li><strong>样式重置 (Reboot)</strong>：Bootstrap
+          会首先统一所有浏览器的默认样式，确保页面在任何地方看起来都一致。这就是为什么我们引入它之后，<code>&lt;h1&gt;</code>
+          默认不再是粗体了。</li>
+        <li><strong>丰富的预定义组件</strong>：提供了大量现成的组件，如导航栏、按钮、表单、弹窗等，我们只需要使用特定的 class 就可以直接调用。</li>
+        <li><strong>强大的响应式栅格系统</strong>：这是 Bootstrap 的灵魂。它提供了一套成熟的、移动优先的 flexbox 栅格系统，让我们可以轻松构建能在所有设备上完美适配的布局。</li>
+      </ul>
+
+      <h3>如何使用 Bootstrap？</h3>
+      <p>最基本的使用方式，就是将 Bootstrap 的核心 CSS 文件和 JavaScript 文件引入到我们的 HTML 中。</p>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Bootstrap 基础&lt;/title&gt;
+  &lt;!-- 1. 引入 Bootstrap 的核心 CSS 文件 --&gt;
+  &lt;link rel="stylesheet" href="./bootstrap/bootstrap.min.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;!-- 在这里使用 Bootstrap 的组件和样式... --&gt;
+
+  &lt;!-- 2. 引入 Bootstrap 的核心 JS 文件 (通常放在 body 结束前) --&gt;
+  &lt;script src="./bootstrap/bootstrap.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      <p>学会使用 Bootstrap 这样的框架，标志着我们从“手工作坊”式的开发，迈向了更高效、更规范的“工业化”前端开发！</p>
+      <hr>
+      <h2 id="toc-chapter-7-3">7.3 Bootstrap 的灵魂：栅格系统</h2>
+      <p>今天我们学习了 Bootstrap 框架最核心、最强大的功能——响应式栅格系统（Grid System）。它让我们能够通过预定义的 class，快速、声明式地构建响应式布局。</p>
+
+      <h3>栅格系统的三层结构</h3>
+      <p>使用栅格系统，必须遵循 <code>.container</code> > <code>.row</code> > <code>.col</code> 的三层嵌套结构。</p>
+      <ol>
+        <li><strong><code>.container</code> (容器)</strong>：最外层的包装，用来提供一个合适的宽度和居中效果。还有一个 <code>.container-fluid</code>
+          可以实现
+          100% 宽度的流式布局。</li>
+        <li><strong><code>.row</code> (行)</strong>：必须放在容器内部，代表一个水平行。Bootstrap 将每一行平均分成了 <strong>12</strong> 等份。</li>
+        <li><strong><code>.col-*</code> (列)</strong>：必须放在行内部，用来定义一个元素占据 12 等份中的几份。</li>
+      </ol>
+
+      <h3>响应式断点与 Class</h3>
+      <p>Bootstrap 的响应式魔法，是通过为不同屏幕尺寸（断点）设计的 class 来实现的。例如 <code>col-md-4</code>，其中 <code>md</code> 就是断点，<code>4</code>
+        就是占据的列数。</p>
+      <ul>
+        <li><code>col-xl-*</code>：用于超大屏幕 (≥1200px)</li>
+        <li><code>col-lg-*</code>：用于大屏幕 (≥992px)</li>
+        <li><code>col-md-*</code>：用于中等屏幕 (≥768px)</li>
+        <li><code>col-sm-*</code>：用于小屏幕 (≥576px)</li>
+        <li><code>col-*</code>：用于所有屏幕</li>
+      </ul>
+      <p>通过组合使用这些 class，我们就可以让一个元素在不同屏幕宽度下，占据不同的列数，从而实现复杂的响应式布局。</p>
+
+      <pre><code>&lt;div class="container"&gt;
+  &lt;div class="row"&gt;
+    &lt;!-- 
+      这个 div 在超大屏上占2列(一行6个)，大屏上占3列(一行4个)，
+      中屏上占4列(一行3个)，小屏上占6列(一行2个)，超小屏上占12列(一行1个)
+    --&gt;
+    &lt;div class="col-xl-2 col-lg-3 col-md-4 col-sm-6"&gt;...&lt;/div&gt;
+    &lt;div class="col-xl-2 col-lg-3 col-md-4 col-sm-6"&gt;...&lt;/div&gt;
+    ...
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 我们还可以使用 align-items-* 和 justify-content-* 等 flex 工具类来对齐列 --&gt;
+&lt;div class="row align-items-center justify-content-between"&gt;
+  &lt;div class="col-4"&gt;左对齐&lt;/div&gt;
+  &lt;div class="col-4"&gt;右对齐&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+      <p>掌握了栅格系统，我们就拥有了快速构建专业、可靠的响应式页面的超能力！</p>
+      <hr>
+      <h2 id="toc-chapter-7-4">7.4 Bootstrap 组件：字体图标与样式覆盖</h2>
+      <p>掌握了栅格系统这个“骨架”之后，我们就要来学习 Bootstrap 丰富的“血肉”——组件（Components）。字体图标就是其中非常常用的一种。</p>
+
+      <h3>什么是字体图标？</h3>
+      <p>字体图标，顾名思义，就是像使用字体一样使用的图标。它的本质是一个特殊的字体文件，我们想用的图标，其实是这个字体文件里的一个个“文字”。这赋予了它极大的灵活性：</p>
+      <ul>
+        <li>我们可以像控制文字一样，用 <code>font-size</code> 来控制它的大小，用 <code>color</code> 来控制它的颜色。</li>
+        <li>它是矢量图形，所以和 SVG 一样，可以无限放大而不失真。</li>
+      </ul>
+
+      <h3>如何使用 Bootstrap Icons</h3>
+      <p>Bootstrap 5 推荐使用它自己的官方图标库——Bootstrap Icons。最方便的使用方式就是通过 CDN 引入它的样式文件。</p>
+      <pre><code>&lt;!-- 1. 通过 CDN 链接引入 Bootstrap Icons 的 CSS --&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"&gt;
+
+&lt;!-- 2. 使用 i 标签，并赋予指定的 class --&gt;
+&lt;i class="bi bi-wifi"&gt;&lt;/i&gt;
+
+&lt;style&gt;
+  /* 3. 像控制文字一样控制图标的样式 */
+  .bi-wifi {
+    font-size: 50px;
+    color: cornflowerblue;
+  }
+&lt;/style&gt;</code></pre>
+
+      <h3>自定义/覆盖 Bootstrap 样式</h3>
+      <p>这是一个非常重要的技巧！当我们使用框架时，总会遇到框架的默认样式不完全符合我们设计稿的情况。这时，我们可以利用 CSS 的“层叠性”，在我们自己的样式表里（确保它在 Bootstrap 的 CSS
+        文件之后被引入），为同一个
+        class 编写新的规则，来“覆盖”掉框架的默认样式。</p>
+      <pre><code>&lt;!-- Bootstrap 默认的成功按钮 --&gt;
+&lt;button type="button" class="btn btn-success"&gt;Success&lt;/button&gt;
+
+&lt;style&gt;
+  /* 我们的自定义样式会覆盖掉 Bootstrap 的默认宽度 */
+  .btn-success {
+    width: 200px;
+  }
+&lt;/style&gt;</code></pre>
+      <p>有时，如果框架的样式规则优先级非常高，我们可能需要编写更具体的选择器（比如 <code>.my-section .btn-success</code>）或者在极端情况下使用 <code>!important</code>
+        来强制提升我们自己样式的优先级。学会如何优雅地覆盖和扩展框架的样式，是熟练使用任何一个前端框架的必经之路哦！</p>
+      <hr>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const tocNav = document.querySelector('.toc-nav');
+          if (tocNav) {
+            tocNav.addEventListener('click', function (e) {
+              // 只处理直接的li > a点击，避免子菜单的链接也触发折叠
+              if (e.target.matches('li > a')) {
+                const parentLi = e.target.parentElement;
+                // 如果有子菜单，才执行折叠/展开
+                if (parentLi.querySelector('ul')) {
+                  e.preventDefault(); // 阻止默认的跳转行为
+                  parentLi.classList.toggle('active');
+                }
+              }
+            });
+          }
+        });
+      </script>
+      <!-- 引入 highlight.js 的核心脚本文件 -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+      <!-- 这是启动 highlight.js 的“咒语”，它会自动寻找页面上所有的 <pre><code> 块并进行高亮 -->
+      <script>hljs.highlightAll();</script>
+</body>
+
+</html>

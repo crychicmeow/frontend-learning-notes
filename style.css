@@ -1,0 +1,244 @@
+/* 
+      ゆい的魔法时间！这里是 CSS (Cascading Style Sheets) 的世界！
+      我们把这些“规则”放在 <style> 标签里，浏览器就会按照这里的指示来打扮我们的页面啦。
+*/
+
+/* === 全局设置 === */
+html {
+  /* 开启平滑滚动，当点击锚点链接时，页面会优雅地滚动过去，而不是“瞬移” */
+  scroll-behavior: smooth;
+}
+
+* {
+  /* 这是一个非常重要的好习惯！它能确保我们设置的 padding 和 border 不会撑大盒子的总宽度，让布局计算更符合直觉。 */
+  box-sizing: border-box;
+}
+
+/* === 整体页面样式 === */
+body {
+  /* 设置一个更现代、更好看的字体，如果电脑上没有第一个，就会依次尝试后面的字体 */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Roboto, Helvetica, Arial, sans-serif;
+
+  /* 设置基础文字颜色为深灰色，而不是纯黑，这样看久了眼睛更舒服 */
+  color: #444;
+
+  /* 给页面一个淡淡的灰色背景，增加质感 */
+  background-color: #f7f8fa;
+
+  /* 限制页面的最大宽度，在很宽的屏幕上，内容不会被拉得太开，更容易阅读 */
+  max-width: 860px;
+
+  /* 这是一个小技巧，让页面在浏览器中水平居中显示 */
+  margin: 0 auto;
+
+  /* 在页面内容和浏览器边缘之间增加一些内边距（留白） */
+  padding: 40px;
+
+  /* 设置行高为1.7倍，让段落文字之间有更多呼吸的空间，阅读不费力 */
+  line-height: 1.7;
+}
+
+/* === 标题样式 === */
+h1,
+h2,
+h3 {
+  /* 给标题换上一个沉稳又不失活力的蓝色 */
+  color: #005a9c;
+  font-weight: 600;
+  /* 让标题文字稍微加粗一些 */
+}
+
+h1 {
+  /* 页面主标题，要最大最显眼！ */
+  font-size: 2.8em;
+  text-align: center;
+  margin-bottom: 40px;
+  /* 和下面的内容拉开距离 */
+}
+
+h2 {
+  /* 二级标题，比 h1 小一点 */
+  font-size: 2.2em;
+  margin-top: 60px;
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  /* 之前是用下边框做分隔，现在我们换一种更现代的方式，用左边框来做一个小小的“标记” */
+  border-left: 5px solid #007acc;
+  padding-left: 15px;
+}
+
+h3 {
+  font-size: 1.6em;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 1.2em;
+  /* 增加段落之间的间距 */
+}
+
+/* === 代码块样式 === */
+pre {
+  background-color: #2d2d2d;
+  color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+  overflow-x: auto;
+  /* 给代码块加上一点阴影，让它“浮”起来，更有立体感 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  /* 为所有变化添加过渡效果 */
+}
+
+pre:hover {
+  /* 鼠标悬浮时，阴影稍微变深，并向上移动一点点，产生交互感 */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* 专门为 <code> 标签设置等宽字体，这样代码才能对齐，看起来更专业 */
+code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+/* 针对段落里、列表里出现的行内 `code` 标签，给它们一个淡淡的背景，突出显示 */
+p code,
+li code,
+dd code {
+  background-color: #e0f0ff;
+  /* 换成和主题色搭配的淡蓝色 */
+  color: #005a9c;
+  /* 使用我们的主题色 */
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+
+/* === 定义列表样式 === */
+dl {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  padding: 25px;
+  border-radius: 8px;
+  margin-top: 20px;
+  /* 同样给它加上阴影 */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+dt {
+  /* 让被解释的“名词”加粗，并换个颜色 */
+  font-weight: bold;
+  color: #005a9c;
+  /* 使用我们的主题色 */
+  font-size: 1.15em;
+}
+
+dd {
+  margin-left: 20px;
+  margin-bottom: 15px;
+  padding-left: 20px;
+  border-left: 3px solid #e0f0ff;
+  /* 左边的标记线也换成淡蓝色 */
+}
+
+dd:last-child {
+  margin-bottom: 0;
+}
+
+/* === 其他元素 === */
+hr {
+  border: 0;
+  height: 2px;
+  /* 用渐变来画一条漂亮的分割线，颜色也和主题色统一 */
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 90, 156, 0.5), rgba(0, 0, 0, 0));
+  margin: 60px 0;
+}
+
+strong,
+b {
+  /* 让加粗的文字也用上我们的主题色 */
+  color: #005a9c;
+}
+
+ul {
+  padding-left: 25px;
+}
+
+/* === 导航栏样式 === */
+body {
+  /* 之前是在这里给 body 加 margin，但更好的做法是让 main content 自己有 margin */
+  /* margin-left: 300px; */
+}
+
+main {
+  /* 我们把主要内容放在 main 标签里，然后给它一个左边距，为导航栏留出空间 */
+  margin-left: 280px;
+}
+
+.toc-nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 260px;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: #fff;
+  /* 改成纯白，更干净 */
+  border-right: 1px solid #e0e0e0;
+  /* 边框颜色变浅一些 */
+  padding: 20px;
+  /* 给导航栏也加上一点过渡效果 */
+  transition: width 0.3s ease;
+}
+
+.toc-nav h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.toc-nav ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.toc-nav>ul>li>a {
+  font-weight: 600;
+  /* 稍微加粗 */
+}
+
+.toc-nav ul li a {
+  display: block;
+  text-decoration: none;
+  color: #555;
+  padding: 8px 15px;
+  /* 增加一点内边距，让点击区域更大 */
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  font-size: 15px;
+}
+
+.toc-nav ul li a:hover {
+  background-color: #e0f0ff;
+  /* 悬浮时用淡蓝色背景 */
+  color: #005a9c;
+  /* 文字变成主题色 */
+}
+
+.toc-nav ul ul {
+  padding-left: 20px;
+  display: none;
+  /* 默认隐藏子菜单 */
+}
+
+.toc-nav ul li.active>ul {
+  display: block;
+  /* 点击后显示子菜单 */
+}
+
+/* 当导航栏的链接被点击，或者当前滚动到的区域对应这个链接时，给它一个“激活”样式 */
+.toc-nav ul li a.active-link {
+  background-color: #007acc;
+  color: #fff;
+}
