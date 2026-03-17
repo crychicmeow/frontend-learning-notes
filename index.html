@@ -14,6 +14,7 @@
 </head>
 
 <body>
+  <button class="menu-toggle">☰</button>
   <nav class="toc-nav">
     <h3>导航</h3>
     <ul>
@@ -4507,6 +4508,16 @@ body {
             });
           }
         });
+
+        // --- 移动端菜单交互 ---
+        const menuToggle = document.querySelector('.menu-toggle');
+        const tocNav = document.querySelector('.toc-nav');
+
+        if (menuToggle && tocNav) {
+          menuToggle.addEventListener('click', function() {
+            tocNav.classList.toggle('is-open');
+          });
+        }
       </script>
       <!-- 引入 highlight.js 的核心脚本文件 -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>

@@ -1,3 +1,4 @@
+
 /* 
       ゆい的魔法时间！这里是 CSS (Cascading Style Sheets) 的世界！
       我们把这些“规则”放在 <style> 标签里，浏览器就会按照这里的指示来打扮我们的页面啦。
@@ -44,8 +45,7 @@ h2,
 h3 {
   /* 给标题换上一个沉稳又不失活力的蓝色 */
   color: #005a9c;
-  font-weight: 600;
-  /* 让标题文字稍微加粗一些 */
+  font-weight: 600; /* 让标题文字稍微加粗一些 */
 }
 
 h1 {
@@ -74,8 +74,7 @@ h3 {
 }
 
 p {
-  margin-bottom: 1.2em;
-  /* 增加段落之间的间距 */
+    margin-bottom: 1.2em; /* 增加段落之间的间距 */
 }
 
 /* === 代码块样式 === */
@@ -87,14 +86,13 @@ pre {
   overflow-x: auto;
   /* 给代码块加上一点阴影，让它“浮”起来，更有立体感 */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease;
-  /* 为所有变化添加过渡效果 */
+  transition: all 0.3s ease; /* 为所有变化添加过渡效果 */
 }
 
 pre:hover {
-  /* 鼠标悬浮时，阴影稍微变深，并向上移动一点点，产生交互感 */
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    /* 鼠标悬浮时，阴影稍微变深，并向上移动一点点，产生交互感 */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
 /* 专门为 <code> 标签设置等宽字体，这样代码才能对齐，看起来更专业 */
@@ -106,10 +104,8 @@ code {
 p code,
 li code,
 dd code {
-  background-color: #e0f0ff;
-  /* 换成和主题色搭配的淡蓝色 */
-  color: #005a9c;
-  /* 使用我们的主题色 */
+  background-color: #e0f0ff; /* 换成和主题色搭配的淡蓝色 */
+  color: #005a9c; /* 使用我们的主题色 */
   padding: 4px 8px;
   border-radius: 5px;
   font-size: 0.9em;
@@ -129,8 +125,7 @@ dl {
 dt {
   /* 让被解释的“名词”加粗，并换个颜色 */
   font-weight: bold;
-  color: #005a9c;
-  /* 使用我们的主题色 */
+  color: #005a9c; /* 使用我们的主题色 */
   font-size: 1.15em;
 }
 
@@ -138,8 +133,7 @@ dd {
   margin-left: 20px;
   margin-bottom: 15px;
   padding-left: 20px;
-  border-left: 3px solid #e0f0ff;
-  /* 左边的标记线也换成淡蓝色 */
+  border-left: 3px solid #e0f0ff; /* 左边的标记线也换成淡蓝色 */
 }
 
 dd:last-child {
@@ -166,14 +160,18 @@ ul {
 }
 
 /* === 导航栏样式 === */
+.menu-toggle {
+    display: none; /* 默认在电脑上是看不见的 */
+}
+
 body {
   /* 之前是在这里给 body 加 margin，但更好的做法是让 main content 自己有 margin */
-  /* margin-left: 300px; */
+  /* margin-left: 300px; */ 
 }
 
 main {
-  /* 我们把主要内容放在 main 标签里，然后给它一个左边距，为导航栏留出空间 */
-  margin-left: 280px;
+    /* 我们把主要内容放在 main 标签里，然后给它一个左边距，为导航栏留出空间 */
+    margin-left: 280px;
 }
 
 .toc-nav {
@@ -183,13 +181,12 @@ main {
   width: 260px;
   height: 100vh;
   overflow-y: auto;
-  background-color: #fff;
-  /* 改成纯白，更干净 */
-  border-right: 1px solid #e0e0e0;
-  /* 边框颜色变浅一些 */
+  background-color: #fff; /* 改成纯白，更干净 */
+  border-right: 1px solid #e0e0e0; /* 边框颜色变浅一些 */
   padding: 20px;
   /* 给导航栏也加上一点过渡效果 */
-  transition: width 0.3s ease;
+  transition: transform 0.3s ease;
+  z-index: 1000; /* 确保导航栏在最上层 */
 }
 
 .toc-nav h3 {
@@ -204,26 +201,22 @@ main {
 }
 
 .toc-nav>ul>li>a {
-  font-weight: 600;
-  /* 稍微加粗 */
+  font-weight: 600; /* 稍微加粗 */
 }
 
 .toc-nav ul li a {
   display: block;
   text-decoration: none;
   color: #555;
-  padding: 8px 15px;
-  /* 增加一点内边距，让点击区域更大 */
+  padding: 8px 15px; /* 增加一点内边距，让点击区域更大 */
   border-radius: 6px;
   transition: all 0.2s ease;
   font-size: 15px;
 }
 
 .toc-nav ul li a:hover {
-  background-color: #e0f0ff;
-  /* 悬浮时用淡蓝色背景 */
-  color: #005a9c;
-  /* 文字变成主题色 */
+  background-color: #e0f0ff; /* 悬浮时用淡蓝色背景 */
+  color: #005a9c; /* 文字变成主题色 */
 }
 
 .toc-nav ul ul {
@@ -239,6 +232,43 @@ main {
 
 /* 当导航栏的链接被点击，或者当前滚动到的区域对应这个链接时，给它一个“激活”样式 */
 .toc-nav ul li a.active-link {
-  background-color: #007acc;
-  color: #fff;
+    background-color: #007acc;
+    color: #fff;
+}
+
+/* === 移动端适配魔法 === */
+@media (max-width: 768px) {
+    body {
+        padding: 20px; /* 在手机上，页面两边的留白可以少一点 */
+    }
+
+    main {
+        margin-left: 0; /* 在手机上，正文内容不再需要为左侧导航栏留出空间 */
+    }
+
+    .menu-toggle {
+        display: block; /* 让汉堡按钮在手机上显示出来 */
+        position: fixed; /* 固定在屏幕左上角 */
+        top: 15px;
+        left: 15px;
+        z-index: 1001; /* 确保它在导航栏之上 */
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+        line-height: 40px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .toc-nav {
+        transform: translateX(-100%); /* 默认情况下，把导航栏向左移动100%，把它藏到屏幕外面 */
+        box-shadow: 0 0 15px rgba(0,0,0,0.2); /* 当它滑出来的时候，给它一个阴影，更有立体感 */
+    }
+
+    .toc-nav.is-open {
+        transform: translateX(0); /* 当它有 is-open 类时，把它移回原来的位置，也就是显示出来 */
+    }
 }
